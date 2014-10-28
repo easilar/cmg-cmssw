@@ -240,6 +240,10 @@ genParticleType = NTupleObjectType("genParticle", baseObjectTypes = [ particleTy
 genParticleWithSourceType = NTupleObjectType("genParticleWithSource", baseObjectTypes = [ genParticleType ], mcOnly=True, variables = [
     NTupleVariable("sourceId", lambda x : x.sourceId, int, help="origin of the particle: 6=t, 25=h, 23/24=W/Z")
 ])
+genParticleWithSourceTypeExtras = NTupleObjectType("genParticleWithSourceExtras", baseObjectTypes = [ genParticleWithSourceType ], mcOnly=True, variables = [
+    NTupleVariable("MEx", lambda x : sum(x.daughter(i).daughter(j).px() for i in range(x.numberOfDaughters()) for j in range(x.daughter(i).numberOfDaughters()) if abs(x.daughter(i).pdgId())==15 and abs(x.daughter(i).daughter(j).pdgId()) in [12, 14, 16]), float, help="sum up neutrino x momenta from gen-taus"),
+    NTupleVariable("MEy", lambda x : sum(x.daughter(i).daughter(j).py() for i in range(x.numberOfDaughters()) for j in range(x.daughter(i).numberOfDaughters()) if abs(x.daughter(i).pdgId())==15 and abs(x.daughter(i).daughter(j).pdgId()) in [12, 14, 16]), float, help="sum up neutrino y momenta from gen-taus"),
+])
 genParticleWithMotherId = NTupleObjectType("genParticleWithMotherId", baseObjectTypes = [ genParticleType ], mcOnly=True, variables = [
     #NTupleVariable("motherId", lambda x : x.motherId, int, help="pdgId of the mother of the particle")
     NTupleVariable("motherId", lambda x : x.mother(0).pdgId() if x.mother(0) else 0, int, help="pdgId of the mother of the particle"),

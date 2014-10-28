@@ -20,8 +20,9 @@ ttHLepAna.ele_isoCorr = "deltaBeta"
 # Redefine what I need
 
 # --- LEPTON SKIMMING ---
-ttHLepSkim.minLeptons = 1
+ttHLepSkim.minLeptons = 0
 ttHLepSkim.maxLeptons = 999
+ttHJetMETSkim.met = 100
 #ttHLepSkim.idCut  = ""
 #ttHLepSkim.ptCuts = []
 
