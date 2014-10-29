@@ -1,7 +1,13 @@
 ##########################################################
 ##       CONFIGURATION FOR SUSY MULTILEPTON TREES       ##
-## skim condition: >= 2 loose leptons, no pt cuts or id ##
+## skim condition: MET>100 ##
 ##########################################################
+
+#from optparse import OptionParser
+#parser = OptionParser()
+#parser.add_option("--selectedComponents", dest="allsamples", default="T5Full_1200_1000_800", type="string", action="store", help="samples:Which samples.")
+#(options, args) = parser.parse_args()
+
 
 import CMGTools.RootTools.fwlite.Config as cfg
 from CMGTools.RootTools.fwlite.Config import printComps
@@ -15,7 +21,6 @@ ttHLepAna.loose_muon_relIso = 0.2
 ttHLepAna.loose_electron_pt  = 10
 ttHLepAna.loose_electron_relIso = 0.2
 ttHLepAna.ele_isoCorr = "deltaBeta" 
-
 
 # Redefine what I need
 
@@ -72,7 +77,10 @@ treeProducer = cfg.Analyzer(
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 #selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
 from CMGTools.TTHAnalysis.samples.samples_13TeV_private import *
-selectedComponents = [ T5Full_1500_800_100, T5Full_1200_1000_800  ] 
+selectedComponents = [ T5Full_1200_1000_800 ] 
+selectedComponents = [ T5Full_1500_800_100  ] 
+
+#exec('selectedComponents=['+options.selectedComponents+']')
 
 #-------- SEQUENCE
 
@@ -82,9 +90,8 @@ sequence = cfg.Sequence(susyCoreSequence+[
     treeProducer,
     ])
 
-
-#-------- HOW TO RUN
 test = 1
+#-------- HOW TO RUN
 if test==1:
     # test a single component, using a single thread.
     comp = selectedComponents[0] 
@@ -96,6 +103,9 @@ elif test==2:
     for comp in selectedComponents:
         comp.splitFactor = 1
         comp.files = comp.files[:1]
+else:
+    for comp in selectedComponents:
+      comp.splitFactor=10
 
 
 config = cfg.Config( components = selectedComponents,
