@@ -41,12 +41,12 @@ class ComponentCreator(object):
          return component
     
     ### MM
-    def makeMyPrivateMCComponent(self,name,dataset,user,pattern,dbsInstance):
+    def makeMyPrivateMCComponent(self,name,dataset,user,pattern,dbsInstance, fileprefix='root://eoscms.cern.ch//eos/cms'):
 
         component = cfg.MCComponent(
             dataset=dataset,
             name = name,
-            files = self.getMyFiles(dataset, user, pattern, dbsInstance),
+            files = self.getMyFiles(dataset, user, pattern, dbsInstance, fileprefix=fileprefix),
             xSection = 1,
             nGenEvents = 1,
             triggers = [],
@@ -104,11 +104,11 @@ class ComponentCreator(object):
         return ['root://eoscms.cern.ch//eos/cms%s' % f for f in files]
 
     ### MM
-    def getMyFiles(self, dataset, user, pattern, dbsInstance, prefix='root://eoscms.cern.ch//eos/cms'):
+    def getMyFiles(self, dataset, user, pattern, dbsInstance, fileprefix='root://eoscms.cern.ch//eos/cms'):
         # print 'getting files for', dataset,user,pattern
         ds = myDatasetToSource( user, dataset, pattern, dbsInstance, True )
         files = ds.fileNames
-        return [prefix+'%s' % f for f in files]
+        return [fileprefix+'%s' % f for f in files]
     ### MM
 
     def getSkimEfficiency(self,dataset,user):
