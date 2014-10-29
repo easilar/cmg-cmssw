@@ -76,7 +76,7 @@ treeProducer = cfg.Analyzer(
 #-------- SAMPLES AND TRIGGERS -----------
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 #selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
-from CMGTools.TTHAnalysis.samples.samples_13TeV_private import *
+from CMGTools.TTHAnalysis.samples.samples_13TeV_private_lxplus import *
 selectedComponents = [ T5Full_1200_1000_800 ] 
 selectedComponents = [ T5Full_1500_800_100  ] 
 
