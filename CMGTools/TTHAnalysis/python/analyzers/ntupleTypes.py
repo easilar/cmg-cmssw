@@ -219,6 +219,27 @@ jetTypeSusy = NTupleObjectType("jetSusy",  baseObjectTypes = [ jetType ], variab
     NTupleVariable("partonMotherId", lambda x : getattr(x,'partonMotherId', 0), int,     mcOnly=True, help="parton flavour (manually matching to status 23 particles)"),
 ])
 
+jetTypeSusyExtra = NTupleObjectType("jetSusyExtra",  baseObjectTypes = [ jetTypeSusy ], variables = [
+    NTupleVariable("chHEF", lambda x : x.chargedHadronEnergyFraction(), float, mcOnly = False, help="chargedHadronEnergyFraction (relative to uncorrected jet energy)"),
+    NTupleVariable("neHEF", lambda x : x.neutralHadronEnergyFraction(), float, mcOnly = False,help="neutralHadronEnergyFraction (relative to uncorrected jet energy)"),
+    NTupleVariable("chEmEF", lambda x : x.chargedEmEnergyFraction(), float, mcOnly = False,help="chargedEmEnergyFraction (relative to uncorrected jet energy)"),
+    NTupleVariable("neEmEF", lambda x : x.neutralEmEnergyFraction(), float, mcOnly = False,help="neutralEmEnergyFraction (relative to uncorrected jet energy)"),
+    NTupleVariable("phEF", lambda x : x.photonEnergyFraction(), float, mcOnly = False,help="photonEnergyFraction (relative to corrected jet energy)"),
+    NTupleVariable("eEF", lambda x : x.electronEnergyFraction(), float, mcOnly = False,help="electronEnergyFraction (relative to corrected jet energy)"),
+    NTupleVariable("muEF", lambda x : x.muonEnergyFraction(), float, mcOnly = False,help="muonEnergyFraction (relative to corrected jet energy)"),
+    NTupleVariable("chMuEF", lambda x : x.chargedMuEnergyFraction(), float, mcOnly = False,help="chargedMuEnergyFraction from PFJet.h"),
+    NTupleVariable("HFHEF", lambda x : x.HFHadronEnergyFraction(), float, mcOnly = False,help="HFHadronEnergyFraction (relative to corrected jet energy)"),
+    NTupleVariable("HFEMEF", lambda x : x.HFEMEnergyFraction(), float, mcOnly = False,help="HFEMEnergyFraction (relative to corrected jet energy)"),
+    NTupleVariable("chHMult", lambda x : x.chargedHadronMultiplicity(), int, mcOnly = False,help="chargedHadronMultiplicity from PFJet.h"),
+    NTupleVariable("neHMult", lambda x : x.neutralHadronMultiplicity(), int, mcOnly = False,help="neutralHadronMultiplicity from PFJet.h"),
+    NTupleVariable("phMult", lambda x : x.photonMultiplicity(), int, mcOnly = False,help="photonMultiplicity from PFJet.h"),
+    NTupleVariable("eMult", lambda x : x.electronMultiplicity(), int, mcOnly = False,help="electronMultiplicity from PFJet.h"),
+    NTupleVariable("neMult", lambda x : x.neutralMultiplicity(), int, mcOnly = False,help="neutralMultiplicity from PFJet.h"),
+    NTupleVariable("muMult", lambda x : x.muonMultiplicity(), int, mcOnly = False,help="muonMultiplicity from PFJet.h"),
+    NTupleVariable("chMult", lambda x : x.chargedMultiplicity(), int, mcOnly = False,help="chargedMultiplicity from PFJet.h"),
+    NTupleVariable("HFHMult", lambda x : x.HFHadronMultiplicity(), int, mcOnly = False,help="HFHadronMultiplicity from PFJet.h"),
+    NTupleVariable("HFEMMult", lambda x : x.HFEMMultiplicity(), int, mcOnly = False,help="HFEMMultiplicity from PFJet.h"),
+])
       
 ##------------------------------------------  
 ## MET
@@ -243,9 +264,12 @@ genParticleType = NTupleObjectType("genParticle", baseObjectTypes = [ particleTy
 genParticleWithSourceType = NTupleObjectType("genParticleWithSource", baseObjectTypes = [ genParticleType ], mcOnly=True, variables = [
     NTupleVariable("sourceId", lambda x : x.sourceId, int, help="origin of the particle: 6=t, 25=h, 23/24=W/Z")
 ])
-genParticleWithSourceTypeExtras = NTupleObjectType("genParticleWithSourceExtras", baseObjectTypes = [ genParticleWithSourceType ], mcOnly=True, variables = [
+genTauWithSourceTypeExtras = NTupleObjectType("genTauWithSourceExtras", baseObjectTypes = [ genParticleWithSourceType ], mcOnly=True, variables = [
     NTupleVariable("MEx", lambda x : sum(x.daughter(i).daughter(j).px() for i in range(x.numberOfDaughters()) for j in range(x.daughter(i).numberOfDaughters()) if abs(x.daughter(i).pdgId())==15 and abs(x.daughter(i).daughter(j).pdgId()) in [12, 14, 16]), float, help="sum up neutrino x momenta from gen-taus"),
     NTupleVariable("MEy", lambda x : sum(x.daughter(i).daughter(j).py() for i in range(x.numberOfDaughters()) for j in range(x.daughter(i).numberOfDaughters()) if abs(x.daughter(i).pdgId())==15 and abs(x.daughter(i).daughter(j).pdgId()) in [12, 14, 16]), float, help="sum up neutrino y momenta from gen-taus"),
+    NTupleVariable("nMuE", lambda x : sum(1 for i in range(x.numberOfDaughters()) for j in range(x.daughter(i).numberOfDaughters()) if abs(x.daughter(i).pdgId())==15 and abs(x.daughter(i).daughter(j).pdgId()) == 12), float, help="sum up neutrino y momenta from gen-taus"),
+    NTupleVariable("nMuNu", lambda x : sum(1 for i in range(x.numberOfDaughters()) for j in range(x.daughter(i).numberOfDaughters()) if abs(x.daughter(i).pdgId())==15 and abs(x.daughter(i).daughter(j).pdgId()) == 14), float, help="sum up neutrino y momenta from gen-taus"),
+    NTupleVariable("nMuTau", lambda x : sum(1 for i in range(x.numberOfDaughters()) for j in range(x.daughter(i).numberOfDaughters()) if abs(x.daughter(i).pdgId())==15 and abs(x.daughter(i).daughter(j).pdgId()) == 16), float, help="sum up neutrino y momenta from gen-taus"),
 ])
 genParticleWithMotherId = NTupleObjectType("genParticleWithMotherId", baseObjectTypes = [ genParticleType ], mcOnly=True, variables = [
     #NTupleVariable("motherId", lambda x : x.motherId, int, help="pdgId of the mother of the particle")
