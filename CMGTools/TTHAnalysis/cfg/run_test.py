@@ -25,7 +25,7 @@ ttHLepAna.ele_isoCorr = "deltaBeta"
 # Redefine what I need
 
 # --- LEPTON SKIMMING ---
-ttHLepSkim.minLeptons = 1
+ttHLepSkim.minLeptons = 0
 ttHLepSkim.maxLeptons = 999
 #ttHJetMETSkim.metCut = 100
 #ttHLepSkim.idCut  = ""
@@ -77,8 +77,8 @@ treeProducer = cfg.Analyzer(
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 #selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
 from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
-#selectedComponents = [ T5Full_1200_1000_800 ] 
-selectedComponents = [ T5Full_1500_800_100  ] 
+selectedComponents = [ T5Full_1200_1000_800 ] 
+#selectedComponents = [ T5Full_1500_800_100  ] 
 
 #exec('selectedComponents=['+options.selectedComponents+']')
 
@@ -94,17 +94,17 @@ test = 0
 for comp in selectedComponents:
   comp.splitFactor=10
 ##-------- HOW TO RUN
-#if test==1:
-#    # test a single component, using a single thread.
-#    comp = selectedComponents[0] 
-#    comp.files = comp.files[:1]
-#    selectedComponents = [comp]
-#    comp.splitFactor = 1
-#elif test==2:    
-#    # test all components (1 thread per component).
-#    for comp in selectedComponents:
-#        comp.splitFactor = 1
-#        comp.files = comp.files[:1]
+if test==1:
+    # test a single component, using a single thread.
+    comp = selectedComponents[0] 
+    comp.files = comp.files[:1]
+    selectedComponents = [comp]
+    comp.splitFactor = 1
+elif test==2:    
+    # test all components (1 thread per component).
+    for comp in selectedComponents:
+        comp.splitFactor = 1
+        comp.files = comp.files[:1]
 #else:
 
 

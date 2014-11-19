@@ -58,7 +58,7 @@ class treeProducerSusyCore( ttHLepTreeProducerNew ):
             ##--------------------------------------------------
             "genleps"         : NTupleCollection("genLep",     genParticleWithSourceType, 10, help="Generated leptons (e/mu) from W/Z decays"),
             "gentauleps"      : NTupleCollection("genLepFromTau", genParticleWithSourceType, 10, help="Generated leptons (e/mu) from decays of taus from W/Z/h decays"),
-            "gentaus"         : NTupleCollection("genTau",     genParticleWithSourceTypeExtras, 10, help="Generated leptons (tau) from W/Z decays"),
+            "gentaus"         : NTupleCollection("genTau",     genTauWithSourceTypeExtras, 10, help="Generated leptons (tau) from W/Z decays"),
             "genStatusThree"   : NTupleCollection("GenP6StatusThree", genParticleWithMotherId, 100 , help="Pythia6 status three particles"),
             }
 
