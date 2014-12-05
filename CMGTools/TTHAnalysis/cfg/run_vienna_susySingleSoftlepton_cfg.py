@@ -20,7 +20,7 @@ ttHLepAna.loose_electron_relIso = 0.4
 ttHLepAna.ele_isoCorr = "rhoArea"
 
 # --- LEPTON SKIMMING ---
-ttHLepSkim.minLeptons = 1
+ttHLepSkim.minLeptons = 0
 ttHLepSkim.maxLeptons = 999
 
 # --- JET-LEPTON CLEANING ---
@@ -74,7 +74,14 @@ treeProducer = cfg.Analyzer(
 
 #-------- SAMPLES AND TRIGGERS -----------
 from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
-selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
+#selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
+
+#from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
+#selectedComponents = [ T5Full_1200_1000_800 ] 
+#selectedComponents = [ T5Full_1500_800_100  ] 
+
+#from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170
+#selectedComponents = [SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170]
 
 
 #-------- SEQUENCE
