@@ -194,7 +194,7 @@ photonTypeSusy = NTupleObjectType("gamma", baseObjectTypes = [ particleType ], v
 jetType = NTupleObjectType("jet",  baseObjectTypes = [ fourVectorType ], variables = [
     NTupleVariable("btagCSV",   lambda x : x.btag('combinedSecondaryVertexBJetTags'), help="CSV discriminator"),
     NTupleVariable("rawPt",     lambda x : x.pt() * x.rawFactor(), help="p_{T} before JEC"),
-    NTupleVariable("mcPt",      lambda x : x.mcJet.pt() if x.mcJet else 0., mcOnly=True, help="p_{T} of associated gen jet"),
+    NTupleVariable("mcPt",      lambda x : x.mcJet.pt() if getattr(x,'mcJet',None) else 0., mcOnly=True, help="p_{T} of associated gen jet"),
     NTupleVariable("mcFlavour", lambda x : x.partonFlavour(), int,     mcOnly=True, help="parton flavour (physics definition, i.e. including b's from shower)"),
 ])
 jetTypeTTH = NTupleObjectType("jetTTH",  baseObjectTypes = [ jetType ], variables = [
@@ -240,6 +240,14 @@ jetTypeSusyExtra = NTupleObjectType("jetSusyExtra",  baseObjectTypes = [ jetType
     NTupleVariable("HFHMult", lambda x : x.HFHadronMultiplicity(), int, mcOnly = False,help="HFHadronMultiplicity from PFJet.h"),
     NTupleVariable("HFEMMult", lambda x : x.HFEMMultiplicity(), int, mcOnly = False,help="HFEMMultiplicity from PFJet.h"),
 ])
+
+fatJetType = NTupleObjectType("fatJet",  baseObjectTypes = [ jetType ], variables = [
+    NTupleVariable("prunedMass",  lambda x : x.userFloat("ak8PFJetsCHSPrunedLinks"),  float, help="pruned mass"),
+    NTupleVariable("trimmedMass", lambda x : x.userFloat("ak8PFJetsCHSTrimmedLinks"), float, help="trimmed mass"),
+    NTupleVariable("tau1", lambda x : x.userFloat("NjettinessAK8:tau1"), float, help="1-subjettiness"),
+    NTupleVariable("tau2", lambda x : x.userFloat("NjettinessAK8:tau2"), float, help="2-subjettiness"),
+    NTupleVariable("tau3", lambda x : x.userFloat("NjettinessAK8:tau3"), float, help="3-subjettiness"),
+])
       
 ##------------------------------------------  
 ## MET
@@ -273,7 +281,8 @@ genTauWithSourceTypeExtras = NTupleObjectType("genTauWithSourceExtras", baseObje
 ])
 genParticleWithMotherId = NTupleObjectType("genParticleWithMotherId", baseObjectTypes = [ genParticleType ], mcOnly=True, variables = [
     #NTupleVariable("motherId", lambda x : x.motherId, int, help="pdgId of the mother of the particle")
-    NTupleVariable("motherId", lambda x : x.mother(0).pdgId() if x.mother(0) else 0, int, help="pdgId of the mother of the particle"),
+    NTupleVariable("motherId", lambda x : getattr(x,'motherId',x.mother(0).pdgId() if x.mother(0) else 0), int, help="pdgId of the mother of the particle"),
+    NTupleVariable("motherIndex", lambda x : getattr(x,'motherIndex',-1), int, help="index of the mother of the particle (or -1 if not filled)"),
     NTupleVariable("grandmaId", lambda x : x.mother(0).mother(0).pdgId() if x.mother(0) and x.mother(0).mother(0) else 0, int, help="pdgId of the grandmother of the particle")
 ])
 
@@ -291,6 +300,7 @@ svType = NTupleObjectType("sv", baseObjectTypes = [ fourVectorType ], variables 
     NTupleVariable("eip3d", lambda x : x.d3d.error(), help="Uncertainty on the 3D distance from the PV [cm]"),
     NTupleVariable("sip3d", lambda x : x.d3d.significance(), help="S_{ip3d} with respect to PV (absolute value)"),
     NTupleVariable("cosTheta", lambda x : x.cosTheta, help="Cosine of the angle between the 3D displacement and the momentum"),
+    NTupleVariable("mva", lambda x : x.mva, help="MVA discriminator"),
     NTupleVariable("jetPt",  lambda x : x.jet.pt() if x.jet != None else 0, help="pT of associated jet"),
     NTupleVariable("jetBTag",  lambda x : x.jet.btag('combinedSecondaryVertexBJetTags') if x.jet != None else -99, help="CSV b-tag of associated jet"),
     NTupleVariable("mcMatchNTracks", lambda x : x.mcMatchNTracks, int, mcOnly=True, help="Number of mc-matched tracks in SV"),
