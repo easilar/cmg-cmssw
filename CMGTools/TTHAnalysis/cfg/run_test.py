@@ -1,6 +1,5 @@
 ##########################################################
-##       CONFIGURATION FOR SUSY MULTILEPTON TREES       ##
-## skim condition: MET>100 ##
+##       CONFIGURATION FOR ME                           ##
 ##########################################################
 
 #from optparse import OptionParser
@@ -17,7 +16,7 @@ from CMGTools.RootTools.RootTools import *
 from CMGTools.TTHAnalysis.analyzers.susyCore_modules_cff import * 
 
 ttHLepAna.loose_muon_pt  = 10
-ttHLepAna.loose_muon_relIso = 0.2
+ttHLepAna.loose_muon_relIso = 0.3
 ttHLepAna.loose_electron_pt  = 10
 ttHLepAna.loose_electron_relIso = 0.2
 ttHLepAna.ele_isoCorr = "deltaBeta" 
@@ -76,9 +75,13 @@ treeProducer = cfg.Analyzer(
 #-------- SAMPLES AND TRIGGERS -----------
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 #selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
-from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
-selectedComponents = [ T5Full_1200_1000_800 ] 
+
+#from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
+#selectedComponents = [ T5Full_1200_1000_800 ] 
 #selectedComponents = [ T5Full_1500_800_100  ] 
+
+from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170
+selectedComponents = [SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170]
 
 #exec('selectedComponents=['+options.selectedComponents+']')
 

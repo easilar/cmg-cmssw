@@ -1,6 +1,5 @@
 ##########################################################
 ##       CONFIGURATION FOR SUSY MULTILEPTON TREES       ##
-## skim condition: >= 2 loose leptons, no pt cuts or id ##
 ##########################################################
 
 import CMGTools.RootTools.fwlite.Config as cfg
@@ -11,7 +10,7 @@ from CMGTools.RootTools.RootTools import *
 from CMGTools.TTHAnalysis.analyzers.susyCore_modules_cff import * 
 
 ttHLepAna.loose_muon_pt  = 10
-ttHLepAna.loose_muon_relIso = 0.2
+ttHLepAna.loose_muon_relIso = 0.3
 ttHLepAna.loose_electron_pt  = 10
 ttHLepAna.loose_electron_relIso = 0.2
 ttHLepAna.ele_isoCorr = "deltaBeta" 
