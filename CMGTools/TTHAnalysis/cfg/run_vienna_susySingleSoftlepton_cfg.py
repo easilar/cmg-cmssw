@@ -73,8 +73,27 @@ treeProducer = cfg.Analyzer(
 
 
 #-------- SAMPLES AND TRIGGERS -----------
-from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
+#from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 #selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
+
+
+from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
+selectedComponents = [
+  SMS_T1qqqq_2J_mGl1000_mLSP800_PU_S14_POSTLS170,
+  SMS_T1qqqq_2J_mGl1400_mLSP100_PU_S14_POSTLS170,
+  SMS_T1bbbb_2J_mGl1000_mLSP900_PU_S14_POSTLS170,
+  SMS_T1bbbb_2J_mGl1500_mLSP100_PU_S14_POSTLS170,
+  SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170,
+  SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170,
+  SMS_T2tt_2J_mStop425_mLSP325_PU_S14_POSTLS170,
+  SMS_T2tt_2J_mStop500_mLSP325_PU_S14_POSTLS170,
+  SMS_T2tt_2J_mStop650_mLSP325_PU_S14_POSTLS170,
+  SMS_T2tt_2J_mStop850_mLSP100_PU_S14_POSTLS170,
+  SMS_T2bb_2J_mStop600_mLSP580_PU_S14_POSTLS170,
+  SMS_T2bb_2J_mStop900_mLSP100_PU_S14_POSTLS170,
+  SMS_T2qq_2J_mStop600_mLSP550_PU_S14_POSTLS170,
+  SMS_T2qq_2J_mStop1200_mLSP100_PU_S14_POSTLS170,
+]
 
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
 #selectedComponents = [ T5Full_1200_1000_800 ] 
@@ -94,7 +113,7 @@ sequence = cfg.Sequence(susyCoreSequence+[
 
 
 #-------- HOW TO RUN
-test = 1
+test = 2
 if test==1:
     # test a single component, using a single thread.
     comp= TTJets_PUS14
@@ -105,8 +124,8 @@ if test==1:
 elif test==2:    
     # test all components (1 thread per component).
     for comp in selectedComponents:
+        comp.files = comp.files[:1]
         comp.splitFactor = len(comp.files)
- #       comp.files = comp.files[:1]
 
 
 config = cfg.Config( components = selectedComponents,
