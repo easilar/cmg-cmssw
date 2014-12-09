@@ -18,14 +18,14 @@ def createComponentFromDPM(name, dbsName, dir, minAgeDPM=0, histname='histo', xr
 allComps=[]
 
 T5Full_1200_1000_800 = createComponentFromDPM(\
-  name = 'T5Full-1200-1000-800',
+  name = 'T5Full_1200_1000_800',
   dbsName='/T5Full_T5Full-1200-1000-800-Decay-MGMMatch50/schoef-T5Full_T5Full-1200-1000-800-Decay-MGMMatch50-miniAOD-92bfc1aa0ef8c674e0edabb945b19298/USER',
   dir='/dpm/oeaw.ac.at/home/cms/store/user/schoef/T5Full_T5Full-1200-1000-800-Decay-MGMMatch50/T5Full_T5Full-1200-1000-800-Decay-MGMMatch50-miniAOD/92bfc1aa0ef8c674e0edabb945b19298', 
   ) 
 allComps.append(T5Full_1200_1000_800)
 
 T5Full_1500_800_100 = createComponentFromDPM(\
-  name = 'T5Full-1500-800-100',
+  name = 'T5Full_1500_800_100',
   dbsName='/T5Full_T5Full-1500-800-100-Decay-MGMMatch50/schoef-T5Full_T5Full-1500-800-100-Decay-MGMMatch50-miniAOD-92bfc1aa0ef8c674e0edabb945b19298/USER',
   dir='/dpm/oeaw.ac.at/home/cms/store/user/schoef/T5Full_T5Full-1500-800-100-Decay-MGMMatch50/T5Full_T5Full-1500-800-100-Decay-MGMMatch50-miniAOD/92bfc1aa0ef8c674e0edabb945b19298', 
   ) 
