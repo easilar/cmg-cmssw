@@ -73,8 +73,14 @@ treeProducer = cfg.Analyzer(
 
 
 #-------- SAMPLES AND TRIGGERS -----------
+#from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
+#selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
 from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 #selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx25, TTJets_PUS14 ]
+
+TTJets_PUS14.splitFactor=800
+selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJetsToLNu_HT200to400_PU_S14_POSTLS170, WJetsToLNu_HT400to600_PU_S14_POSTLS170, WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
+selectedComponents += [SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170]
 
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
 #selectedComponents = [ T5Full_1200_1000_800 ] 
@@ -99,7 +105,7 @@ if test==1:
     # test a single component, using a single thread.
     comp= TTJets_PUS14
     #comp.files = ['root://eoscms//eos/cms/store/cmst3/group/susy/alobanov/MC/MiniAOD/13TeV_Gl_Gl_4q_Gl1400_LSP300_Chi315_MiniAOD.root']
-#    comp.files = comp.files[:1]
+    comp.files = comp.files[:1]
     selectedComponents = [comp]
     comp.splitFactor = 1
 elif test==2:    
