@@ -35,26 +35,26 @@ ttHEventAna = cfg.Analyzer(
 
 
 
-ttHIsoTrackAna = cfg.Analyzer(
-            'ttHIsoTrackAnalyzer',
-            candidates='packedPFCandidates',
-            candidatesTypes='std::vector<pat::PackedCandidate>',
-            ptMin = 5, # for pion 
-            ptMinEMU = 5, # for EMU
-            dzMax = 0.1,
-            isoDR = 0.3,
-            ptPartMin = 0,
-            dzPartMax = 0.1,
-            maxAbsIso = 8,
-            MaxIsoSum = 0.1, ### unused
-            MaxIsoSumEMU = 0.2, ### unused
-            doSecondVeto = False
-            )
+#ttHIsoTrackAna = cfg.Analyzer(
+#            'ttHIsoTrackAnalyzer',
+#            candidates='packedPFCandidates',
+#            candidatesTypes='std::vector<pat::PackedCandidate>',
+#            ptMin = 5, # for pion 
+#            ptMinEMU = 5, # for EMU
+#            dzMax = 0.1,
+#            isoDR = 0.3,
+#            ptPartMin = 0,
+#            dzPartMax = 0.1,
+#            maxAbsIso = 8,
+#            MaxIsoSum = 0.1, ### unused
+#            MaxIsoSumEMU = 0.2, ### unused
+#            doSecondVeto = False
+#            )
 
-susyCoreSequence.insert(susyCoreSequence.index(ttHCoreEventAna), 
-                        ttHSVAnalyzer)
-susyCoreSequence.insert(susyCoreSequence.index(ttHCoreEventAna), 
-                        ttHHeavyFlavourHadronAnalyzer)
+#susyCoreSequence.insert(susyCoreSequence.index(ttHCoreEventAna), 
+#                        ttHSVAnalyzer)
+#susyCoreSequence.insert(susyCoreSequence.index(ttHCoreEventAna), 
+#                        ttHHeavyFlavourHadronAnalyzer)
 
 
 from CMGTools.TTHAnalysis.samples.samples_8TeV_v517 import triggers_1mu, triggers_1muHT, triggers_1eleHT # need to update the trigger MET pr HTMET?
@@ -80,7 +80,7 @@ selectedComponents = [ SingleMu, DoubleElectron, TTHToWW_PUS14, DYJetsM50_PU20bx
 #-------- SEQUENCE
 
 sequence = cfg.Sequence(susyCoreSequence+[
-    ttHIsoTrackAna,
+#    ttHIsoTrackAna,
     ttHEventAna,
     treeProducer,
     ])
