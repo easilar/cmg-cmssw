@@ -123,6 +123,10 @@ selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJ
 #  T6qqWW_Sq_950_LSP_300_Chi_350
 #]
 
+TTJets_PUS14.splitFactor=800
+selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJetsToLNu_HT200to400_PU_S14_POSTLS170, WJetsToLNu_HT400to600_PU_S14_POSTLS170, WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
+selectedComponents += [SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170]
+
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
 #T5Full_1200_1000_800.splitFactor=5
 #T5Full_1500_800_100.splitFactor=5
@@ -147,7 +151,7 @@ if test==1:
     # test a single component, using a single thread.
     comp= selectedComponents[0]
     #comp.files = ['root://eoscms//eos/cms/store/cmst3/group/susy/alobanov/MC/MiniAOD/13TeV_Gl_Gl_4q_Gl1400_LSP300_Chi315_MiniAOD.root']
-#    comp.files = comp.files[:1]
+    comp.files = comp.files[:1]
     selectedComponents = [comp]
     comp.splitFactor = 1
 elif test==2:    
