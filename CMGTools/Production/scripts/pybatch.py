@@ -31,10 +31,8 @@ def split(comps):
             splitComps.append( comp )
     return splitComps
 
-
 def batchScriptCERN( jobDir, remoteDir=''):
-   '''prepare the LSF version of the batch script, to run on LSF'''
-   
+   '''prepare the LSF version of the batch script, to run on LSF''' 
    dirCopy = """echo 'sending the logs back'  # will send also root files if copy failed
 cp -r Loop/* $LS_SUBCWD
 if [ $? -ne 0 ]; then
@@ -66,6 +64,28 @@ else
    done
 fi
 """.format(idx=jobDir[jobDir.find("_Chunk")+6:].strip("/"), srm='srm://t3se01.psi.ch'+remoteDir+jobDir[jobDir.rfind("/"):jobDir.find("_Chunk")]) + dirCopy
+   elif remoteDir.startswith("/dpm/oeaw.ac.at"):
+       cpCmd="""echo 'sending root files to remote dir'
+if [ looperExitStatus -ne 0 ]; then
+   echo 'Looper failed. Don't attempt to copy corrupted file remotely'
+else
+   export LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH # Fabio's workaround to fix gfal-tools with CMSSW
+   for f in Loop/tree*/*.root
+   do
+      ff=`basename $f | cut -d . -f 1`
+      d=`echo $f | cut -d / -f 2`
+      gfal-mkdir {srm}
+      echo "gfal-copy file://`pwd`/Loop/$d/$ff.root {srm}/${{ff}}_{idx}.root"
+      gfal-copy file://`pwd`/Loop/$d/$ff.root {srm}/${{ff}}_{idx}.root
+      if [ $? -ne 0 ]; then
+         echo "ERROR: remote copy failed for file $ff"
+      else
+         echo "remote copy succeeded"
+         rm Loop/$d/$ff.root
+      fi
+   done
+fi
+""".format(idx=jobDir[jobDir.find("_Chunk")+6:].strip("/"), srm='srm://hephyse.oeaw.ac.at'+remoteDir+jobDir[jobDir.rfind("/"):jobDir.find("_Chunk")]) + dirCopy
    elif remoteDir.startswith("/eos/cms/store"):
        cpCmd="""echo 'sending root files to remote dir'
 if [ looperExitStatus -ne 0 ]; then
@@ -155,6 +175,28 @@ else
    done
 fi
 """.format(idx=jobDir[jobDir.find("_Chunk")+6:].strip("/"), srm='srm://t3se01.psi.ch'+remoteDir+jobDir[jobDir.rfind("/"):jobDir.find("_Chunk")]) + dirCopy
+   elif remoteDir.startswith("/dpm/oeaw.ac.at"):
+       cpCmd="""echo 'sending root files to remote dir'
+if [ looperExitStatus -ne 0 ]; then
+   echo 'Looper failed. Don't attempt to copy corrupted file remotely'
+else
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/dcap/ # Fabio's workaround to fix gfal-tools
+   for f in Loop/tree*/*.root
+   do
+      ff=`basename $f | cut -d . -f 1`
+      d=`echo $f | cut -d / -f 2`
+      gfal-mkdir {srm}
+      echo "gfal-copy file://`pwd`/Loop/$d/$ff.root {srm}/${{ff}}_{idx}.root"
+      gfal-copy file://`pwd`/Loop/$d/$ff.root {srm}/${{ff}}_{idx}.root
+      if [ $? -ne 0 ]; then
+         echo "ERROR: remote copy failed for file $ff"
+      else
+         echo "remote copy succeeded"
+         rm Loop/$d/$ff.root
+      fi
+   done
+fi
+""".format(idx=jobDir[jobDir.find("_Chunk")+6:].strip("/"), srm='srm://hephyse.oeaw.ac.at'+remoteDir+jobDir[jobDir.rfind("/"):jobDir.find("_Chunk")]) + dirCopy
    else:
        print "remote directory not supported yet: ", remoteDir
        print 'path must start with "/pnfs/psi.ch"'
@@ -290,7 +332,6 @@ if __name__ == '__main__':
     components = split( [comp for comp in config.components if len(comp.files)>0] )
     listOfValues = range(0, len(components))
     listOfNames = [comp.name for comp in components]
-
     batchManager.PrepareJobs( listOfValues, listOfNames )
     waitingTime = 0.1
     batchManager.SubmitJobs( waitingTime )
