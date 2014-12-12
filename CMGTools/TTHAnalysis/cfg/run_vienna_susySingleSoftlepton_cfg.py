@@ -135,7 +135,8 @@ selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJ
 testSample = cfg.MCComponent(
     dataset='TTJetsTest',
     name = 'TTJetsTest',
-    files = ['root://eoscms.cern.ch//eos/cms/store/cmst3/user/gpetrucc/miniAOD/TTJets.root'],
+    files = ['root://eoscms.cern.ch//eos/cms/store/cmst3/user/gpetrucc/miniAOD/v0/VBF_HToTauTau_M-125_13TeV-powheg-pythia6_PU_S14_PAT.root'],
+#    files = ['root://eoscms.cern.ch//eos/cms/store/cmst3/user/gpetrucc/miniAOD/TTJets.root'],
     xSection = 1,
     nGenEvents = 1,
     triggers = [],
@@ -153,7 +154,7 @@ selectedComponents=[testSample]
 #-------- SEQUENCE
 
 sequence = cfg.Sequence(susyCoreSequence+[
-    ttHIsoTrackAna,
+#    ttHIsoTrackAna,
     ttHEventAna,
     treeProducer,
     ])
