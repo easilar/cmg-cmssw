@@ -35,27 +35,27 @@ ttHEventAna = cfg.Analyzer(
 
 
 
-#ttHIsoTrackAna = cfg.Analyzer(
-#            'ttHIsoTrackAnalyzer',
-#            candidates='packedPFCandidates',
-#            candidatesTypes='std::vector<pat::PackedCandidate>',
-#            ptMin = 5, # for pion 
-#            ptMinEMU = 5, # for EMU
-#            dzMax = 0.1,
-#            isoDR = 0.3,
-#            ptPartMin = 0,
-#            dzPartMax = 0.1,
-#            maxAbsIso = 8,
-#            MaxIsoSum = 0.1, ### unused
-#            MaxIsoSumEMU = 0.2, ### unused
-#            doSecondVeto = False
-#            )
-#
-#susyCoreSequence.insert(susyCoreSequence.index(ttHCoreEventAna), 
-#                        ttHSVAnalyzer)
-#susyCoreSequence.insert(susyCoreSequence.index(ttHCoreEventAna), 
-#                        ttHHeavyFlavourHadronAnalyzer)
-#
+ttHIsoTrackAna = cfg.Analyzer(
+            'ttHIsoTrackAnalyzer',
+            candidates='packedPFCandidates',
+            candidatesTypes='std::vector<pat::PackedCandidate>',
+            ptMin = 5, # for pion 
+            ptMinEMU = 5, # for EMU
+            dzMax = 0.1,
+            isoDR = 0.3,
+            ptPartMin = 0,
+            dzPartMax = 0.1,
+            maxAbsIso = 8,
+            MaxIsoSum = 0.1, ### unused
+            MaxIsoSumEMU = 0.2, ### unused
+            doSecondVeto = False
+            )
+
+susyCoreSequence.insert(susyCoreSequence.index(ttHCoreEventAna), 
+                        ttHSVAnalyzer)
+susyCoreSequence.insert(susyCoreSequence.index(ttHCoreEventAna), 
+                        ttHHeavyFlavourHadronAnalyzer)
+
 
 from CMGTools.TTHAnalysis.samples.triggers_8TeV_v517 import triggers_1mu, triggers_1muHT, triggers_1eleHT # need to update the trigger MET pr HTMET?
 
@@ -123,10 +123,6 @@ selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJ
 #  T6qqWW_Sq_950_LSP_300_Chi_350
 #]
 
-TTJets_PUS14.splitFactor=800
-selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJetsToLNu_HT200to400_PU_S14_POSTLS170, WJetsToLNu_HT400to600_PU_S14_POSTLS170, WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
-selectedComponents += [SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170]
-
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
 #T5Full_1200_1000_800.splitFactor=5
 #T5Full_1500_800_100.splitFactor=5
@@ -136,10 +132,28 @@ selectedComponents += [SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1ttt
 #selectedComponents = [SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170]
 
 
+testSample = cfg.MCComponent(
+    dataset='TTJetsTest',
+    name = 'TTJetsTest',
+    files = ['root://eoscms.cern.ch//eos/cms/store/cmst3/user/gpetrucc/miniAOD/TTJets.root'],
+    xSection = 1,
+    nGenEvents = 1,
+    triggers = [],
+    effCorrFactor = 1,
+)
+testSample.puFileMC=dataDir+"/puProfile_Summer12_53X.root"
+testSample.puFileData=dataDir+"/puProfile_Data12.root"
+testSample.isMC = True
+testSample.isData = False
+testSample.efficiency = eff2012
+
+selectedComponents=[testSample]
+#selectedComponents=[TTJets_PUS14]
+
 #-------- SEQUENCE
 
 sequence = cfg.Sequence(susyCoreSequence+[
-#    ttHIsoTrackAna,
+    ttHIsoTrackAna,
     ttHEventAna,
     treeProducer,
     ])
