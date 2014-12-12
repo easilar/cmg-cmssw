@@ -126,6 +126,8 @@ class ComponentCreator(object):
         if useAAA: mapping = 'root://cms-xrd-global.cern.ch/%s'
         return [ mapping % f for f in files]
 
+
+    ### MM
     def getMyFiles(self, dataset, user, pattern, dbsInstance, useAAA=False, fileprefix='root://eoscms.cern.ch//eos/cms'):
         # print 'getting files for', dataset,user,pattern
         ds = myDatasetToSource( user, dataset, pattern, dbsInstance, True )
