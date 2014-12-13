@@ -76,8 +76,9 @@ treeProducer = cfg.Analyzer(
 
 from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 TTJets_PUS14.splitFactor=800
-selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJetsToLNu_HT200to400_PU_S14_POSTLS170, WJetsToLNu_HT400to600_PU_S14_POSTLS170, WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
+#selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJetsToLNu_HT200to400_PU_S14_POSTLS170, WJetsToLNu_HT400to600_PU_S14_POSTLS170, WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
 
+selectedComponents = [ WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 #SMS_T1qqqq_2J_mGl1000_mLSP800_PU_S14_POSTLS170.splitFactor=500
 ##
@@ -131,24 +132,24 @@ selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJ
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170
 #selectedComponents = [SMS_T1tttt_2J_mGl1200_mLSP800_PU_S14_POSTLS170, SMS_T1tttt_2J_mGl1500_mLSP100_PU_S14_POSTLS170]
 
+#
+#testSample = cfg.MCComponent(
+#    dataset='TTJetsTest',
+#    name = 'TTJetsTest',
+#    files = ['root://eoscms.cern.ch//eos/cms/store/cmst3/user/gpetrucc/miniAOD/v0/VBF_HToTauTau_M-125_13TeV-powheg-pythia6_PU_S14_PAT.root'],
+##    files = ['root://eoscms.cern.ch//eos/cms/store/cmst3/user/gpetrucc/miniAOD/TTJets.root'],
+#    xSection = 1,
+#    nGenEvents = 1,
+#    triggers = [],
+#    effCorrFactor = 1,
+#)
+#testSample.puFileMC=dataDir+"/puProfile_Summer12_53X.root"
+#testSample.puFileData=dataDir+"/puProfile_Data12.root"
+#testSample.isMC = True
+#testSample.isData = False
+#testSample.efficiency = eff2012
 
-testSample = cfg.MCComponent(
-    dataset='TTJetsTest',
-    name = 'TTJetsTest',
-    files = ['root://eoscms.cern.ch//eos/cms/store/cmst3/user/gpetrucc/miniAOD/v0/VBF_HToTauTau_M-125_13TeV-powheg-pythia6_PU_S14_PAT.root'],
-#    files = ['root://eoscms.cern.ch//eos/cms/store/cmst3/user/gpetrucc/miniAOD/TTJets.root'],
-    xSection = 1,
-    nGenEvents = 1,
-    triggers = [],
-    effCorrFactor = 1,
-)
-testSample.puFileMC=dataDir+"/puProfile_Summer12_53X.root"
-testSample.puFileData=dataDir+"/puProfile_Data12.root"
-testSample.isMC = True
-testSample.isData = False
-testSample.efficiency = eff2012
-
-selectedComponents=[testSample]
+#selectedComponents=[testSample]
 #selectedComponents=[TTJets_PUS14]
 
 #-------- SEQUENCE
@@ -161,14 +162,14 @@ sequence = cfg.Sequence(susyCoreSequence+[
 
 
 #-------- HOW TO RUN
-test = 1
+test = 0
 if test==1:
     # test a single component, using a single thread.
     comp= selectedComponents[0]
     #comp.files = ['root://eoscms//eos/cms/store/cmst3/group/susy/alobanov/MC/MiniAOD/13TeV_Gl_Gl_4q_Gl1400_LSP300_Chi315_MiniAOD.root']
-    comp.files = comp.files[:1]
+    comp.files = comp.files[:10]
     selectedComponents = [comp]
-    comp.splitFactor = 1
+    comp.splitFactor = 10
 elif test==2:    
     # test all components (1 thread per component).
     for comp in selectedComponents:
