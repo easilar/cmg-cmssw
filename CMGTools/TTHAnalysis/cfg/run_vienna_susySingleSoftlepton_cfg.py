@@ -76,7 +76,7 @@ treeProducer = cfg.Analyzer(
 
 from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
 TTJets_PUS14.splitFactor=800
-selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJetsToLNu_HT200to400_PU_S14_POSTLS170, WJetsToLNu_HT400to600_PU_S14_POSTLS170, WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
+#selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJetsToLNu_HT200to400_PU_S14_POSTLS170, WJetsToLNu_HT400to600_PU_S14_POSTLS170, WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
 
 #selectedComponents = [ WJetsToLNu_HT600toInf_PU_S14_POSTLS170]
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import *
@@ -150,7 +150,7 @@ selectedComponents = [ TTJets_PUS14 , WJetsToLNu_HT100to200_PU_S14_POSTLS170, WJ
 #testSample.efficiency = eff2012
 
 #selectedComponents=[testSample]
-#selectedComponents=[TTJets_PUS14]
+selectedComponents=[TTJets_PUS14]
 
 #-------- SEQUENCE
 
@@ -162,7 +162,7 @@ sequence = cfg.Sequence(susyCoreSequence+[
 
 
 #-------- HOW TO RUN
-test = 1
+test = 0
 if test==1:
     # test a single component, using a single thread.
     comp= selectedComponents[0]
