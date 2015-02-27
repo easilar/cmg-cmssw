@@ -42,7 +42,14 @@ triggerFlagsAna = cfg.Analyzer(
     TriggerBitAnalyzer, name="TriggerFlags",
     processName = 'HLT',
     triggerBits = {
-        # "<name>" : [ 'HLT_<Something>_v*', 'HLT_<SomethingElse>_v*' ] 
+         "HT200" : [ 'HLT_HT200_v*' ], 
+         "HT250" : [ 'HLT_HT250_v*' ], 
+         "HT300" : [ 'HLT_HT300_v*' ], 
+         "HT350" : [ 'HLT_HT350_v*' ], 
+         "HT450" : [ 'HLT_HT450_v*' ], 
+         "HT550" : [ 'HLT_HT550_v*' ], 
+         "HT650" : [ 'HLT_HT650_v*' ], 
+         "HT750" : [ 'HLT_HT750_v*' ], 
     }
     )
 # Create flags for MET filter bits
@@ -179,6 +186,30 @@ ttHLepSkim = cfg.Analyzer(
     #ptCuts = [20,10],                # can give a set of pt cuts on the leptons
     )
 
+## Jets Analyzer (generic)
+jetAna = cfg.Analyzer(
+    JetAnalyzer, name='jetAnalyzer',
+    jetCol = 'slimmedJets',
+    jetPt = 25.,
+    jetEta = 4.7,
+    jetEtaCentral = 2.4,
+    jetLepDR = 0.4,
+    jetLepArbitration = (lambda jet,lepton : lepton), # you can decide which to keep in case of overlaps; e.g. if the jet is b-tagged you might want to keep the jet
+    minLepPt = 10,
+    relaxJetId = False,  
+    doPuId = False, # Not commissioned in 7.0.X
+    recalibrateJets = "MC", # True, False, 'MC', 'Data'
+    mcGT     = "PHYS14_25_V3",
+    jecPath = "%s/src/CMGTools/RootTools/data/jec/" % os.environ['CMSSW_BASE'],
+    shiftJEC = 0, # set to +1 or -1 to get +/-1 sigma shifts
+    smearJets = False,
+    shiftJER = 0, # set to +1 or -1 to get +/-1 sigma shifts  
+    cleanJetsFromFirstPhoton = False,
+    cleanJetsFromTaus = False,
+    cleanJetsFromIsoTracks = False,
+    doQG = False,
+    )
+
 ##------------------------------------------
 ##  MET
 ##------------------------------------------
@@ -216,12 +247,12 @@ ttHZskim = cfg.Analyzer(
 ##  PRODUCER
 ##------------------------------------------
 
-from CMGTools.TTHAnalysis.samples.samples_13TeV_PHYS14 import triggers_1mu, triggers_mumu_iso, triggers_1mu_isolow
-
-triggerFlagsAna.triggerBits = {
-            'SingleMu' : triggers_1mu_isolow,
-            'DoubleMu' : triggers_mumu_iso,
-}
+#from CMGTools.TTHAnalysis.samples.samples_13TeV_PHYS14 import triggers_1mu, triggers_mumu_iso, triggers_1mu_isolow
+#
+#triggerFlagsAna.triggerBits = {
+#            'SingleMu' : triggers_1mu_isolow,
+#            'DoubleMu' : triggers_mumu_iso,
+#}
 
 #-------- SEQUENCE
 
@@ -244,16 +275,18 @@ metSequence = [
     skimAnalyzer,
    #eventSelector,
     jsonAna,
-    triggerAna,
+#    triggerAna,
     pileUpAna,
     genAna,
     vertexAna,
 ##### lepton modules below
     lepAna,
+    jetAna,
     ttHLepSkim,
-    ttHZskim,
+#    ttHZskim,
 ##### met modules below
     metAna,
+    triggerFlagsAna,
     eventFlagsAna,
 ##### tree
     treeProducer,
@@ -269,10 +302,10 @@ metSequence = [
 from CMGTools.TTHAnalysis.samples.samples_13TeV_PHYS14 import *
 from CMGTools.TTHAnalysis.samples.samples_METPOG_private import *
 
-selectedComponents = [JetHT_HcalExtValid_jet2012D_v1, JetHT_HcalExtValid_jet2012D_v2, DoubleMuparked_HcalExtValid_jet2012D_v1]
+selectedComponents = [ JetHT_HcalExtValid_jet2012D_v2, DoubleMuparked_HcalExtValid_jet2012D_v1]
 
 #-------- HOW TO RUN
-test = 1
+test = 0
 if test==1:
     # test a single component, using a single thread.
     ## 25 ns ttbar PHYS14
@@ -280,7 +313,7 @@ if test==1:
 #    comp.files = comp.files[:1]
 #    comp=TTJets
 #    comp.files = ['/afs/cern.ch/work/d/dalfonso/public/ttjets_miniaodsim_00C90EFC-3074-E411-A845-002590DB9262.root']
-    comp=JetHT_HcalExtValid_jet2012D_v1
+    comp=JetHT_HcalExtValid_jet2012D_v2
     comp.files = comp.files[:1]
 
     selectedComponents = [comp]
