@@ -48,7 +48,26 @@ DoubleMuparked_1Apr_RelVal_dm2012D_v2 = cfg.DataComponent(
     json = dataDir+'/json/diMu_740pre9_miniAOD.json' 
     )
 
-dataSamplesAll = [JetHT_HcalExtValid_jet2012D_v1, JetHT_HcalExtValid_jet2012D_v2, DoubleMuparked_HcalExtValid_zMu2012D_v1, DoubleMuparked_1Apr_RelVal_dm2012D_v2]
+DoubleMuParked_1Apr_RelVal_dm2012D_v2_newPFHCalib = cfg.DataComponent(
+    name = 'DoubleMuparked_1Apr_RelVal_dm2012D_v2_newPFHCalib',
+    files = kreator.getFilesFromEOS('DoubleMuparked_1Apr_RelVal_dm2012D_v2_newPFHCalib', 
+     '/DoubleMuParked/schoef-crab_DoubleMuParked_CMSSW_7_4_0_pre9_ROOT6-GR_R_74_V8_1Apr_RelVal_dm2012D-v2_newCalib_mAOD-89ff5a2c9b7567e540de992dc491e0eb/USER', 
+     '/store/group/phys_jetmet/schoef/740pre9_data_rereco/DoubleMuParked_CMSSW_7_4_0_pre9_ROOT6-GR_R_74_V8_1Apr_RelVal_dm2012D-v2_newCalib_mAOD/'),
+    intLumi = 1,
+    triggers = [], 
+    json = dataDir+'/json/diMu_740pre9_miniAOD.json' 
+    )
+DoubleMuParked_1Apr_RelVal_dm2012D_v2_oldPFHCalib = cfg.DataComponent(
+    name = 'DoubleMuparked_1Apr_RelVal_dm2012D_v2_oldPFHCalib',
+    files = kreator.getFilesFromEOS('DoubleMuparked_1Apr_RelVal_dm2012D_v2_oldPFHCalib',
+     '/DoubleMuParked/schoef-crab_DoubleMuParked_CMSSW_7_4_0_pre9_ROOT6-GR_R_74_V8_1Apr_RelVal_dm2012D-v2_oldCalib_mAOD-89ff5a2c9b7567e540de992dc491e0eb/USER' 
+     '/store/group/phys_jetmet/schoef/740pre9_data_rereco/DoubleMuParked_CMSSW_7_4_0_pre9_ROOT6-GR_R_74_V8_1Apr_RelVal_dm2012D-v2_oldCalib_mAOD/'),
+    intLumi = 1,
+    triggers = [], 
+    json = dataDir+'/json/diMu_740pre9_miniAOD.json' 
+    )
+
+dataSamplesAll = [JetHT_HcalExtValid_jet2012D_v1, JetHT_HcalExtValid_jet2012D_v2, DoubleMuparked_HcalExtValid_zMu2012D_v1, DoubleMuparked_1Apr_RelVal_dm2012D_v2, DoubleMuParked_1Apr_RelVal_dm2012D_v2_newPFHCalib, DoubleMuParked_1Apr_RelVal_dm2012D_v2_oldPFHCalib]
 
 
 #----------- 2011 re-reco ---------------
