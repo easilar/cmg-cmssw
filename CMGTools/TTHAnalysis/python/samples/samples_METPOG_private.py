@@ -60,7 +60,7 @@ DoubleMuParked_1Apr_RelVal_dm2012D_v2_newPFHCalib = cfg.DataComponent(
 DoubleMuParked_1Apr_RelVal_dm2012D_v2_oldPFHCalib = cfg.DataComponent(
     name = 'DoubleMuparked_1Apr_RelVal_dm2012D_v2_oldPFHCalib',
     files = kreator.getFilesFromEOS('DoubleMuparked_1Apr_RelVal_dm2012D_v2_oldPFHCalib',
-     '/DoubleMuParked/schoef-crab_DoubleMuParked_CMSSW_7_4_0_pre9_ROOT6-GR_R_74_V8_1Apr_RelVal_dm2012D-v2_oldCalib_mAOD-89ff5a2c9b7567e540de992dc491e0eb/USER' 
+     '/DoubleMuParked/schoef-crab_DoubleMuParked_CMSSW_7_4_0_pre9_ROOT6-GR_R_74_V8_1Apr_RelVal_dm2012D-v2_oldCalib_mAOD-89ff5a2c9b7567e540de992dc491e0eb/USER', 
      '/store/group/phys_jetmet/schoef/740pre9_data_rereco/DoubleMuParked_CMSSW_7_4_0_pre9_ROOT6-GR_R_74_V8_1Apr_RelVal_dm2012D-v2_oldCalib_mAOD/'),
     intLumi = 1,
     triggers = [], 
