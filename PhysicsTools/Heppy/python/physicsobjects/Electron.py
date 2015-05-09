@@ -28,8 +28,8 @@ class Electron( Lepton ):
         elif id == "POG_MVA_ID_Trig":     return self.mvaIDTight()
         elif id == "POG_MVA_ID_NonTrig_full5x5":  return self.mvaIDLoose(full5x5=True)
         elif id == "POG_MVA_ID_Trig_full5x5":     return self.mvaIDTight(full5x5=True)
-        elif id == "POG_MVA_ID_Run2_NonTrig_Loose":    return self.mvaIDRun2("NonTrigPhys14","Loose")
-        elif id == "POG_MVA_ID_Run2_NonTrig_Tight":    return self.mvaIDRun2("NonTrigPhys14","Tight")
+        elif id == "POG_MVA_ID_Run2_NonTrig_Loose":    return self.mvaIDRun2("NonTrigPhys14","Loose") #FIXME not in cbernet/heppy_7_4_1
+        elif id == "POG_MVA_ID_Run2_NonTrig_Tight":    return self.mvaIDRun2("NonTrigPhys14","Tight") #FIXME not in cbernet/heppy_7_4_1
         elif id.startswith("POG_Cuts_ID_"):
                 return self.cutBasedId(id.replace("POG_Cuts_ID_","POG_"))
         for ID in self.electronIDs():
@@ -223,6 +223,11 @@ class Electron( Lepton ):
         if vertex is None:
             vertex = self.associatedVertex
         return self.gsfTrack().dxy( vertex.position() )
+
+    def edxy(self):
+        '''returns the uncertainty on dxy (from gsf track)'''
+        return self.gsfTrack().dxyError()
+
     def p4(self):
 	 return ROOT.reco.Candidate.p4(self.physObj)
 
@@ -237,6 +242,11 @@ class Electron( Lepton ):
         if vertex is None:
             vertex = self.associatedVertex
         return self.gsfTrack().dz( vertex.position() )
+
+    def edz(self):
+        '''returns the uncertainty on dxz (from gsf track)'''
+        return self.gsfTrack().dzError()
+
 
     def lostInner(self) :
         if hasattr(self.gsfTrack(),"trackerExpectedHitsInner") :
