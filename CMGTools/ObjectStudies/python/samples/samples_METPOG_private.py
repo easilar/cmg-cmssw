@@ -8,7 +8,7 @@ from CMGTools.TTHAnalysis.samples.ComponentCreator import ComponentCreator
 kreator = ComponentCreator()
 
 dataDir = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data"
-dataPrivDir = os.environ['CMSSW_BASE']+"/src/CMGTools/ObjectsStudies/data"
+dataPrivDir = os.environ['CMSSW_BASE']+"/src/CMGTools/ObjectStudies/data"
 
 json=dataDir+'/json/Cert_Run2012ABCD_22Jan2013ReReco.json'
 

@@ -196,13 +196,20 @@ ttHLepSkim = cfg.Analyzer(
 
 metAna = cfg.Analyzer(
     METAnalyzer, name="metAnalyzer",
-    doTkMet = False,
-    doMetNoMu = False,
-    doMetNoPhoton = False,
+    metCollection     = "slimmedMETs",
+    noPUMetCollection = "slimmedMETs",
+    copyMETsByValue = False,
     recalibrate = False,
+    jetAnalyzerCalibrationPostFix = "",
+    doTkMet = False,
+    doMetNoPU = True,
+    doMetNoMu = False,
+    doMetNoEle = False,
+    doMetNoPhoton = False,
     candidates='packedPFCandidates',
     candidatesTypes='std::vector<pat::PackedCandidate>',
     dzMax = 0.1,
+    collectionPostFix = "",
     )
 
 ##------------------------------------------

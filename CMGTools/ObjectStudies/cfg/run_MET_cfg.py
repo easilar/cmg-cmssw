@@ -1,7 +1,7 @@
 import PhysicsTools.HeppyCore.framework.config as cfg
 
 #Load all analyzers
-from CMGTools.ObjectsStudies.analyzers.metCoreModules_cff import *
+from CMGTools.ObjectStudies.analyzers.metCoreModules_cff import *
 
 ##------------------------------------------
 ##  PRODUCER
@@ -22,7 +22,7 @@ triggerFlagsAna.triggerBits = {
 #-------- SEQUENCE
 
 ##from CMGTools.TTHAnalysis.analyzers.treeProducerMET import *
-from CMGTools.ObjectsStudies.analyzers.treeProducerMET import *
+from CMGTools.ObjectStudies.analyzers.treeProducerMET import *
 
 treeProducer = cfg.Analyzer(
      AutoFillTreeProducer, name='treeProducerMET',
@@ -61,12 +61,12 @@ metSequence.insert(metSequence.index(lepAna)+2,
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14 import * 
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14v2 import *
 from CMGTools.TTHAnalysis.samples.samples_13TeV_PHYS14 import *
-from CMGTools.ObjectsStudies.samples.samples_METPOG_private import *
-from CMGTools.ObjectsStudies.samples.samples_METPOG_relVal import *
+from CMGTools.ObjectStudies.samples.samples_METPOG_private import *
+from CMGTools.ObjectStudies.samples.samples_METPOG_relVal import *
 
 #-------- HOW TO RUN
 
-test = 6
+test = 11
 
    # -----------------------PHYS14 options -------------------------------------------------------------------- #
 
@@ -183,6 +183,12 @@ elif test==10:
         comp.splitFactor = 250
         comp.files = comp.files[:]
 
+elif test==11:
+    selectedComponents = [RelValZMM_7_4_1]
+    for comp in selectedComponents:
+        comp.splitFactor = 1
+#        comp.splitFactor = 250
+        comp.files = comp.files[:1]
 
     # ------------------------------------------------------------------------------------------- #
 
