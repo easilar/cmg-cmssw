@@ -62,11 +62,11 @@ else:
 photonAna.do_mc_match = False
 
 #Store all gen taus
-genAna.allgenTaus = True
-
-#use latest JEC
-jetAna.recalibrationType="AK4PFchs"
-jetAna.mcGT="Summer15_V4_MC"
+genAna.allGenTaus = True
+genAna.verbose = False
+##use latest JEC
+#jetAna.recalibrationType="AK4PFchs"
+#jetAna.mcGT="Summer15_V4_MC"
 
 #-------- ADDITIONAL ANALYZERS -----------
 
@@ -228,8 +228,11 @@ elif test == '74X-MC':
         selectedComponents = [ TTJets ]
     elif what == "Z":
         selectedComponents = [ ZEE_bx25, ZMM_bx25, ZTT_bx25 ]
+    elif what == "TTJets_LO":
+        selectedComponents = [TTJets_LO]
     else:
         selectedComponents = RelVals740
+    print "Selecting only one file", getHeppyOption("all")
     if not getHeppyOption("all"):
         for comp in selectedComponents:
             comp.files = comp.files[:1]
