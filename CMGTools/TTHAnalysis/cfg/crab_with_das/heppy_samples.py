@@ -1,17 +1,17 @@
 #-------- SAMPLES AND TRIGGERS -----------
 
 from CMGTools.TTHAnalysis.samples.samples_13TeV_PHYS14 import *
-#selectedComponents =  [TTJets]
+selectedComponents =  [TTJets]
 #TTJets.splitFactor=1000
-from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
-selectedComponents = [T2DegStop_300_270]
+#from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
+#selectedComponents = [T2DegStop_300_270]
 
 
-from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
-selectedComponents = [DYJetsToLL_M50_PU20bx25]#, DYJetsToLLHT100to200_M50_PU20bx25, DYJetsToLLHT200to400_M50_PU20bx25, DYJetsToLLHT400to600_M50_PU20bx25, DYJetsToLLHT600toInf_M50_PU20bx25]
+#from CMGTools.TTHAnalysis.samples.samples_13TeV_private_heplx import *
+#selectedComponents = [DYJetsToLL_M50_PU20bx25]#, DYJetsToLLHT100to200_M50_PU20bx25, DYJetsToLLHT200to400_M50_PU20bx25, DYJetsToLLHT400to600_M50_PU20bx25, DYJetsToLLHT600toInf_M50_PU20bx25]
 
 #selectedComponents = [ TT_PU40bx25 ]
-selectedComponents = [ TT_PU4bx50 ]
+#selectedComponents = [ TT_PU4bx50 ]
 
 #-------- HOW TO RUN
 test = 2
