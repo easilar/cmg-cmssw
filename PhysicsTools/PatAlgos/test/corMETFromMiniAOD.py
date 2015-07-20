@@ -26,7 +26,7 @@ process.maxEvents = cms.untracked.PSet(
 )
 
 ### =====================================================================================================
-usePrivateSQlite =True
+usePrivateSQlite =False
 
 from Configuration.AlCa.GlobalTag_condDBv2 import GlobalTag
 process.GlobalTag.globaltag = 'MCRUN2_74_V9'   # for Simulation #same globalTag

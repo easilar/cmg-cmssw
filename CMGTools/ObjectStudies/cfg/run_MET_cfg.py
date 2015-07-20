@@ -49,11 +49,12 @@ elif test==1:
    # ----------------------- Summer15 options -------------------------------------------------------------------- #
 
 elif test==3:
-    selectedComponents = [ DYJetsToLL_M50_50ns,TTJets_50ns ]
+#    selectedComponents = [ DYJetsToLL_M50_50ns,TTJets_50ns ]
+    selectedComponents = [ TTJets_50ns ]
     isZSkim=True
     for comp in selectedComponents:
         comp.triggers = triggers_mumu
-        comp.splitFactor = 1000
+        comp.splitFactor = 1
         comp.files = comp.files[:]
 
 elif test==4:
@@ -202,7 +203,7 @@ preprocessor = CmsswPreprocessor("$CMSSW_BASE/src/CMGTools/ObjectStudies/cfg/Met
 config = cfg.Config( components = selectedComponents,
                      sequence = metSequence,
                      services = [output_service],
-#                     preprocessor=preprocessor, # comment if pre-processor non needed
+                     preprocessor=preprocessor, # comment if pre-processor non needed
                      events_class = event_class)
 #                     events_class = Events)
 

@@ -39,9 +39,11 @@ process.GlobalTag.globaltag = 'MCRUN2_74_V9A::All'   # for Simulation #same glob
 
 if usePrivateSQlite:
     from CondCore.DBCommon.CondDBSetup_cfi import *
+#    era = 'Summer15_V5_MC'
+    fname = 'Summer15_V5_p6_MC'
     era = 'Summer15_V5_MC'
     process.jec = cms.ESSource("PoolDBESSource",CondDBSetup,
-                               connect = cms.string('sqlite_file:'+os.path.expandvars('$CMSSW_BASE/src/CMGTools/RootTools/data/jec/'+era+'.db')),
+                               connect = cms.string('sqlite_file:'+os.path.expandvars('$CMSSW_BASE/src/CMGTools/RootTools/data/jec/'+fname+'.db')),
                                toGet =  cms.VPSet(
             cms.PSet(
                 record = cms.string("JetCorrectionsRecord"),
@@ -75,13 +77,18 @@ process.maxEvents = cms.untracked.PSet(
 )
 
 ### =====================================================================================================
+#default configuration for miniAOD reprocessing
+#from PhysicsTools.PatUtils.tools.runMETCorrectionsAndUncertainties import runMetCorAndUncFromMiniAOD
+#runMetCorAndUncFromMiniAOD(process)
+
 
 from PhysicsTools.PatUtils.tools.runMETCorrectionsAndUncertainties import runMETCorrectionsAndUncertainties
 
 #recomputation only available for T1 and Txy. T0 is copied from the miniAOD, and smearing is not consudered
 # necessitates both T1 and T1Txy in the recomputation
 
-#MET T1 uncertainties
+
+##MET T1 uncertainties
 runMETCorrectionsAndUncertainties(process, metType="PF",
                                   correctionLevel=["T1"],
                                   computeUncertainties=True,
@@ -96,7 +103,7 @@ runMETCorrectionsAndUncertainties(process, metType="PF",
                                   onMiniAOD=True,
                                   postfix="",
                                   )
-
+#
 ##MET T1+Txy
 #runMETCorrectionsAndUncertainties(process, metType="PF",
 #                                  correctionLevel=["T1","Txy"],
