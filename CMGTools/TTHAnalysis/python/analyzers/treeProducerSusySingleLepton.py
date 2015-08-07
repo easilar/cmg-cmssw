@@ -2,7 +2,7 @@ from CMGTools.TTHAnalysis.analyzers.treeProducerSusyCore import *
 from CMGTools.TTHAnalysis.analyzers.ntupleTypes import *
 
 susySingleLepton_globalVariables = susyCore_globalVariables + [
-
+#susySingleLepton_globalVariables = [
 
             NTupleVariable("met_genPt", lambda ev : ev.met_genPtDef, help="gen E_{T}^{miss} pt from patch of Matthieus recipe which doesn't store genmet"),
             NTupleVariable("met_genPhi", lambda ev : ev.met_genPhiDef, help="gen E_{T}^{miss} phi from patch of Matthieus recipe which doesn't store genmet"),
@@ -23,7 +23,7 @@ susySingleLepton_globalObjects.update({
             # put more here
 })
 
-susySingleLepton_collections = susyCore_collections.copy()
+susySingleLepton_collections =  susyCore_collections.copy()
 susySingleLepton_collections.update({
 
             # put more here

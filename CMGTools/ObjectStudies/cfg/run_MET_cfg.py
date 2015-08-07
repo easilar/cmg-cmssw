@@ -9,18 +9,18 @@ from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
 from CMGTools.RootTools.samples.triggers_13TeV_Spring15 import triggers_1mu_iso_50ns, triggers_mumu, triggers_ee
 
 #-------- INITIAL FLAG
-
 isDiJet=False
 isZSkim=False
 is1L=False
 isEle = False # default is diMuon
 isEarlyRun = False # to be used for the filters
-
+removeResiduals = True
 #-------- HOW TO RUN
 
-test = 2
+test = 16
 
 if test==0:
+    isData = True
     selectedComponents = [DoubleMu_742, DoubleMu_740p9]
 #    selectedComponents = [ DoubleMuParked_1Apr_RelVal_dm2012D_v2_newPFHCalib , DoubleMuParked_1Apr_RelVal_dm2012D_v2_oldPFHCalib , DoubleMuparked_1Apr_RelVal_dm2012D_v2 ]
     for comp in selectedComponents:
@@ -29,6 +29,7 @@ if test==0:
         comp.triggers = triggers_8TeV_mumu
 
 elif test==1:
+    isData = False
     selectedComponents = [ RelValZMM_7_4_1,RelValZMM_7_4_0_pre9 ]
 #    selectedComponents = [RelVal_741_Philfixes]
 #    selectedComponents = relValkate
@@ -50,6 +51,7 @@ elif test==1:
 
    # ----------------------- Summer15 options -------------------------------------------------------------------- #
 elif test==2:
+    isData = False
     selectedComponents = [ DYJetsToLL_M50_50ns ]
     isZSkim=True
     for comp in selectedComponents:
@@ -60,6 +62,7 @@ elif test==2:
 elif test==3:
 #    selectedComponents = [ DYJetsToLL_M50_50ns,TTJets_50ns ]
     selectedComponents = [ DYJetsToLL_M50_50ns]
+    isData = False
     isZSkim=True
     selectedComponents = [ DYJetsToLL_M50_50ns,TTJets_50ns ]
     for comp in selectedComponents:
@@ -71,6 +74,7 @@ elif test==3:
         comp.files = comp.files[:]
 
 elif test==4:
+    isData = False
     selectedComponents = [ WJetsToLNu_50ns ]
     is1L=False
     for comp in selectedComponents:
@@ -78,6 +82,7 @@ elif test==4:
         comp.files = comp.files[:]
 
 elif test==5:
+    isData = False
     selectedComponents = QCDPt_50ns
     isDiJet=True
     for comp in selectedComponents:
@@ -88,6 +93,7 @@ elif test==5:
 
 ### this is for the Zskim
 elif test==13:
+    isData = True
     isZSkim=True
     if isEle:
         selectedComponents = [ DoubleEG_Run2015B ]
@@ -106,6 +112,7 @@ elif test==13:
 
 ### this is for the Wskim
 elif test==14:
+    isData = True
     is1L=False
     selectedComponents = [ SingleMuon_Run2015B ]
     for comp in selectedComponents:
@@ -116,6 +123,7 @@ elif test==14:
 
 ### this is for the QCDlike
 elif test==15:
+    isData = True
     isDiJet=True
     if isEarlyRun:
         selectedComponents = [ JetHT_Run2015B_17Jul, HTMHT_Run2015B_17Jul, MET_Run2015B_17Jul ]
@@ -131,6 +139,15 @@ elif test==15:
         else:
             comp.run_range=(251585,251883) # in promptReco runInJSON: 251643,251721,251883
         print comp
+elif test==16:
+    isData = True
+    isDiJet=True
+    selectedComponents = [ JetHT_Run2015B ]
+    for comp in selectedComponents:
+        comp.splitFactor = 1
+        comp.files = comp.files[:5]
+        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
+        comp.intLumi= 0.04003
 # ------------------------------------------------------------------------------------------- #
 
 from CMGTools.ObjectStudies.analyzers.metCoreModules_cff import *
@@ -163,6 +180,8 @@ treeProducer = cfg.Analyzer(
 metAna.doTkMet = True
 metAna.doSpecialMet = False
 
+
+
 metSequence = cfg.Sequence(
     metCoreSequence + [treeProducer]
     )
@@ -187,6 +206,7 @@ if is1L:
 
 if comp.isData and not isEarlyRun:
     eventFlagsAna.processName = 'RECO'
+    metAnaDef.metCollection     = ("slimmedMETs","", "RECO") 
 
 if comp.isData and comp.json is None:
     metSequence.remove(jsonAna)
@@ -229,26 +249,34 @@ if getHeppyOption("nofetch"):
 
 # -------------------- Running pre-processor
 import subprocess
-globalTag = 'MCRUN2_74_V9A::All'
 jecDBFile = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_50nsV2_MC.db'
 jecEra    = 'Summer15_50nsV2_MC'
-preprocessorFile = "$CMSSW_BASE/src/CMGTools/ObjectStudies/cfg/MetType1_GT_%s_jec_%s.py"%(globalTag.replace('::All',''),jecEra)
-subprocess.call(['python', 
-  os.path.expandvars('$CMSSW_BASE/src/CMGTools/ObjectStudies/cfg/corMETMiniAOD_cfgCreator.py'),\
-  '--GT='+globalTag, 
+preprocessorFile = "$CMSSW_BASE/tmp/MetType1_jec_%s.py"%(jecEra)
+extraArgs=[]
+if isData:
+  extraArgs.append('--isData')
+  GT= '74X_dataRun2_Prompt_v1'
+else:
+  GT= 'MCRUN2_74_V9A'
+if removeResiduals:extraArgs.append('--removeResiduals')
+args = ['python', 
+  os.path.expandvars('$CMSSW_BASE/python/CMGTools/ObjectStudies/corMETMiniAOD_cfgCreator.py'),\
+  '--GT='+GT, 
   '--outputFile='+preprocessorFile, 
   '--jecDBFile='+jecDBFile,
   '--jecEra='+jecEra
-])
-
+  ] + extraArgs 
+#print "Making pre-processorfile:"
+#print " ".join(args)
+subprocess.call(args)
 from PhysicsTools.Heppy.utils.cmsswPreprocessor import CmsswPreprocessor
-#preprocessor = CmsswPreprocessor(preprocessorFile)
+preprocessor = CmsswPreprocessor(preprocessorFile)
 
 #printComps(config.components, True)               
 config = cfg.Config( components = selectedComponents,
                      sequence = metSequence,
                      services = [output_service],
-#                     preprocessor=preprocessor, # comment if pre-processor non needed
+                     preprocessor=preprocessor, # comment if pre-processor non needed
                      events_class = event_class)
 #                     events_class = Events)
 

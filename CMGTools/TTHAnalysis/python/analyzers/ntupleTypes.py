@@ -177,7 +177,7 @@ genParticleWithMotherIndex = NTupleObjectType("genParticleWithMotherIndex", base
     NTupleVariable("daughterIndex2", lambda x : x.daughterRef(x.numberOfDaughters()-1).index() if x.numberOfDaughters() > 1 else -1, int, help="index of the last mother in the genParticles"),
 ])
 
-genJetType = NTupleObjectType("genJets",  baseObjectTypes = [ fourVectorType ], variables = [
+genJetType = NTupleObjectType("genJets",  baseObjectTypes = [ fourVectorType ], mcOnly=True, variables = [
     NTupleVariable("nConstituents", lambda x : x.nConstituents() ,help="Number of Constituents"),
 ])
 

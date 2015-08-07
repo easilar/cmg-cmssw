@@ -44,17 +44,16 @@ ttHLepSkim.maxLeptons = 999
 
 # --- JET-LEPTON CLEANING ---
 jetAna.minLepPt = 10
+#jetAna.jetPt = 25
+#jetAna.jetEta = 2.4
+
 jetAna.mcGT     = "Summer15_50nsV2_MC"
 jetAna.dataGT   = "Summer15_50nsV2_MC"
-jetAna.doQG = False
+jetAna.doQG = True
 jetAna.smearJets = False #should be false in susycore, already
 jetAna.recalibrateJets =  True #For data
 
-#metAna.recalibrate = False #should be false in susycore, already
-#metAna.otherMETs = [\
-#  ("metTxy",('slimmedTxyMETs', 'std::vector<pat::MET>')),
-#  ("metRaw",('slimmedRAWMETs', 'std::vector<pat::MET>')),
-#  ]
+metAna.recalibrate = False #should be false in susycore, already
 
 isoTrackAna.setOff=False
 genAna.allGenTaus = True
@@ -149,21 +148,26 @@ treeProducer = cfg.Analyzer(
 
 #!# #-------- SAMPLES AND TRIGGERS -----------
 
-from CMGTools.RootTools.samples.samples_13TeV_74X import *
 
 selectedComponents = [
         ]
 
-
-sequence = cfg.Sequence(susyCoreSequence+[
-        ttHEventAna,
+sequence = cfg.Sequence(
+  susyCoreSequence+
+      [ ttHEventAna,
         treeProducer,
         ])
 
+removeResiduals = True
+isData = False
 
-test="data"
+if isData:
+  test="data"
+else:
+  test=1
 
 if getHeppyOption("loadSamples"):
+  from CMGTools.RootTools.samples.samples_13TeV_74X import *
   if test==1:
     # test a single component, using a single thread.
     comp = TTJets
@@ -179,39 +183,53 @@ if getHeppyOption("loadSamples"):
   elif test==3:
     # run all components (1 thread per component).
     for comp in selectedComponents:
-            comp.splitFactor = len(comp.files)
+      comp.splitFactor = len(comp.files)
 
   elif test=="data":
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-    selectedComponents = [ SingleElectron_Run2015B ]
-    #selectedComponents = [ SingleMu_Run2015B ]
-    #selectedComponents = [ SingleMuon_Run2015B ]
 
-    jetAna.recalibrateJets = False
-    print dataSamples
-    for comp in dataSamples:
-      comp.isMC = False
-      comp.isData = True
-    
+    selectedComponents = [ SingleMuon_Run2015B ]
     for comp in selectedComponents:
-      comp.splitFactor = 1
-      comp.fineSplitFactor = 10
-      #comp.files = comp.files[:1]
+        comp.splitFactor = 1
+        comp.files = comp.files[:]
+        comp.isMC = False
+        comp.isData = True
+#        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
 
+if isData:# and not isEarlyRun:
+    eventFlagsAna.processName = 'RECO'
+    metAnaDef.metCollection     = ("slimmedMETs","", "RECO") 
 
 # -------------------- Running pre-processor
-import subprocess
-globalTag = 'MCRUN2_74_V9A::All'
-jecDBFile = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_50nsV2_MC.db'
-jecEra    = 'Summer15_50nsV2_MC'
-preprocessorFile = "$CMSSW_BASE/src/CMGTools/ObjectStudies/cfg/MetType1_GT_%s_jec_%s.py"%(globalTag.replace('::All',''),jecEra)
-subprocess.call(['python', 
-  os.path.expandvars('$CMSSW_BASE/src/CMGTools/ObjectStudies/cfg/corMETMiniAOD_cfgCreator.py'),\
-  '--GT='+globalTag, 
-  '--outputFile='+preprocessorFile, 
-  '--jecDBFile='+jecDBFile,
-  '--jecEra='+jecEra
-])
+if getHeppyOption("makePreProcessorFile"): #create preprocessor file on the fly
+  import subprocess
+  jecDBFile = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_50nsV2_MC.db'
+  jecEra    = 'Summer15_50nsV2_MC'
+  extraArgs=[]
+  if isData:
+    extraArgs.append('--isData')
+    GT= '74X_dataRun2_Prompt_v1'
+  else:
+    GT= 'MCRUN2_74_V9A'
+  if removeResiduals:extraArgs.append('--removeResiduals')
+  preprocessorFile = "$CMSSW_BASE/tmp/MetType1_jec_%s_GT_%s_residuals_%s.py"%(jecEra, GT, str(not(removeResiduals)))
+  args = ['python', 
+    os.path.expandvars('$CMSSW_BASE/python/CMGTools/ObjectStudies/corMETMiniAOD_cfgCreator.py'),\
+    '--GT='+GT, 
+    '--outputFile='+preprocessorFile, 
+    '--jecDBFile='+jecDBFile,
+    '--jecEra='+jecEra
+    ] + extraArgs 
+  #print "Making pre-processorfile:"
+  #print " ".join(args)
+  subprocess.call(args)
+else: #use precomputed preprocessor files
+  if isData:
+    preprocessorFile = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/python/preProcFiles/MetType1_jec_Summer15_50nsV2_MC_GT_74X_dataRun2_Prompt_v1_residuals_False.py"
+  else:
+    preprocessorFile = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/python/preProcFiles/MetType1_jec_Summer15_50nsV2_MC_GT_MCRUN2_74_V9A_residuals_False.py" 
+  print "Using preprocessor file %s"%preprocessorFile
+
 from PhysicsTools.Heppy.utils.cmsswPreprocessor import CmsswPreprocessor
 preprocessor = CmsswPreprocessor(preprocessorFile)
 
@@ -221,19 +239,10 @@ event_class = Events
 if getHeppyOption("fetch"):
   event_class = EOSEventsWithDownload
 
-#printComps(config.components, True)               
+#printComps(config.components, True)
 config = cfg.Config( components = selectedComponents,
                      sequence = sequence,
                      services = [],
                      preprocessor=preprocessor, # comment if pre-processor non needed
-#                     events_class = event_class)
                      events_class = event_class)
-
-##print "selectedComponents3 ",selectedComponents
-#config = cfg.Config( components = selectedComponents,
-#                     sequence = sequence,
-#                     services = [],
-#                     events_class = Events)
-#
-#!# #print "selectedComponents4 ",config.components
 

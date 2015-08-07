@@ -358,6 +358,24 @@ metAna = cfg.Analyzer(
     collectionPostFix = "",
     )
 
+metNoHFAna = cfg.Analyzer(
+    METAnalyzer, name="metNoHFAnalyzer",
+    metCollection     = "slimmedMETsNoHF",
+    noPUMetCollection = "slimmedMETsNoHF",    
+    copyMETsByValue = False,
+    doTkMet = False,
+    doMetNoPU = False,
+    doMetNoMu = False,
+    doMetNoEle = False,
+    doMetNoPhoton = False,
+    recalibrate = False,
+    jetAnalyzerCalibrationPostFix = "",
+    candidates='packedPFCandidates',
+    candidatesTypes='std::vector<pat::PackedCandidate>',
+    dzMax = 0.1,
+    collectionPostFix = "NoHF",
+    )
+
 metAnaDef = cfg.Analyzer(
     METAnalyzer, name="metAnalyzerDef",
     metCollection     = ("slimmedMETs","", "PAT"),
@@ -423,8 +441,9 @@ susyCoreSequence = [
     jetAna,
     #ttHFatJetAna,  # out of core sequence for now
     #ttHSVAna, # out of core sequence for now
-    metAnaDef,
     metAna,
+    metNoHFAna,
+    metAnaDef,
     ttHCoreEventAna,
     #ttHJetMETSkim
     triggerFlagsAna,
