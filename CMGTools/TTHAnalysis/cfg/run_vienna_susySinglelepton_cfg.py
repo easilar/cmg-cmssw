@@ -161,7 +161,7 @@ sequence = cfg.Sequence(susyCoreSequence+[
         ])
 
 
-test=1
+test="data"
 
 if getHeppyOption("loadSamples"):
   if test==1:
