@@ -1,10 +1,16 @@
 #-------- SAMPLES AND TRIGGERS -----------
 #from CMGTools.TTHAnalysis.samples.samples_13TeV_PHYS14 import *
 from CMGTools.RootTools.samples.samples_13TeV_74X import *
-from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
+#from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
 from CMGTools.RootTools.samples.triggers_13TeV_Spring15 import *
 from CMGTools.RootTools.samples.triggers_13TeV_Spring15_1l import *
 
+selectedComponents = [DYJetsToLL_M50_50ns]
+#selectedComponents = [TTJets_50ns]
+# [DYJetsToLL_M50_50ns, DYJetsToLL_M10to50_50ns, WJetsToLNu_50ns]
+#    DYJetsM50HT_50ns
+#    SingleTop_50ns
+#    DiBosons_50ns
 
 #selectedComponents =  [TTJets]
 #TTJets.splitFactor=1000
@@ -23,7 +29,7 @@ from CMGTools.RootTools.samples.triggers_13TeV_Spring15_1l import *
 #selectedComponents = [ SingleElectron_Run2015B ]
 #selectedComponents = [ SingleMu_Run2015B ]
 #selectedComponents = [ SingleMuon_Run2015B ]
-selectedComponents = [TTJets]
+#selectedComponents = [TTJets]
 #eventFlagsAna.processName = 'HLT'
 #jetAna.recalibrateJets = False
 

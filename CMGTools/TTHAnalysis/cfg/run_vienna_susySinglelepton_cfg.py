@@ -77,12 +77,12 @@ hbheFilterAna = cfg.Analyzer(
 
 susyCoreSequence.insert(-1, hbheFilterAna)
 
-## Single lepton + ST skim
-from CMGTools.TTHAnalysis.analyzers.ttHSTSkimmer import ttHSTSkimmer
-ttHSTSkimmer = cfg.Analyzer(
-    ttHSTSkimmer, name='ttHSTSkimmer',
-    minST = 200,
-    )
+### Single lepton + ST skim
+#from CMGTools.TTHAnalysis.analyzers.ttHSTSkimmer import ttHSTSkimmer
+#ttHSTSkimmer = cfg.Analyzer(
+#    ttHSTSkimmer, name='ttHSTSkimmer',
+#    minST = 200,
+#    )
 
 #from CMGTools.TTHAnalysis.analyzers.ttHReclusterJetsAnalyzer import ttHReclusterJetsAnalyzer
 #ttHReclusterJets = cfg.Analyzer(
@@ -164,8 +164,9 @@ isData = False
 if isData:
   test="data"
 else:
-  test=1
+  test=4
 
+#if True or getHeppyOption("loadSamples"):
 if getHeppyOption("loadSamples"):
   from CMGTools.RootTools.samples.samples_13TeV_74X import *
   if test==1:
@@ -184,10 +185,19 @@ if getHeppyOption("loadSamples"):
     # run all components (1 thread per component).
     for comp in selectedComponents:
       comp.splitFactor = len(comp.files)
+  elif test==4:
+#    TTJets_50ns.fineSplitFactor = 4
+#    selectedComponents = [TTJets_50ns]
+    selectedComponents = [DYJetsToLL_M50_50ns, DYJetsToLL_M10to50_50ns, WJetsToLNu_50ns]
+#    DYJetsM50HT_50ns
+#    SingleTop_50ns
+#    DiBosons_50ns
+    for comp in selectedComponents:
+      comp.splitFactor = len(comp.files)
+      comp.files = comp.files[:]
 
   elif test=="data":
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-
     selectedComponents = [ SingleMuon_Run2015B ]
     for comp in selectedComponents:
         comp.splitFactor = 1
@@ -198,7 +208,7 @@ if getHeppyOption("loadSamples"):
 
 if isData:# and not isEarlyRun:
     eventFlagsAna.processName = 'RECO'
-    metAnaDef.metCollection     = ("slimmedMETs","", "RECO") 
+    metAnaDef.metCollection   = ("slimmedMETs","", "RECO") 
 
 # -------------------- Running pre-processor
 if getHeppyOption("makePreProcessorFile"): #create preprocessor file on the fly
@@ -225,9 +235,9 @@ if getHeppyOption("makePreProcessorFile"): #create preprocessor file on the fly
   subprocess.call(args)
 else: #use precomputed preprocessor files
   if isData:
-    preprocessorFile = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/python/preProcFiles/MetType1_jec_Summer15_50nsV2_MC_GT_74X_dataRun2_Prompt_v1_residuals_False.py"
+    preprocessorFile = "$CMSSW_BASE/python/CMGTools/TTHAnalysis/preProcFiles/MetType1_jec_Summer15_50nsV2_MC_GT_74X_dataRun2_Prompt_v1_residuals_False.py"
   else:
-    preprocessorFile = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/python/preProcFiles/MetType1_jec_Summer15_50nsV2_MC_GT_MCRUN2_74_V9A_residuals_False.py" 
+    preprocessorFile = "$CMSSW_BASE/python/CMGTools/TTHAnalysis/preProcFiles/MetType1_jec_Summer15_50nsV2_MC_GT_MCRUN2_74_V9A_residuals_False.py" 
   print "Using preprocessor file %s"%preprocessorFile
 
 from PhysicsTools.Heppy.utils.cmsswPreprocessor import CmsswPreprocessor
