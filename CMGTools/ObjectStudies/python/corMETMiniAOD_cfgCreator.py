@@ -61,7 +61,7 @@ usePrivateSQlite = options.jecDBFile!=''
 if usePrivateSQlite:
     from CondCore.DBCommon.CondDBSetup_cfi import *
     process.jec = cms.ESSource("PoolDBESSource",CondDBSetup,
-                               connect = cms.string('sqlite_file:'+os.path.expandvars(options.jecDBFile)),
+                               connect = cms.string("DBFILE_PLACEHOLDER"),
                                toGet =  cms.VPSet(
             cms.PSet(
                 record = cms.string("JetCorrectionsRecord"),
@@ -79,12 +79,10 @@ if usePrivateSQlite:
 
 ### =====================================================================================================
 
-
+fname = 'root://eoscms.cern.ch//store/data/Run2015B/JetHT/MINIAOD/PromptReco-v1/000/251/252/00000/263D331F-AF27-E511-969B-02163E012627.root' if options.isData else 'root://eoscms//eos/cms/store/mc/RunIISpring15DR74/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/MINIAODSIM/Asympt50ns_MCRUN2_74_V9A-v2/60000/001C7571-0511-E511-9B8E-549F35AE4FAF.root'
 # Define the input source
 process.source = cms.Source("PoolSource", 
-    fileNames = cms.untracked.vstring([
-            'root://eoscms//eos/cms/store/mc/RunIISpring15DR74/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/MINIAODSIM/Asympt50ns_MCRUN2_74_V9A-v2/60000/001C7571-0511-E511-9B8E-549F35AE4FAF.root' 
-    ])
+    fileNames = cms.untracked.vstring([ fname ])
 )
 
 ### ---------------------------------------------------------------------------
@@ -157,8 +155,19 @@ process.MINIAODSIMoutput = cms.OutputModule("PoolOutputModule",
 process.endpath = cms.EndPath(process.MINIAODSIMoutput)
 
 ofile = os.path.expandvars(options.outputFile)
+#                               connect = cms.string('DBFILE_PLACEHOLDER'),
+#    connect = cms.string('sqlite_file:'+os.path.expandvars('$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_50nsV2_MC.db')),
+
+replacements = [
+  ("import FWCore.ParameterSet.Config as cms", "import FWCore.ParameterSet.Config as cms\nimport os\n"),
+  ("'DBFILE_PLACEHOLDER'", "'sqlite_file:'+os.path.expandvars('"+options.jecDBFile+"')"), 
+ 
+  ]
 if os.path.isfile(ofile): os.remove(ofile)
 dumpFile  = open(ofile, "w")
-dumpFile.write(process.dumpPython())
+dump = process.dumpPython()
+for r in replacements:
+  dump = dump.replace(*r)
+dumpFile.write(dump)
 dumpFile.close()
 print "Written preprocessor cfg to %s"%ofile

@@ -60,8 +60,6 @@ elif test==2:
         comp.files = comp.files[:1]
 
 elif test==3:
-#    selectedComponents = [ DYJetsToLL_M50_50ns,TTJets_50ns ]
-    selectedComponents = [ DYJetsToLL_M50_50ns]
     isData = False
     isZSkim=True
     selectedComponents = [ DYJetsToLL_M50_50ns,TTJets_50ns ]
