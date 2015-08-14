@@ -6,6 +6,17 @@ susySingleLepton_globalVariables = susyCore_globalVariables + [
 
             NTupleVariable("met_genPt", lambda ev : ev.met_genPtDef, help="gen E_{T}^{miss} pt from patch of Matthieus recipe which doesn't store genmet"),
             NTupleVariable("met_genPhi", lambda ev : ev.met_genPhiDef, help="gen E_{T}^{miss} phi from patch of Matthieus recipe which doesn't store genmet"),
+
+            NTupleVariable("met_rawPt", lambda ev : ev.met.uncorrectedPt(), help="raw met p_{T}"),
+            NTupleVariable("met_rawPhi", lambda ev : ev.met.uncorrectedPhi(), help="raw met phi"),
+            NTupleVariable("met_rawSumEt", lambda ev : ev.met.uncorrectedSumEt(), help="raw met sumEt"),
+            NTupleVariable("metNoHF_rawPt", lambda ev : ev.metNoHF.uncorrectedPt(), help="raw metNoHF p_{T}"),
+            NTupleVariable("metNoHF_rawPhi", lambda ev : ev.metNoHF.uncorrectedPhi(), help="raw metNoHF phi"),
+            NTupleVariable("metNoHF_rawSumetNoHF", lambda ev : ev.metNoHF.uncorrectedSumEt(), help="raw metNoHF sumetNoHF"),
+            NTupleVariable("met_caloPt", lambda ev : ev.met.caloMETPt(), help="calo met p_{T}"),
+            NTupleVariable("met_caloPhi", lambda ev : ev.met.caloMETPhi(), help="calo met phi"),
+            NTupleVariable("met_caloSumEt", lambda ev : ev.met.caloMETSumEt(), help="calo met sumEt"),
+
             ##-------- custom jets ------------------------------------------
             NTupleVariable("htJet25", lambda ev : ev.htJet25, help="H_{T} computed from leptons and jets (with |eta|<2.4, pt > 25 GeV)"),
             NTupleVariable("mhtJet25", lambda ev : ev.mhtJet25, help="H_{T}^{miss} computed from leptons and jets (with |eta|<2.4, pt > 25 GeV)"),

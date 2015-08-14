@@ -27,7 +27,10 @@ if "CMG_TOTAL_UNITS" in os.environ:
 
 config.Data.inputDataset = dataset
 config.Data.publishDataName = m.group(2)+"_"+production_label
-
+lumiMask =  os.environ["CMG_LUMI_MASK"]
+if lumiMask != "None":
+  config.Data.lumiMask = lumiMask
+print "Using lumiMask: %s"%lumiMask
 #config.Data.publishDataName += "_"+sample
 print "Will send dataset", dataset , "with", config.Data.unitsPerJob, " files / jobs"
 

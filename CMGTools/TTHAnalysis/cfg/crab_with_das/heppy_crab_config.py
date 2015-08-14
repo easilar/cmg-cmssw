@@ -31,7 +31,7 @@ for l in p.stdout.readlines():
     fields = l[:-1].split()
     if len(fields)==3:
       user = fields[-1]
-config.Data.outLFNDirBase = '/store/user/' + user
+config.Data.outLFNDirBase = '/store/user/' + user+'/cmgTuples/'
 config.Data.publication = False
 #config.Data.primaryDataset = 'MyTest'
 #config.Data.totalUnits = 5
@@ -41,7 +41,7 @@ config.Data.unitsPerJob = 10
 
 config.section_("Site")
 #config.Site.whitelist = ["T2_CH_CSCS"]
-#config.Site.whitelist = ["T2_CH_CSCS", "T2_IT_Legnaro", "T2_UK_London_IC", "T2_UK_SGrid_Bristol", "T2_DE_DESY", "T2_ES_CIEMAT", "T2_IT_Rome", "T2_AT_Vienna","T2_DE_RWTH","T2_FR_GRIF_IRFU", "T2_HU_Budapest"] #, "T2_FR_IPHC", "T2_BE_IIHE", "T2_IT_Pisa", "T2_ES_IFCA", "T2_UK_London_Brunel"] , "T2_PK_NCP", "T2_US_Purdue", "T2_UA_KIPT", "T2_KR_KNU", "T2_RU_IHEP", "T2_RU_INR", "T2_RU_JINR", "T2_US_MIT", "T2_US_Wisconsin", "T2_US_UCSD", "T2_US_Vanderbilt", "T2_US_Caltech"]
-config.Site.storageSite = "T2_AT_Vienna"
+config.Site.blacklist = ['T2_US_Purdue', 'T2_BE_IIHE', 'T2_US_Wisconsin', 'T2_UK_SGrid_Bristol']
+config.Site.storageSite = 'T2_AT_Vienna'
 #config.Data.ignoreLocality = True
 

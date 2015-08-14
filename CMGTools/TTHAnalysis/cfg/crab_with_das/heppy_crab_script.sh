@@ -68,7 +68,9 @@ echo $@
 #EOF
 
 python -u heppy_crab_script.py $@
-
 echo "After heppy_crab_script.py"
+echo "Output/cmsRun.log:"
+cat Output/cmsRun.log
+
 ls -lR
 
