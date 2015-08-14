@@ -159,12 +159,13 @@ sequence = cfg.Sequence(
         ])
 
 removeResiduals = True
-isData = False
-
+#isData = False
+isData = True
 if isData:
   test="data"
 else:
   test=4
+test="data"
 
 #if True or getHeppyOption("loadSamples"):
 if getHeppyOption("loadSamples"):
@@ -197,14 +198,16 @@ if getHeppyOption("loadSamples"):
       comp.files = comp.files[:]
 
   elif test=="data":
+    print "yess , test is DATA"
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
     selectedComponents = [ SingleMuon_Run2015B ]
     for comp in selectedComponents:
         comp.splitFactor = 1
-        comp.files = comp.files[:]
+        #comp.files = comp.files[:]
         comp.isMC = False
         comp.isData = True
-#        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
+        #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
+        comp.json = "../data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
 
 if isData:# and not isEarlyRun:
     eventFlagsAna.processName = 'RECO'
