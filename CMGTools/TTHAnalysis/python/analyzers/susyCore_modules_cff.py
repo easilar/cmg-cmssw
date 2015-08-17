@@ -446,6 +446,6 @@ susyCoreSequence = [
     metAnaDef,
     ttHCoreEventAna,
     #ttHJetMETSkim
-#TEMPORARY    triggerFlagsAna,
-#TEMPORARY    eventFlagsAna,
+  triggerFlagsAna,
+  eventFlagsAna,
 ]
