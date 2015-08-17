@@ -37,7 +37,7 @@ elif isolation == "relIso03":
     lepAna.loose_muon_relIso = 0.5
 
 # --- LEPTON SKIMMING ---
-ttHLepSkim.minLeptons = 0
+ttHLepSkim.minLeptons = 1
 ttHLepSkim.maxLeptons = 999
 #LepSkim.idCut  = ""
 #LepSkim.ptCuts = []
@@ -168,10 +168,10 @@ sequence = cfg.Sequence(
         treeProducer,
         ])
 
-isData = True
-removeResiduals = False
-bx = '50ns'
-#bx = '25ns'
+isData = False
+removeResiduals = True
+#bx = '50ns'
+bx = '25ns'
 
 if isData:
   test="data"
@@ -211,7 +211,7 @@ if getHeppyOption("loadSamples"):
     selectedComponents = [DYJetsToLL_M50]
 #    selectedComponents = [WJetsToLNu_HT600to800,WJetsToLNu_HT800to1200,WJetsToLNu_HT1200to2500,WJetsToLNu_HT2500toInf]
     for comp in selectedComponents:
-      comp.files = comp.files[:]
+      comp.files = comp.files[:1]
       comp.splitFactor = len(comp.files) 
 
   elif test=="data":

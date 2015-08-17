@@ -111,28 +111,6 @@ GJets_HT600toInf,
 ]
 
 ### QCD
-<<<<<<< HEAD
-QCD_HT100to200 = kreator.makeMCComponent("QCD_HT100to200","/QCD_HT100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v2/MINIAODSIM","CMS",".*root",27540000)
-QCD_HT200to300 = kreator.makeMCComponent("QCD_HT200to300","/QCD_HT200to300_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v2/MINIAODSIM","CMS",".*root",1735000)
-QCD_HT300to500 = kreator.makeMCComponent("QCD_HT300to500","/QCD_HT300to500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v2/MINIAODSIM","CMS",".*root",366800)
-QCD_HT500to700 = kreator.makeMCComponent("QCD_HT500to700","/QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/MINIAODSIM","CMS",".*root",29370)
-QCD_HT700to1000 = kreator.makeMCComponent("QCD_HT700to1000","/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/MINIAODSIM","CMS",".*root",6524)
-QCD_HT1000to1500 = kreator.makeMCComponent("QCD_HT1000to1500","/QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v2/MINIAODSIM","CMS",".*root",1064)
-QCD_HT1500to2000 = kreator.makeMCComponent("QCD_HT1500to2000","/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/MINIAODSIM","CMS",".*root",121.5)
-QCD_HT2000toInf = kreator.makeMCComponent("QCD_HT2000toInf","/QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/MINIAODSIM","CMS",".*root",25.42)
-
-QCD_HT = [
-    QCD_HT100to200,
-    QCD_HT200to300,
-    QCD_HT300to500,
-    QCD_HT500to700,
-    QCD_HT700to1000,
-    QCD_HT1000to1500,
-    QCD_HT1500to2000,
-    QCD_HT2000toInf
-]
-
-
 QCD_Pt80to120 = kreator.makeMCComponent("QCD_Pt80to120","/QCD_Pt_80to120_TuneCUETP8M1_13TeV_pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/MINIAODSIM", "CMS", ".*root", 2762530.0)
 QCD_Pt120to170 = kreator.makeMCComponent("QCD_Pt120to170","/QCD_Pt_120to170_TuneCUETP8M1_13TeV_pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/MINIAODSIM", "CMS", ".*root", 471100)
 QCD_Pt170to300 = kreator.makeMCComponent("QCD_Pt170to300","/QCD_Pt_170to300_TuneCUETP8M1_13TeV_pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v2/MINIAODSIM", "CMS", ".*root", 117276)
