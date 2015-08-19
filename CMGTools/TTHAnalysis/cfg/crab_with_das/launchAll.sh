@@ -1,36 +1,33 @@
 #!/bin/sh
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" Jet_Run2015B
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" JetHT_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" HTMHT_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" MET_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" SingleElectron_Run2015B
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" SingleMu_Run2015B
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" SingleMuon_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" SinglePhoton_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" EGamma_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" DoubleEG_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" MuonEG_Run2015B
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" DoubleMuon_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" minBias_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" zeroBias_Run2015B
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" Jet_Run2015B_17Jul
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" JetHT_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" HTMHT_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" MET_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" SingleElectron_Run2015B_17Jul
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" SingleMu_Run2015B_17Jul
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" SingleMuon_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" SinglePhoton_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" EGamma_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" DoubleEG_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" MuonEG_Run2015B_17Jul
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" DoubleMuon_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" minBias_Run2015B_17Jul
-##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" zeroBias_Run2015B_17Jul
-python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_lumi2" SingleMuon_Run2015B_17Jul
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_lumi" SingleMuon_Run2015B
-python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_lumi2" SingleElectron_Run2015B_17Jul
-#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_lumi" SingleElectron_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" Jet_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" JetHT_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" HTMHT_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" MET_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" SingleElectron_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" SingleMu_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" SingleMuon_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" SinglePhoton_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" EGamma_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" DoubleEG_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" MuonEG_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" DoubleMuon_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" minBias_Run2015B
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt" zeroBias_Run2015B
+
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" Jet_Run2015B_17Jul
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" JetHT_Run2015B_17Jul
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" HTMHT_Run2015B_17Jul
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" MET_Run2015B_17Jul
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" SingleElectron_Run2015B_17Jul
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" SingleMu_Run2015B_17Jul
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" SingleMuon_Run2015B_17Jul
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" SinglePhoton_Run2015B_17Jul
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" EGamma_Run2015B_17Jul
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" DoubleEG_Run2015B_17Jul
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" MuonEG_Run2015B_17Jul
+python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" DoubleMuon_Run2015B_17Jul
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" minBias_Run2015B_17Jul
+##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take4" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" zeroBias_Run2015B_17Jul
 
 #python launch.py --unitsPerJob=1 --production_label="MC25ns" TTJets
 #python launch.py --unitsPerJob=1 --production_label="MC25ns" TToLeptons_tch

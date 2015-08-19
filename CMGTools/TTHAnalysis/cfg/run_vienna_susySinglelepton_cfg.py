@@ -168,8 +168,8 @@ sequence = cfg.Sequence(
         treeProducer,
         ])
 
-isData = True
-removeResiduals = False
+isData = False
+removeResiduals = True
 bx = '50ns'
 #bx = '25ns'
 
@@ -195,8 +195,8 @@ if getHeppyOption("loadSamples"):
             comp.fineSplitFactor = 10
             comp.files = comp.files[:1]
   elif test==3:
-    # RelVal test 
-    selectedComponents=[ZMM_746p1_bx50]
+#    selectedComponents=[ZMM_746p1_bx50]
+    selectedComponents = [DYJetsToLL_M50_50ns]
     for comp in selectedComponents:
       comp.files=comp.files[:1]
       comp.splitFactor = 1 
@@ -236,9 +236,8 @@ if isData:
   dataGT= '74X_dataRun2_Prompt_v1' #50ns data
   jetAna.mcGT     = "Summer15_50nsV4_MC"
   jetAna.dataGT   = "Summer15_50nsV4_DATA"
-  #eventFlagsAna.processName = 'RECO'
-  eventFlagsAna.processName = 'PAT'
-  #metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
+  eventFlagsAna.processName = 'RECO'
+#  metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
   metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
   jetAna.applyL2L3Residual = False if removeResiduals else 'Data' 
 else: #simulation
