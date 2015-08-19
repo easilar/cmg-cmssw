@@ -9,6 +9,7 @@ from optparse import OptionParser
 parser = OptionParser(usage="python launch.py [options] component1 [ component2 ...]", \
                           description="Launch heppy jobs with CRAB3. Components correspond to the variables defined in heppy_samples.py (their name attributes)")
 parser.add_option("--production_label", dest="production_label", help="production label", default="heppy")
+parser.add_option("--remoteDir", dest="remoteDir", help="remote subdirectory", default="")
 parser.add_option("--cmg_version", dest="cmg_version", help="CMG version", \
                       default="CMGTools-from-CMSSW_7_4_7_LocalDevelopments")
 parser.add_option("--unitsPerJob", dest="unitsPerJob", help="Nr. of units (files) / crab job", type="int", default=1)
@@ -46,6 +47,7 @@ os.system("scram runtime -sh")
 os.system("source /cvmfs/cms.cern.ch/crab3/crab.sh")
 
 os.environ["CMG_PROD_LABEL"]  = options.production_label
+os.environ["CMG_REMOTE_DIR"]  = options.remoteDir
 os.environ["CMG_VERSION"] = options.cmg_version
 os.environ["CMG_UNITS_PER_JOB"] = str(options.unitsPerJob)
 os.environ["CMG_LUMI_MASK"] = options.lumiMask if options.lumiMask else "None"

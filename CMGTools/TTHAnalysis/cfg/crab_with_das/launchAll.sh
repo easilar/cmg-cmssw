@@ -27,10 +27,10 @@
 #python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" DoubleMuon_Run2015B_17Jul
 ##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" minBias_Run2015B_17Jul
 ##python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_take2" --lumiMask="json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt" zeroBias_Run2015B_17Jul
-python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_test3" SingleMuon_Run2015B_17Jul
-python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_test3" SingleMuon_Run2015B
-python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_test3" SingleElectron_Run2015B_17Jul
-python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_test3" SingleElectron_Run2015B
+python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_lumi2" SingleMuon_Run2015B_17Jul
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_lumi" SingleMuon_Run2015B
+python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_lumi2" SingleElectron_Run2015B_17Jul
+#python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_lumi" SingleElectron_Run2015B
 
 #python launch.py --unitsPerJob=1 --production_label="MC25ns" TTJets
 #python launch.py --unitsPerJob=1 --production_label="MC25ns" TToLeptons_tch
@@ -96,30 +96,41 @@ python launch.py --unitsPerJob=1 --production_label="Summer15_50nsV4_test3" Sing
 #python launch.py --unitsPerJob=1 --production_label="MC25ns" WZp8 
 
 # 50ns MC
-#python launch.py --unitsPerJob=1 --production_label="test" DYJetsToLL_M50_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" TTJets_50ns 
-#python launch.py --unitsPerJob=1 --production_label="test" DYJetsToLL_M10to50_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" WJetsToLNu_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" TToLeptons_tch_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" TBar_tWch_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" T_tWch_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" WWTo2L2Nu_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" ZZp8_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" WZp8_50ns 
-#python launch.py --unitsPerJob=1 --production_label="test" DYJetsToLL_M50_HT100to200_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" DYJetsToLL_M50_HT200to400_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" DYJetsToLL_M50_HT400to600_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" DYJetsToLL_M50_HT600toInf_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt15to20_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt20to30_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt30to50_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt50to80_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt80to120_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt120to170_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt170to300_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt300to470_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt470to600_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt600to800_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt800to1000_Mu5_50ns
-#python launch.py --unitsPerJob=1 --production_label="test" QCD_Pt1000toInf_Mu5_50ns 
-
+#python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" TTJets_50ns 
+#python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M10to50_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" WJetsToLNu_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" TToLeptons_tch_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" TBar_tWch_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" T_tWch_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" WWTo2L2Nu_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" ZZp8_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" WZp8_50ns 
+#python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT100to200_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT200to400_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT400to600_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT600toInf_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt80to120
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt120to170
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt170to300
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt300to470
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt470to600
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt800to1000
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt1000to1400
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt1400to1800
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt1800to2400
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt2400to3200
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt3200toInf
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt15to20_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt20to30_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt30to50_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt50to80_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt80to120_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt120to170_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt170to300_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt300to470_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt470to600_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt600to800_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt800to1000_Mu5_50ns
+#python launch.py --unitsPerJob=1 --production_label="had" QCD_Pt1000toInf_Mu5_50ns 
+#

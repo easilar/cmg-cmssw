@@ -73,7 +73,6 @@ echo "Output/cmsRun.log:"
 cat Output/cmsRun.log
 
 echo "Now removing Output/cmsswPreProcessing.root"
-rm -rf Output/cmsswPreProcessing.root
-
+rm -rf ./Output/cmsswPreProcessing.root
 ls -lR
 

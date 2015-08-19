@@ -36,14 +36,16 @@ for i in xrange(0,len(crabFiles)) :
 import imp
 handle = open("heppy_config.py", 'r')
 cfo = imp.load_source("heppy_config", "heppy_config.py", handle)
+print "!!CFO:" , cfo
 #config = cfo.config
 cfg = cfo.cfg
+print "!!CFG:" , cfg
 seq = cfo.sequence
 pre = cfo.preprocessor
 handle.close()
 
 from PhysicsTools.HeppyCore.framework.eventsfwlite import Events
-print "creating config with ",[comp],seq
+print "creating config with ",[comp],seq , " preprocessor:" , pre
 config = cfg.Config(components=[comp],sequence=seq,preprocessor=pre,services=[],events_class=Events)
 
 #replace files with crab ones

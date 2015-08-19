@@ -2,7 +2,7 @@ import PhysicsTools.HeppyCore.framework.config as cfg
 
 #-------- SAMPLES AND TRIGGERS -----------
 from CMGTools.RootTools.samples.samples_8TeVReReco_74X import * # <-- this one for the official sample
-from CMGTools.ObjectStudies.samples.samples_METPOG_private import * #<-- this one for the private re-reco
+#from CMGTools.ObjectStudies.samples.samples_METPOG_private import * #<-- this one for the private re-reco
 from CMGTools.RootTools.samples.samples_13TeV_74X import *
 from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
 
@@ -17,7 +17,7 @@ isEarlyRun = False # to be used for the filters
 removeResiduals = True
 #-------- HOW TO RUN
 
-test = 16
+test = 2 
 
 if test==0:
     isData = True
@@ -57,7 +57,8 @@ elif test==2:
     for comp in selectedComponents:
         comp.triggers = triggers_mumu
         comp.splitFactor = 1
-        comp.files = comp.files[:1]
+#        comp.files = comp.files[:1]
+        comp.files = ["root://eoscms.cern.ch//store/data/Run2015B/DoubleEG/MINIAOD/PromptReco-v1/000/251/096/00000/8A2D533C-5626-E511-AF3C-02163E011FAB.root"]
 
 elif test==3:
     isData = False
@@ -247,8 +248,8 @@ if getHeppyOption("nofetch"):
 
 # -------------------- Running pre-processor
 import subprocess
-jecDBFile = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_50nsV2_MC.db'
-jecEra    = 'Summer15_50nsV2_MC'
+jecDBFile = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_50nsV4_MC.db'
+jecEra    = 'Summer15_50nsV4_MC'
 preprocessorFile = "$CMSSW_BASE/tmp/MetType1_jec_%s.py"%(jecEra)
 extraArgs=[]
 if isData:
