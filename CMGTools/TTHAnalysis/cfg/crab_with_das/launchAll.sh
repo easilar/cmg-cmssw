@@ -103,7 +103,7 @@
 #python launch.py --unitsPerJob=1 --production_label="had" WWTo2L2Nu_50ns
 #python launch.py --unitsPerJob=1 --production_label="had" ZZp8_50ns
 #python launch.py --unitsPerJob=1 --production_label="had" WZp8_50ns 
-#python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT100to200_50ns
+python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT100to200_50ns
 #python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT200to400_50ns
 #python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT400to600_50ns
 #python launch.py --unitsPerJob=1 --production_label="had" DYJetsToLL_M50_HT600toInf_50ns
