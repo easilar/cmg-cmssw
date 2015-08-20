@@ -168,8 +168,8 @@ sequence = cfg.Sequence(
         treeProducer,
         ])
 
-isData = False
-removeResiduals = True
+isData = True
+removeResiduals = False
 bx = '50ns'
 #bx = '25ns'
 
@@ -217,7 +217,7 @@ if getHeppyOption("loadSamples"):
 
   elif test=="data":
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-    selectedComponents = [ SingleMuon_Run2015B_17Jul ]
+    selectedComponents = [ SingleElectron_Run2015B ]
     for comp in selectedComponents:
         comp.splitFactor = 1
 #        comp.files = ["root://eoscms.cern.ch//store/data/Run2015B/DoubleEG/MINIAOD/PromptReco-v1/000/251/096/00000/8A2D533C-5626-E511-AF3C-02163E011FAB.root"]
@@ -225,7 +225,8 @@ if getHeppyOption("loadSamples"):
         comp.isMC = False
         comp.isData = True
         #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_promt.json"
-        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul.json"
+        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
+        #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul.json"
 
 
 if isData:
@@ -237,8 +238,8 @@ if isData:
   jetAna.mcGT     = "Summer15_50nsV4_MC"
   jetAna.dataGT   = "Summer15_50nsV4_DATA"
   eventFlagsAna.processName = 'RECO'
-#  metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
-  metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
+  metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
+#  metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
   jetAna.applyL2L3Residual = False if removeResiduals else 'Data' 
 else: #simulation
   if bx=='50ns':
