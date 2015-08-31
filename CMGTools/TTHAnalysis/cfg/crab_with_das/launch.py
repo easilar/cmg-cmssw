@@ -16,6 +16,7 @@ parser.add_option("--unitsPerJob", dest="unitsPerJob", help="Nr. of units (files
 parser.add_option("--totalUnits", dest="totalUnits", help="Total nr. of units (files)", type="int", default=None)
 parser.add_option("--inputDBS", dest="inputDBS", help="dbs instance", default=None)
 parser.add_option("--lumiMask", dest="lumiMask", help="lumi mask (for data)", default=None)
+#parser.add_option("--data_rereco", dest="data_rereco", help="if data is rereco set True to adjust slimmed met (for data)", default=False)
 ( options, args ) = parser.parse_args()
 
 handle = open("heppy_samples.py", 'r')
@@ -51,6 +52,7 @@ os.environ["CMG_REMOTE_DIR"]  = options.remoteDir
 os.environ["CMG_VERSION"] = options.cmg_version
 os.environ["CMG_UNITS_PER_JOB"] = str(options.unitsPerJob)
 os.environ["CMG_LUMI_MASK"] = options.lumiMask if options.lumiMask else "None"
+#os.environ["CMG_DATA_RERECO"] = options.data_rereco
 if options.totalUnits:
     os.environ["CMG_TOTAL_UNITS"] = str(options.totalUnits)
 else:

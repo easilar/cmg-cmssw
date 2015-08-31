@@ -3,6 +3,7 @@
 ## skim condition: >= 1 loose leptons, no pt cuts or id ##
 ##########################################################
 import PhysicsTools.HeppyCore.framework.config as cfg
+import os
 from PhysicsTools.HeppyCore.framework.heppy_loop import getHeppyOption
 
 #Load all analyzers
@@ -224,9 +225,11 @@ if getHeppyOption("loadSamples"):
         #comp.files = comp.files[:1] 
         comp.isMC = False
         comp.isData = True
+        #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
+        #if not os.environ["CMG_DATA_RERECO"]:
         #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_promt.json"
-        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
-        #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul.json"
+        #if os.environ["CMG_DATA_RERECO"]:
+        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul.json"
 
 
 if isData:
@@ -237,9 +240,12 @@ if isData:
   dataGT= '74X_dataRun2_Prompt_v1' #50ns data
   jetAna.mcGT     = "Summer15_50nsV4_MC"
   jetAna.dataGT   = "Summer15_50nsV4_DATA"
-  eventFlagsAna.processName = 'RECO'
-  metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
-#  metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
+  #if not os.environ["CMG_DATA_RERECO"]:
+  #eventFlagsAna.processName = 'RECO'
+  #metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
+  #if os.environ["CMG_DATA_RERECO"]:
+  eventFlagsAna.processName = 'PAT'
+  metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
   jetAna.applyL2L3Residual = False if removeResiduals else 'Data' 
 else: #simulation
   if bx=='50ns':
