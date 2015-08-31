@@ -128,7 +128,16 @@ triggerFlagsAna.triggerBits = {
         'mumuNoiso' : triggers_mumu_noniso,
         'mumuSS' : triggers_mumu_ss,
         'mumuHT' : triggers_mumu_ht,
+# ee
+        'ee_DZ': triggers_MT2_ee, 
+#mue
+        'mue':triggers_MT2_mue,
+#MET
 #
+        'Jet80MET90'       :triggers_Jet80MET90    ,
+        'Jet80MET120'      :triggers_Jet80MET120   ,
+        'MET120Mu5'        :triggers_MET120Mu5     ,
+
         'MET170_pres'      :triggers_MET170_pres   , 
         'MET250'           :triggers_MET250        ,
         'MET90nc'          :triggers_MET90nc       ,
@@ -169,7 +178,7 @@ sequence = cfg.Sequence(
         treeProducer,
         ])
 
-isData = True
+isData = True 
 removeResiduals = False
 bx = '50ns'
 #bx = '25ns'
@@ -218,11 +227,18 @@ if getHeppyOption("loadSamples"):
 
   elif test=="data":
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-    selectedComponents = [ SingleElectron_Run2015B ]
+    selectedComponents = [ DoubleMuon_Run2015B_17Jul ]
+    ##applying the correct json files to PrompReco and July17 samples
+    for sample in dataSamples_Run2015B:
+      sample.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/cfg/crab_with_das/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt"
+    for sample in dataSamples_17Jul:
+      sample.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/cfg/crab_with_das/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt"
+
+
     for comp in selectedComponents:
         comp.splitFactor = 1
-#        comp.files = ["root://eoscms.cern.ch//store/data/Run2015B/DoubleEG/MINIAOD/PromptReco-v1/000/251/096/00000/8A2D533C-5626-E511-AF3C-02163E011FAB.root"]
-        #comp.files = comp.files[:1] 
+        comp.files = ["root://eoscms.cern.ch//store/data/Run2015B/SingleElectron/MINIAOD/PromptReco-v1/000/251/604/00000/AE22AF42-902A-E511-8A22-02163E012B30.root"]
+        comp.files = comp.files[:1] 
         comp.isMC = False
         comp.isData = True
         #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"

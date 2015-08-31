@@ -18,6 +18,7 @@ dataDir = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data"  # use environmental varia
 json=dataDir+'/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul.json' # golden json 40.03 pb
 ##json=dataDir+'/json/json_DCSONLY_Run2015B.txt'
 #json=dataDir+'/json/Cert_246908-251252_13TeV_PromptReco_Collisions15_JSON.txt' # golden json 5.6/pb
+# https://hypernews.cern.ch/HyperNews/CMS/get/physics-validation/2446.html
 
 
 #jetHT_0T = cfg.DataComponent(
