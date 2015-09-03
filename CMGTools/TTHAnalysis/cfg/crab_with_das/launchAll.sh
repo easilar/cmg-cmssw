@@ -15,7 +15,7 @@
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   SinglePhoton_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   EGamma_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   DoubleEG_Run2015B
-python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   MuonEG_Run2015B
+python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns_2"   MuonEG_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   DoubleMuon_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   minBias_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   zeroBias_Run2015B

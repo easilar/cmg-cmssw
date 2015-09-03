@@ -227,18 +227,13 @@ if getHeppyOption("loadSamples"):
 
   elif test=="data":
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-    selectedComponents = [ DoubleMuon_Run2015B_17Jul ]
+#    selectedComponents = [ DoubleMuon_Run2015B ]
+    selectedComponents = [ MuonEG_Run2015B ]
     ##applying the correct json files to PrompReco and July17 samples
-    for sample in dataSamples_Run2015B:
-      sample.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/cfg/crab_with_das/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_Non17Jul2015.txt"
-    for sample in dataSamples_17Jul:
-      sample.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/cfg/crab_with_das/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul2015.txt"
-
 
     for comp in selectedComponents:
         comp.splitFactor = 1
-        comp.files = ["root://eoscms.cern.ch//store/data/Run2015B/SingleElectron/MINIAOD/PromptReco-v1/000/251/604/00000/AE22AF42-902A-E511-8A22-02163E012B30.root"]
-        comp.files = comp.files[:1] 
+        comp.files = comp.files 
         comp.isMC = False
         comp.isData = True
         #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
@@ -317,7 +312,8 @@ event_class = Events
 if getHeppyOption("fetch"):
   event_class = EOSEventsWithDownload
 
-#printComps(config.components, True)
+print "Components"
+print selectedComponents
 config = cfg.Config( components = selectedComponents,
                      sequence = sequence,
                      services = [],
