@@ -180,8 +180,8 @@ sequence = cfg.Sequence(
 
 isData = True 
 removeResiduals = False
-bx = '50ns'
-#bx = '25ns'
+#bx = '50ns'
+bx = '25ns'
 
 if isData:
   test="data"
@@ -189,8 +189,8 @@ else:
   if bx=='50ns':test=3
   if bx=='25ns':test=5
 
-#if True or getHeppyOption("loadSamples"):
-if getHeppyOption("loadSamples"):
+if True or getHeppyOption("loadSamples"):
+#if getHeppyOption("loadSamples"):
   from CMGTools.RootTools.samples.samples_13TeV_74X import *
   if test==1:
     # test a single component, using a single thread.
@@ -228,9 +228,10 @@ if getHeppyOption("loadSamples"):
   elif test=="data":
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
 #    selectedComponents = [ DoubleMuon_Run2015B ]
-    selectedComponents = [ MuonEG_Run2015B ]
+    #selectedComponents = [ MuonEG_Run2015B ]
+    selectedComponents = [SingleMuon_Run2015C]
     ##applying the correct json files to PrompReco and July17 samples
-
+    print selectedComponents
     for comp in selectedComponents:
         comp.splitFactor = 1
         comp.files = comp.files 
@@ -240,11 +241,12 @@ if getHeppyOption("loadSamples"):
         #if not os.environ["CMG_DATA_RERECO"]:
         #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_promt.json"
         #if os.environ["CMG_DATA_RERECO"]:
-        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul.json"
+        #comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2_17Jul.json"
+        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-254879_13TeV_PromptReco_Collisions15_JSON.json"
 
 
 if isData:
-  assert bx!='25ns', "Has the future arrived?"
+  #assert bx!='25ns', "Has the future arrived?"
   jecDBFile = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_50nsV4_DATA.db'
   jecEra    = 'Summer15_50nsV4_DATA'
   mcGT = 'XXX'
@@ -252,11 +254,11 @@ if isData:
   jetAna.mcGT     = "Summer15_50nsV4_MC"
   jetAna.dataGT   = "Summer15_50nsV4_DATA"
   #if not os.environ["CMG_DATA_RERECO"]:
-  #eventFlagsAna.processName = 'RECO'
-  #metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
+  eventFlagsAna.processName = 'RECO'
+  metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
   #if os.environ["CMG_DATA_RERECO"]:
-  eventFlagsAna.processName = 'PAT'
-  metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
+  #eventFlagsAna.processName = 'PAT'
+  #metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
   jetAna.applyL2L3Residual = False if removeResiduals else 'Data' 
 else: #simulation
   if bx=='50ns':
