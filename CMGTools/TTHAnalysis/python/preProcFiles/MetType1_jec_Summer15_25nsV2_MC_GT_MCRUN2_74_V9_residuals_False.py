@@ -1834,8 +1834,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
         fx = cms.string('(x*[0])+(sq(x)*[1])'),
         fy = cms.string('(x*[0])+(sq(x)*[1])'),
         name = cms.string('hEtaPlus'),
-        px = cms.vdouble(-0.00220049396857, 4.86017686051e-07),
-        py = cms.vdouble(0.000301784350668, -2.55951949068e-07),
+        px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+        py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
         type = cms.int32(1),
         varType = cms.int32(0)
     ), 
@@ -1845,8 +1845,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hEtaMinus'),
-            px = cms.vdouble(-0.000217969078412, 3.0200051094e-07),
-            py = cms.vdouble(-0.0014606200538, -2.29508676725e-06),
+            px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+            py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
             type = cms.int32(1),
             varType = cms.int32(0)
         ), 
@@ -1856,8 +1856,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0Barrel'),
-            px = cms.vdouble(-0.0135587323577, 5.55593286464e-05),
-            py = cms.vdouble(0.00848783774079, -0.00022596699093),
+            px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+            py = cms.vdouble(0.00798098092474, -0.000103998219585),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -1867,8 +1867,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0EndcapPlus'),
-            px = cms.vdouble(-0.00285895832031, -6.08161900014e-05),
-            py = cms.vdouble(-0.00934018266651, 0.000259105827172),
+            px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+            py = cms.vdouble(-0.00345131507897, 0.000164816815994),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -1878,8 +1878,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0EndcapMinus'),
-            px = cms.vdouble(-0.00537876208774, 0.000209817129512),
-            py = cms.vdouble(0.011148063877, -4.44149746767e-06),
+            px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+            py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -1889,8 +1889,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaBarrel'),
-            px = cms.vdouble(-0.00192842680623, 2.61152485314e-06),
-            py = cms.vdouble(-0.000507607323037, 4.48832037695e-06),
+            px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+            py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -1900,8 +1900,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaEndcapPlus'),
-            px = cms.vdouble(-0.000519297328533, -2.0682880001e-05),
-            py = cms.vdouble(0.00282867507264, 6.66930895313e-05),
+            px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+            py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -1911,8 +1911,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaEndcapMinus'),
-            px = cms.vdouble(-0.00103112559755, 1.33699817646e-05),
-            py = cms.vdouble(-0.00209888421545, -3.30667819828e-05),
+            px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+            py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -1922,8 +1922,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hHFPlus'),
-            px = cms.vdouble(-0.000392672935556, -9.65693700264e-07),
-            py = cms.vdouble(0.000114612488388, -3.44552389568e-07),
+            px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+            py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
             type = cms.int32(6),
             varType = cms.int32(0)
         ), 
@@ -1933,8 +1933,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hHFMinus'),
-            px = cms.vdouble(-0.00093227965176, 7.74599924874e-07),
-            py = cms.vdouble(-2.95036363418e-05, -7.98830257983e-07),
+            px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+            py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
             type = cms.int32(6),
             varType = cms.int32(0)
         ), 
@@ -1944,8 +1944,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('egammaHFPlus'),
-            px = cms.vdouble(0.00275218993341, -1.69184089548e-05),
-            py = cms.vdouble(-0.00113061539637, 6.05994897808e-06),
+            px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+            py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
             type = cms.int32(7),
             varType = cms.int32(0)
         ), 
@@ -1955,8 +1955,8 @@ process.patPFMetTxyCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('egammaHFMinus'),
-            px = cms.vdouble(0.00136623849956, -5.55451851761e-06),
-            py = cms.vdouble(0.00117549065237, -6.54719096891e-06),
+            px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+            py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
             type = cms.int32(7),
             varType = cms.int32(0)
         )),
@@ -1972,8 +1972,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
         fx = cms.string('(x*[0])+(sq(x)*[1])'),
         fy = cms.string('(x*[0])+(sq(x)*[1])'),
         name = cms.string('hEtaPlus'),
-        px = cms.vdouble(-0.00220049396857, 4.86017686051e-07),
-        py = cms.vdouble(0.000301784350668, -2.55951949068e-07),
+        px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+        py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
         type = cms.int32(1),
         varType = cms.int32(0)
     ), 
@@ -1983,8 +1983,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hEtaMinus'),
-            px = cms.vdouble(-0.000217969078412, 3.0200051094e-07),
-            py = cms.vdouble(-0.0014606200538, -2.29508676725e-06),
+            px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+            py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
             type = cms.int32(1),
             varType = cms.int32(0)
         ), 
@@ -1994,8 +1994,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0Barrel'),
-            px = cms.vdouble(-0.0135587323577, 5.55593286464e-05),
-            py = cms.vdouble(0.00848783774079, -0.00022596699093),
+            px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+            py = cms.vdouble(0.00798098092474, -0.000103998219585),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -2005,8 +2005,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0EndcapPlus'),
-            px = cms.vdouble(-0.00285895832031, -6.08161900014e-05),
-            py = cms.vdouble(-0.00934018266651, 0.000259105827172),
+            px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+            py = cms.vdouble(-0.00345131507897, 0.000164816815994),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -2016,8 +2016,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0EndcapMinus'),
-            px = cms.vdouble(-0.00537876208774, 0.000209817129512),
-            py = cms.vdouble(0.011148063877, -4.44149746767e-06),
+            px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+            py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -2027,8 +2027,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaBarrel'),
-            px = cms.vdouble(-0.00192842680623, 2.61152485314e-06),
-            py = cms.vdouble(-0.000507607323037, 4.48832037695e-06),
+            px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+            py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -2038,8 +2038,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaEndcapPlus'),
-            px = cms.vdouble(-0.000519297328533, -2.0682880001e-05),
-            py = cms.vdouble(0.00282867507264, 6.66930895313e-05),
+            px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+            py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -2049,8 +2049,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaEndcapMinus'),
-            px = cms.vdouble(-0.00103112559755, 1.33699817646e-05),
-            py = cms.vdouble(-0.00209888421545, -3.30667819828e-05),
+            px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+            py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -2060,8 +2060,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hHFPlus'),
-            px = cms.vdouble(-0.000392672935556, -9.65693700264e-07),
-            py = cms.vdouble(0.000114612488388, -3.44552389568e-07),
+            px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+            py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
             type = cms.int32(6),
             varType = cms.int32(0)
         ), 
@@ -2071,8 +2071,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hHFMinus'),
-            px = cms.vdouble(-0.00093227965176, 7.74599924874e-07),
-            py = cms.vdouble(-2.95036363418e-05, -7.98830257983e-07),
+            px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+            py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
             type = cms.int32(6),
             varType = cms.int32(0)
         ), 
@@ -2082,8 +2082,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('egammaHFPlus'),
-            px = cms.vdouble(0.00275218993341, -1.69184089548e-05),
-            py = cms.vdouble(-0.00113061539637, 6.05994897808e-06),
+            px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+            py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
             type = cms.int32(7),
             varType = cms.int32(0)
         ), 
@@ -2093,8 +2093,8 @@ process.patPFMetTxyCorrNoHF = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('egammaHFMinus'),
-            px = cms.vdouble(0.00136623849956, -5.55451851761e-06),
-            py = cms.vdouble(0.00117549065237, -6.54719096891e-06),
+            px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+            py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
             type = cms.int32(7),
             varType = cms.int32(0)
         )),
@@ -2398,8 +2398,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
         fx = cms.string('(x*[0])+(sq(x)*[1])'),
         fy = cms.string('(x*[0])+(sq(x)*[1])'),
         name = cms.string('hEtaPlus'),
-        px = cms.vdouble(-0.00220049396857, 4.86017686051e-07),
-        py = cms.vdouble(0.000301784350668, -2.55951949068e-07),
+        px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+        py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
         type = cms.int32(1),
         varType = cms.int32(0)
     ), 
@@ -2409,8 +2409,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hEtaMinus'),
-            px = cms.vdouble(-0.000217969078412, 3.0200051094e-07),
-            py = cms.vdouble(-0.0014606200538, -2.29508676725e-06),
+            px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+            py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
             type = cms.int32(1),
             varType = cms.int32(0)
         ), 
@@ -2420,8 +2420,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0Barrel'),
-            px = cms.vdouble(-0.0135587323577, 5.55593286464e-05),
-            py = cms.vdouble(0.00848783774079, -0.00022596699093),
+            px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+            py = cms.vdouble(0.00798098092474, -0.000103998219585),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -2431,8 +2431,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0EndcapPlus'),
-            px = cms.vdouble(-0.00285895832031, -6.08161900014e-05),
-            py = cms.vdouble(-0.00934018266651, 0.000259105827172),
+            px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+            py = cms.vdouble(-0.00345131507897, 0.000164816815994),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -2442,8 +2442,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('h0EndcapMinus'),
-            px = cms.vdouble(-0.00537876208774, 0.000209817129512),
-            py = cms.vdouble(0.011148063877, -4.44149746767e-06),
+            px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+            py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
             type = cms.int32(5),
             varType = cms.int32(0)
         ), 
@@ -2453,8 +2453,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaBarrel'),
-            px = cms.vdouble(-0.00192842680623, 2.61152485314e-06),
-            py = cms.vdouble(-0.000507607323037, 4.48832037695e-06),
+            px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+            py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -2464,8 +2464,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaEndcapPlus'),
-            px = cms.vdouble(-0.000519297328533, -2.0682880001e-05),
-            py = cms.vdouble(0.00282867507264, 6.66930895313e-05),
+            px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+            py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -2475,8 +2475,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('gammaEndcapMinus'),
-            px = cms.vdouble(-0.00103112559755, 1.33699817646e-05),
-            py = cms.vdouble(-0.00209888421545, -3.30667819828e-05),
+            px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+            py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
             type = cms.int32(4),
             varType = cms.int32(0)
         ), 
@@ -2486,8 +2486,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hHFPlus'),
-            px = cms.vdouble(-0.000392672935556, -9.65693700264e-07),
-            py = cms.vdouble(0.000114612488388, -3.44552389568e-07),
+            px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+            py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
             type = cms.int32(6),
             varType = cms.int32(0)
         ), 
@@ -2497,8 +2497,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('hHFMinus'),
-            px = cms.vdouble(-0.00093227965176, 7.74599924874e-07),
-            py = cms.vdouble(-2.95036363418e-05, -7.98830257983e-07),
+            px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+            py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
             type = cms.int32(6),
             varType = cms.int32(0)
         ), 
@@ -2508,8 +2508,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('egammaHFPlus'),
-            px = cms.vdouble(0.00275218993341, -1.69184089548e-05),
-            py = cms.vdouble(-0.00113061539637, 6.05994897808e-06),
+            px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+            py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
             type = cms.int32(7),
             varType = cms.int32(0)
         ), 
@@ -2519,8 +2519,8 @@ process.pfMEtMultShiftCorr = cms.EDProducer("MultShiftMETcorrInputProducer",
             fx = cms.string('(x*[0])+(sq(x)*[1])'),
             fy = cms.string('(x*[0])+(sq(x)*[1])'),
             name = cms.string('egammaHFMinus'),
-            px = cms.vdouble(0.00136623849956, -5.55451851761e-06),
-            py = cms.vdouble(0.00117549065237, -6.54719096891e-06),
+            px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+            py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
             type = cms.int32(7),
             varType = cms.int32(0)
         )),
@@ -2615,7 +2615,7 @@ process.shiftedPatElectronEnUpNoHF = cms.EDProducer("ShiftedPATElectronProducer"
 
 process.shiftedPatJetEnDown = cms.EDProducer("ShiftedPATJetProducer",
     addResidualJES = cms.bool(True),
-    jetCorrInputFileName = cms.FileInPath('PhysicsTools/PatUtils/data/Summer15_50nsV2_DATA_UncertaintySources_AK4PFchs.txt'),
+    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV4_MC_UncertaintySources_AK4PFchs.txt'),
     jetCorrLabelUpToL3 = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
     jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
     jetCorrPayloadName = cms.string('AK4PFchs'),
@@ -2627,7 +2627,7 @@ process.shiftedPatJetEnDown = cms.EDProducer("ShiftedPATJetProducer",
 
 process.shiftedPatJetEnDownNoHF = cms.EDProducer("ShiftedPATJetProducer",
     addResidualJES = cms.bool(True),
-    jetCorrInputFileName = cms.FileInPath('PhysicsTools/PatUtils/data/Summer15_50nsV2_DATA_UncertaintySources_AK4PFchs.txt'),
+    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV4_MC_UncertaintySources_AK4PFchs.txt'),
     jetCorrLabelUpToL3 = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
     jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
     jetCorrPayloadName = cms.string('AK4PFchs'),
@@ -2639,7 +2639,7 @@ process.shiftedPatJetEnDownNoHF = cms.EDProducer("ShiftedPATJetProducer",
 
 process.shiftedPatJetEnUp = cms.EDProducer("ShiftedPATJetProducer",
     addResidualJES = cms.bool(True),
-    jetCorrInputFileName = cms.FileInPath('PhysicsTools/PatUtils/data/Summer15_50nsV2_DATA_UncertaintySources_AK4PFchs.txt'),
+    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV4_MC_UncertaintySources_AK4PFchs.txt'),
     jetCorrLabelUpToL3 = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
     jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
     jetCorrPayloadName = cms.string('AK4PFchs'),
@@ -2651,7 +2651,7 @@ process.shiftedPatJetEnUp = cms.EDProducer("ShiftedPATJetProducer",
 
 process.shiftedPatJetEnUpNoHF = cms.EDProducer("ShiftedPATJetProducer",
     addResidualJES = cms.bool(True),
-    jetCorrInputFileName = cms.FileInPath('PhysicsTools/PatUtils/data/Summer15_50nsV2_DATA_UncertaintySources_AK4PFchs.txt'),
+    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV4_MC_UncertaintySources_AK4PFchs.txt'),
     jetCorrLabelUpToL3 = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
     jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
     jetCorrPayloadName = cms.string('AK4PFchs'),
@@ -3342,7 +3342,7 @@ process.MessageLogger = cms.Service("MessageLogger",
         FwkReport = cms.untracked.PSet(
             limit = cms.untracked.int32(10000000),
             optionalPSet = cms.untracked.bool(True),
-            reportEvery = cms.untracked.int32(1)
+            reportEvery = cms.untracked.int32(1000)
         ),
         FwkSummary = cms.untracked.PSet(
             limit = cms.untracked.int32(10000000),
@@ -6504,13 +6504,146 @@ process.pset = cms.PSet(
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
     fy = cms.string('(x*[0])+(sq(x)*[1])'),
     name = cms.string('egammaHFMinus'),
-    px = cms.vdouble(0.00136623849956, -5.55451851761e-06),
-    py = cms.vdouble(0.00117549065237, -6.54719096891e-06),
+    px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+    py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
     type = cms.int32(7),
     varType = cms.int32(0)
 )
 
-process.multPhiCorrParams_T0pcT1T2Txy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_T0pcT1T2Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_T0pcT1T2Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -6643,7 +6776,140 @@ process.multPhiCorrParams_T0pcT1T2Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.multPhiCorrParams_T0pcT1Txy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_T0pcT1Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_T0pcT1Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -6776,7 +7042,140 @@ process.multPhiCorrParams_T0pcT1Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.multPhiCorrParams_T0pcTxy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_T0pcTxy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_T0pcTxy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -6909,7 +7308,140 @@ process.multPhiCorrParams_T0pcTxy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.multPhiCorrParams_T0rtT1T2Txy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_T0rtT1T2Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_T0rtT1T2Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -7042,7 +7574,140 @@ process.multPhiCorrParams_T0rtT1T2Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.multPhiCorrParams_T0rtT1Txy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_T0rtT1Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_T0rtT1Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -7175,7 +7840,140 @@ process.multPhiCorrParams_T0rtT1Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.multPhiCorrParams_T0rtTxy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_T0rtTxy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_T0rtTxy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -7308,7 +8106,140 @@ process.multPhiCorrParams_T0rtTxy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.multPhiCorrParams_T1T2Txy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_T1T2Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_T1T2Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -7441,7 +8372,140 @@ process.multPhiCorrParams_T1T2Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.multPhiCorrParams_T1Txy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_T1Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_T1Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -7574,7 +8638,140 @@ process.multPhiCorrParams_T1Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.multPhiCorrParams_Txy = cms.VPSet(cms.PSet(
+process.multPhiCorrParams_Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.multPhiCorrParams_Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -7707,7 +8904,140 @@ process.multPhiCorrParams_Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T0pcT1SmearTxy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T0pcT1SmearTxy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T0pcT1SmearTxy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -7840,7 +9170,140 @@ process.patMultPhiCorrParams_T0pcT1SmearTxy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T0pcT1T2SmearTxy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T0pcT1T2SmearTxy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T0pcT1T2SmearTxy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -7973,7 +9436,140 @@ process.patMultPhiCorrParams_T0pcT1T2SmearTxy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T0pcT1T2Txy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T0pcT1T2Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T0pcT1T2Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -8106,7 +9702,140 @@ process.patMultPhiCorrParams_T0pcT1T2Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T0pcT1Txy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T0pcT1Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T0pcT1Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -8239,7 +9968,140 @@ process.patMultPhiCorrParams_T0pcT1Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T0pcTxy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T0pcTxy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T0pcTxy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -8372,7 +10234,140 @@ process.patMultPhiCorrParams_T0pcTxy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T1SmearTxy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T1SmearTxy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T1SmearTxy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -8505,7 +10500,140 @@ process.patMultPhiCorrParams_T1SmearTxy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T1T2SmearTxy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T1T2SmearTxy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T1T2SmearTxy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -8638,7 +10766,140 @@ process.patMultPhiCorrParams_T1T2SmearTxy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T1T2Txy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T1T2Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T1T2Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -8771,7 +11032,140 @@ process.patMultPhiCorrParams_T1T2Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_T1Txy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_T1Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_T1Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),
@@ -8904,7 +11298,140 @@ process.patMultPhiCorrParams_T1Txy = cms.VPSet(cms.PSet(
         varType = cms.int32(0)
     ))
 
-process.patMultPhiCorrParams_Txy = cms.VPSet(cms.PSet(
+process.patMultPhiCorrParams_Txy_25ns = cms.VPSet(cms.PSet(
+    etaMax = cms.double(2.7),
+    etaMin = cms.double(0),
+    fx = cms.string('(x*[0])+(sq(x)*[1])'),
+    fy = cms.string('(x*[0])+(sq(x)*[1])'),
+    name = cms.string('hEtaPlus'),
+    px = cms.vdouble(-0.00229295500096, 3.15487850373e-07),
+    py = cms.vdouble(0.000114282381437, -1.58467325852e-08),
+    type = cms.int32(1),
+    varType = cms.int32(0)
+), 
+    cms.PSet(
+        etaMax = cms.double(0),
+        etaMin = cms.double(-2.7),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hEtaMinus'),
+        px = cms.vdouble(-0.000198571488347, -1.94054852726e-07),
+        py = cms.vdouble(-0.00137832489313, -2.02238617742e-06),
+        type = cms.int32(1),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.392),
+        etaMin = cms.double(-1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0Barrel'),
+        px = cms.vdouble(-0.0153652906396, -3.80210366974e-05),
+        py = cms.vdouble(0.00798098092474, -0.000103998219585),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3),
+        etaMin = cms.double(1.392),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapPlus'),
+        px = cms.vdouble(-0.00305719113962, -0.00032676418359),
+        py = cms.vdouble(-0.00345131507897, 0.000164816815994),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.392),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('h0EndcapMinus'),
+        px = cms.vdouble(-0.000159031461755, 0.00012231873804),
+        py = cms.vdouble(0.0260436390996, -8.17994745657e-05),
+        type = cms.int32(5),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(1.479),
+        etaMin = cms.double(-1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaBarrel'),
+        px = cms.vdouble(-0.00163144589987, 3.17557692226e-06),
+        py = cms.vdouble(-0.000710945802217, 6.45810884842e-06),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(3.0),
+        etaMin = cms.double(1.479),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapPlus'),
+        px = cms.vdouble(-0.00108893779312, -2.53584544941e-05),
+        py = cms.vdouble(0.00188026342884, 8.15028097381e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-1.479),
+        etaMin = cms.double(-3.0),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('gammaEndcapMinus'),
+        px = cms.vdouble(-0.00130486432072, 1.72313009972e-05),
+        py = cms.vdouble(-0.00367119684052, -1.63143116342e-05),
+        type = cms.int32(4),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFPlus'),
+        px = cms.vdouble(-0.000218928792083, -1.0492437382e-06),
+        py = cms.vdouble(2.7982430778e-05, -6.87804028426e-08),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('hHFMinus'),
+        px = cms.vdouble(-0.000851170798547, 3.18768998961e-07),
+        py = cms.vdouble(6.10447368609e-05, -5.92655106387e-07),
+        type = cms.int32(6),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(5.2),
+        etaMin = cms.double(2.901376),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFPlus'),
+        px = cms.vdouble(0.00138084425101, -6.39459000901e-06),
+        py = cms.vdouble(-0.000532336534523, 2.21305870813e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ), 
+    cms.PSet(
+        etaMax = cms.double(-2.901376),
+        etaMin = cms.double(-5.2),
+        fx = cms.string('(x*[0])+(sq(x)*[1])'),
+        fy = cms.string('(x*[0])+(sq(x)*[1])'),
+        name = cms.string('egammaHFMinus'),
+        px = cms.vdouble(0.00102598393499, -3.37284909389e-06),
+        py = cms.vdouble(0.000439449053802, -2.3750891943e-06),
+        type = cms.int32(7),
+        varType = cms.int32(0)
+    ))
+
+process.patMultPhiCorrParams_Txy_50ns = cms.VPSet(cms.PSet(
     etaMax = cms.double(2.7),
     etaMin = cms.double(0),
     fx = cms.string('(x*[0])+(sq(x)*[1])'),

@@ -10,12 +10,12 @@
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   HTMHT_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   MET_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   SingleElectron_Run2015B
-#python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns_2" SingleMu_Run2015B
-#python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns_2" SingleMuon_Run2015B
+#python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns" SingleMu_Run2015B
+#python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns" SingleMuon_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   SinglePhoton_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   EGamma_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   DoubleEG_Run2015B
-python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns_2"   MuonEG_Run2015B
+#python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   MuonEG_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   DoubleMuon_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   minBias_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   zeroBias_Run2015B
@@ -107,6 +107,18 @@ python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="D
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" QCD_Pt1800to2400
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" QCD_Pt2400to3200
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" QCD_Pt3200toInf
+
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTWToLNu
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTZToLLNuNu
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTZqq
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTHnobb
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTHnobb_pow
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTHbb_ext
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTHbb
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTHnobb_ext
+#python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" tZq_ll
+python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" tZq_nunu
+
 
 # 50ns MC
 #python launch.py --remoteDir="MC50ns_1l" --unitsPerJob=1 --production_label="MC50ns" DYJetsToLL_M50_50ns

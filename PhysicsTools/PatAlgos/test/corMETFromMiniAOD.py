@@ -29,7 +29,7 @@ process.maxEvents = cms.untracked.PSet(
 runOnData=True #data/MC switch
 usePrivateSQlite=True #use external JECs (sqlite file)
 useHFCandidates=False #create an additionnal NoHF slimmed MET collection if the option is set to false
-applyResiduals=True #application of residual corrections. Have to be set to True once the 13 TeV residual corrections are available. False to be kept meanwhile. Can be kept to False later for private tests or for analysis checks and developments (not the official recommendation!).
+applyResiduals=False #application of residual corrections. Have to be set to True once the 13 TeV residual corrections are available. False to be kept meanwhile. Can be kept to False later for private tests or for analysis checks and developments (not the official recommendation!).
 #===================================================================
 
 
@@ -44,14 +44,19 @@ if runOnData:
 else:
   process.GlobalTag.globaltag = 'MCRUN2_74_v9'
 
+dbPath = "$CMSSW_BASE/src/CMGTools/RootTools/data/jec/"
+#dbPath = "$CMSSW_BASE/src/PhysicsTools/PatAlgos/test/"
+
 if usePrivateSQlite:
     from CondCore.DBCommon.CondDBSetup_cfi import *
     import os
     if runOnData:
-      era="Summer15_50nsV4_DATA"
+#      era="Summer15_50nsV4_DATA"
+      era="Summer15_25nsV2_MC"
     else:
       era="Summer15_50nsV4_MC"
-    dBFile = os.path.expandvars("$CMSSW_BASE/src/PhysicsTools/PatAlgos/test/"+era+".db")
+    dBFile = os.path.expandvars(dbPath+'/'+era+".db")
+    print "Using dbFile %s"%dBFile
     process.jec = cms.ESSource("PoolDBESSource",CondDBSetup,
                                connect = cms.string( "sqlite_file://"+dBFile ),
                                toGet =  cms.VPSet(
@@ -77,7 +82,8 @@ jecUncertaintyFile="PhysicsTools/PatUtils/data/Summer15_50nsV4_DATA_UncertaintyS
 
 # Define the input source
 if runOnData:
-  fname = 'root://eoscms.cern.ch//store/data/Run2015B/JetHT/MINIAOD/PromptReco-v1/000/251/252/00000/263D331F-AF27-E511-969B-02163E012627.root' 
+#  fname = 'root://eoscms.cern.ch//store/data/Run2015B/JetHT/MINIAOD/PromptReco-v1/000/251/252/00000/263D331F-AF27-E511-969B-02163E012627.root' 
+  fname = 'root://eoscms.cern.ch//eos/cms/store/data/Run2015C/SingleMuon/MINIAOD/PromptReco-v1/000/254/456/00000/EE11B451-9546-E511-9917-02163E01200A.root' 
 else:
   fname = 'root://eoscms.cern.ch//store/mc/RunIISpring15DR74/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/MINIAODSIM/Asympt50ns_MCRUN2_74_V9A-v2/60000/001C7571-0511-E511-9B8E-549F35AE4FAF.root'
 # Define the input source
@@ -124,10 +130,12 @@ if not applyResiduals:
     process.patPFMetT1T2SmearCorr.jetCorrLabelRes = cms.InputTag("L3Absolute")
     process.patPFMetT2Corr.jetCorrLabelRes = cms.InputTag("L3Absolute")
     process.patPFMetT2SmearCorr.jetCorrLabelRes = cms.InputTag("L3Absolute")
+#    process.corrPfMetType1.jetCorrLabelRes = cms.InputTag("L3Absolute")
+    process.patJetCorrFactors.levels = cms.vstring('L1FastJet','L2Relative', 'L3Absolute') #FIXME
     process.shiftedPatJetEnDown.jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector")
     process.shiftedPatJetEnUp.jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector")
-
     if not useHFCandidates:
+          process.patJetCorrFactorsNoHF.levels = cms.vstring('L1FastJet','L2Relative', 'L3Absolute')#FIXME
           process.patPFMetT1T2CorrNoHF.jetCorrLabelRes = cms.InputTag("L3Absolute")
           process.patPFMetT1T2SmearCorrNoHF.jetCorrLabelRes = cms.InputTag("L3Absolute")
           process.patPFMetT2CorrNoHF.jetCorrLabelRes = cms.InputTag("L3Absolute")
@@ -158,3 +166,8 @@ process.MINIAODSIMoutput = cms.OutputModule("PoolOutputModule",
 
 
 process.MINIAODSIMoutput_step = cms.EndPath(process.MINIAODSIMoutput)
+
+dumpFile  = open("dump.py", "w")
+dump = process.dumpPython()
+dumpFile.write(dump)
+dumpFile.close()

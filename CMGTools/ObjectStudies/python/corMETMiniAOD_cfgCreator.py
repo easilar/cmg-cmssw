@@ -11,7 +11,7 @@ parser = OptionParser()
 parser.add_option("--outputFile", dest="outputFile", default="MetType1_dump.py", type="string", action="store", help="output file")
 parser.add_option("--GT", dest="GT", default='MCRUN2_74_V9A', type="string", action="store", help="Global Tag")
 parser.add_option("--jecDBFile", dest="jecDBFile", default="", type="string", action="store", help="jec DB File")
-parser.add_option("--uncFile", dest="uncFile", default="", type="string", action="store", help="jec Uncer File")
+parser.add_option("--jecUncFile", dest="jecUncFile", default="", type="string", action="store", help="jec uncertainty file")
 parser.add_option("--jecEra", dest="jecEra", default='', type="string", action="store", help="jecEra")
 parser.add_option("--maxEvents", dest="maxEvents", default=-1, type="int", action="store", help="maxEvents")
 parser.add_option("--removeResiduals", dest="removeResiduals", action="store_true", default=False, help="remove residual JEC?") 
@@ -107,13 +107,14 @@ from PhysicsTools.PatUtils.tools.runMETCorrectionsAndUncertainties import runMet
 #for a full met computation, remove the pfCandColl input
 runMetCorAndUncFromMiniAOD(process,
                            isData=options.isData,
-#                           jecUncFile=uncFile
+#                           jecUncFile="JECUNFILE_PLACEHOLDER"
+                           jecUncFile=options.jecUncFile
                            )
 
 runMetCorAndUncFromMiniAOD(process,
                            isData=options.isData,
                            pfCandColl=cms.InputTag("noHFCands"),
-#                           jecUncFile=uncFile,
+                           jecUncFile=options.jecUncFile,
                            postfix="NoHF"
                            )
 
@@ -127,6 +128,7 @@ if options.removeResiduals:
     process.patPFMetT2SmearCorr.jetCorrLabelRes = cms.InputTag("L3Absolute")
     process.shiftedPatJetEnDown.jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector")
     process.shiftedPatJetEnUp.jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector")
+    process.patJetCorrFactors.levels = cms.vstring('L1FastJet','L2Relative', 'L3Absolute') #FIXME
 
     process.patPFMetT1T2CorrNoHF.jetCorrLabelRes = cms.InputTag("L3Absolute")
     process.patPFMetT1T2SmearCorrNoHF.jetCorrLabelRes = cms.InputTag("L3Absolute")
@@ -134,6 +136,7 @@ if options.removeResiduals:
     process.patPFMetT2SmearCorrNoHF.jetCorrLabelRes = cms.InputTag("L3Absolute")
     process.shiftedPatJetEnDownNoHF.jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector")
     process.shiftedPatJetEnUpNoHF.jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector")
+    process.patJetCorrFactorsNoHF.levels = cms.vstring('L1FastJet','L2Relative', 'L3Absolute') #FIXME
 ### ------------------------------------------------------------------
 
 
@@ -193,7 +196,8 @@ ofile = os.path.expandvars(options.outputFile)
 
 replacements = [
   ("import FWCore.ParameterSet.Config as cms", "import FWCore.ParameterSet.Config as cms\nimport os\n"),
-  ("'DBFILE_PLACEHOLDER'", "'sqlite_file:'+os.path.expandvars('"+options.jecDBFile+"')"), 
+  ("'DBFILE_PLACEHOLDER'", "'sqlite_file:'+os.path.expandvars('"+options.jecDBFile+"')"),
+#  ("'JECUNFILE_PLACEHOLDER'", "os.path.expandvars('"+options.jecUncFile+"')") 
  
   ]
 if os.path.isfile(ofile): os.remove(ofile)
