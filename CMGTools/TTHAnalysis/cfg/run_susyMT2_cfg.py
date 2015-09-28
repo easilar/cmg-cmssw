@@ -56,6 +56,7 @@ jetAna.jetPt = 10.
 #jetAna.mcGT     = "Summer15_50nsV4_MC", # jec corrections
 #jetAna.dataGT   = "Summer15_50nsV4_DATA", # jec corrections
 jetAna.recalibrateJets = True
+jetAna.applyL2L3Residual = 'Data'
 jetAna.jetLepDR = 0.4
 jetAna.smearJets = False
 jetAna.jetGammaDR = 0.4

@@ -184,9 +184,17 @@ def main( options, args, parser ):
                               callback=ML.callBack)
         pool.close()
         pool.join()
-    else:
+    elif len(selComps)==1:
         # when running only one loop, do not use multiprocessor module.
         # then, the exceptions are visible -> use only one sample for testing
         global loop
+<<<<<<< HEAD
         loop = runLoop( comp, outDir, cfg.config, options )
     return loop
+=======
+        loop = runLoop( selComps[0], outDir, cfg.config, options )
+    else:
+      print 'ERROR: no component provided!' 
+      sys.exit(4)
+
+>>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_7_LocalDevelopments

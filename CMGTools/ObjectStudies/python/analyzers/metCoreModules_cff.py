@@ -256,6 +256,24 @@ metNoHFAna = cfg.Analyzer(
     collectionPostFix = "NoHF",
     )
 
+metAnaDef = cfg.Analyzer(
+    METAnalyzer, name="metAnalyzerDef",
+    metCollection     = ("slimmedMETs","", "PAT"),
+    noPUMetCollection = ("slimmedMETs","", "PAT"),    
+    copyMETsByValue = True,
+    doTkMet = False,
+    doMetNoPU = False,
+    doMetNoMu = False,
+    doMetNoEle = False,
+    doMetNoPhoton = False,
+    recalibrate = False,
+    jetAnalyzerCalibrationPostFix = "",
+    candidates='packedPFCandidates',
+    candidatesTypes='std::vector<pat::PackedCandidate>',
+    dzMax = 0.1,
+    collectionPostFix = "Def",
+    )
+
 
 ##------------------------------------------
 ##  Z skim
@@ -336,7 +354,7 @@ metCoreSequence = [
     susyCounter,
     skimAnalyzer,
    #eventSelector,
-    jsonAna,
+#    jsonAna,
     triggerAna,
     triggerFlagsAna,
     pileUpAna,
@@ -353,6 +371,7 @@ metCoreSequence = [
 ##### met modules below
     metAna,
     metNoHFAna,
+    metAnaDef,
     eventFlagsAna,
     hbheFilterAna,
 ##### tree

@@ -10,6 +10,7 @@ class JetReCalibrator:
            It will apply the L1,L2,L3 and possibly the residual corrections to the jets."""
         # Make base corrections
         path = os.path.expandvars(jecPath) #"%s/src/CMGTools/RootTools/data/jec" % os.environ['CMSSW_BASE'];
+        #print "JetReCalibrator: Searching in path %s/%s_L1FastJet_%s.txt"%(path,globalTag,jetFlavour)
         self.L1JetPar  = ROOT.JetCorrectorParameters("%s/%s_L1FastJet_%s.txt" % (path,globalTag,jetFlavour),"");
         self.L2JetPar  = ROOT.JetCorrectorParameters("%s/%s_L2Relative_%s.txt" % (path,globalTag,jetFlavour),"");
         self.L3JetPar  = ROOT.JetCorrectorParameters("%s/%s_L3Absolute_%s.txt" % (path,globalTag,jetFlavour),"");
@@ -165,3 +166,4 @@ class Type1METCorrection:
             px0 -= jp4.X()*(corr3-corr1)
             py0 -= jp4.Y()*(corr3-corr1)
         return [px0, py0]
+

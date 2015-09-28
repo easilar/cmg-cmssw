@@ -156,7 +156,7 @@ class ComponentCreator(object):
 
     def makeDataComponent(self,name,dataset,user,pattern,json=None,run_range=None,triggers=[],vetoTriggers=[],useAAA=False):
         component = cfg.DataComponent(
-            #dataset = dataset,
+            dataset = dataset,
             name = name,
             files = self.getFiles(dataset,user,pattern,run_range=run_range,useAAA=useAAA),
             intLumi = 1,
