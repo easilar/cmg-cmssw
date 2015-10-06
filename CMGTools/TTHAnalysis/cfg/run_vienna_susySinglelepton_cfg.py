@@ -183,7 +183,7 @@ sequence = cfg.Sequence(
         treeProducer,
         ])
 
-isData = False 
+isData = True 
 removeResiduals = True
 #bx = '50ns'
 bx = '25ns'
@@ -212,7 +212,7 @@ if getHeppyOption("loadSamples"):
         comp.isData = True
   if isData and bx=='25ns':
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-    selectedComponents = [ SingleElectron_Run2015C ]
+    selectedComponents = [ SingleElectron_Run2015D ]
     for comp in selectedComponents:
         comp.splitFactor = 1
 #        comp.files = comp.files[10:11] 
