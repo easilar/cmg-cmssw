@@ -17,6 +17,10 @@ trigger_1el_noiso = ['HLT_Ele105_CaloIdVT_GsfTrkIdT_v*']
 triggers_mu_ht600 = ["HLT_Mu15_IsoVVVL_PFHT600_v*"]
 triggers_mu_ht400_met70 = ["HLT_Mu15_IsoVVVL_PFHT400_PFMET70_v*"]
 triggers_mu_ht350_met70 = ["HLT_Mu15_IsoVVVL_PFHT350_PFMET70_v*"]
+<<<<<<< HEAD
+=======
+triggers_mu_ht350 = ["HLT_Mu15_IsoVVVL_PFHT350_v*"]
+>>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
 triggers_mu_met120 = ["HLT_PFMET120_NoiseCleaned_Mu5_v*"]
 triggers_mu_ht400_btag = ["HLT_Mu15_IsoVVVL_BTagCSV07_PFHT400_v*"]
 
@@ -25,6 +29,10 @@ triggers_el_ht600 = ["HLT_Ele15_IsoVVVL_PFHT600_v*"]
 triggers_el_ht400_met70 = ["HLT_Ele15_IsoVVVL_PFHT400_PFMET70_v*"]
 triggers_el_ht350_met70 = ["HLT_Ele15_IsoVVVL_PFHT350_PFMET70_v*"]
 triggers_el_ht200 = ["HLT_Ele27_eta2p1_WP85_Gsf_HT200_v*"]
+<<<<<<< HEAD
+=======
+triggers_el_ht350 = ["HLT_Ele15_IsoVVVL_PFHT350_v*"]
+>>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
 triggers_el_ht400_btag = ["HLT_Ele15_IsoVVVL_BTagtop8CSV07_PFHT400_v*"]
 
 ## hadronic

@@ -59,13 +59,22 @@ susyCore_globalVariables = [
 susyCore_globalObjects = {
             "met" : NTupleObject("met", metType, help="PF E_{T}^{miss}, after type 1 corrections"),
             "metNoHF" : NTupleObject("metNoHF", metType, help="PF E_{T}^{miss}, after type 1 corrections"),
+<<<<<<< HEAD
+=======
+
+>>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
             #"metNoPU" : NTupleObject("metNoPU", fourVectorType, help="PF noPU E_{T}^{miss}"),
 }
 
 susyCore_collections = {
             "genleps"         : NTupleCollection("genLep",     genParticleWithLinksType, 10, help="Generated leptons (e/mu) from W/Z decays"),                                                                                                
             "gentauleps"      : NTupleCollection("genLepFromTau", genParticleWithLinksType, 10, help="Generated leptons (e/mu) from decays of taus from W/Z/h decays"),                                                                       
+<<<<<<< HEAD
             #"gentaus"         : NTupleCollection("genTau",     genParticleWithLinksType, 10, help="Generated leptons (tau) from W/Z decays"),                            
             "gentaus"         : NTupleCollection("genTau",    genTauWithLinksExtrasType, 10, help="Generated leptons (tau) from W/Z decays"),
+=======
+#            "gentaus"         : NTupleCollection("genTau",     genParticleWithLinksType, 10, help="Generated leptons (tau) from W/Z decays"),                           
+            "gentaus"         : NTupleCollection("genTau",    genTauWithLinksExtrasType, 10, help="Generated leptons (tau) from W/Z decays"), 
+>>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
             "generatorSummary" : NTupleCollection("GenPart", genParticleWithLinksType, 100 , help="Hard scattering particles, with ancestry and links"),
 }

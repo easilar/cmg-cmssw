@@ -1,4 +1,24 @@
 #!/bin/sh
+<<<<<<< HEAD
+=======
+
+python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_5" --production_label="Data25ns_0l_5"  JetHT_Run2015D
+python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_5" --production_label="Data25ns_0l_5"  MET_Run2015D
+
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  SingleElectron_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  SingleMuon_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  DoubleEG_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  MuonEG_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  DoubleMuon_Run2015D
+
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_3" --production_label="Data25ns_0l_3"  Jet_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_3" --production_label="Data25ns_0l_3"  HTMHT_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_3" --production_label="Data25ns_0_3l"  SinglePhoton_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_3" --production_label="Data25ns_0_3l"  EGamma_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_3" --production_label="Data25ns_1l_3"  minBias_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_3" --production_label="Data25ns_1l_3"  zeroBias_Run2015D
+
+>>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   Jet_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   JetHT_Run2015B
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l" --production_label="Data50ns"   HTMHT_Run2015B
@@ -112,9 +132,15 @@
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTHnobb_ext
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" tZq_ll
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" tZq_nunu
+<<<<<<< HEAD
 python launch.py --remoteDir="MC25ns_1l_150921" --unitsPerJob=1 --production_label="MC25ns" TTJets_LO
 #python launch.py --remoteDir="MC25ns_1l_150921" --unitsPerJob=1 --production_label="MC25ns" TTJets_LO_HT600to800  
 python launch.py --remoteDir="MC25ns_1l_150921" --unitsPerJob=1 --production_label="MC25ns" TTJets_LO_HT800to1200 
+=======
+#python launch.py --remoteDir="MC25ns_1l_150921" --unitsPerJob=1 --production_label="MC25ns" TTJets_LO
+#python launch.py --remoteDir="MC25ns_1l_150921" --unitsPerJob=1 --production_label="MC25ns" TTJets_LO_HT600to800  
+#python launch.py --remoteDir="MC25ns_1l_150921" --unitsPerJob=1 --production_label="MC25ns" TTJets_LO_HT800to1200 
+>>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
 #python launch.py --remoteDir="MC25ns_1l_150921" --unitsPerJob=1 --production_label="MC25ns" TTJets_LO_HT1200to2500
 #python launch.py --remoteDir="MC25ns_1l_150921" --unitsPerJob=1 --production_label="MC25ns" TTJets_LO_HT2500toInf 
 
