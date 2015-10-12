@@ -102,10 +102,7 @@ photonTypeSusy = NTupleObjectType("gammaSusy", baseObjectTypes = [ photonType ],
 ##------------------------------------------  
 
 jetTypeSusy = NTupleObjectType("jetSusy",  baseObjectTypes = [ jetTypeExtra ], variables = [
-<<<<<<< HEAD
-=======
     NTupleVariable("mcMatchFlav",  lambda x : getattr(x,'mcMatchFlav',-99), int, mcOnly=True, help="Flavour of associated parton from hard scatter (if any)"),
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
     NTupleVariable("chHEF", lambda x : x.chargedHadronEnergyFraction(), float, mcOnly = False, help="chargedHadronEnergyFraction (relative to uncorrected jet energy)"),
     NTupleVariable("neHEF", lambda x : x.neutralHadronEnergyFraction(), float, mcOnly = False,help="neutralHadronEnergyFraction (relative to uncorrected jet energy)"), 
     NTupleVariable("phEF", lambda x : x.photonEnergyFraction(), float, mcOnly = False,help="photonEnergyFraction (relative to corrected jet energy)"),
@@ -120,10 +117,6 @@ jetTypeSusy = NTupleObjectType("jetSusy",  baseObjectTypes = [ jetTypeExtra ], v
     NTupleVariable("muMult", lambda x : x.muonMultiplicity(), int, mcOnly = False,help="muonMultiplicity from PFJet.h"),
     NTupleVariable("HFHMult", lambda x : x.HFHadronMultiplicity(), int, mcOnly = False,help="HFHadronMultiplicity from PFJet.h"),
     NTupleVariable("HFEMMult", lambda x : x.HFEMMultiplicity(), int, mcOnly = False,help="HFEMMultiplicity from PFJet.h"),
-<<<<<<< HEAD
-    NTupleVariable("mcMatchFlav",  lambda x : x.mcMatchFlav, int, mcOnly=True, help="Flavour of associated parton from hard scatter (if any)"),
-=======
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
     NTupleVariable("charge", lambda x : x.jetCharge(), float, help="Jet charge") 
 ])
 
@@ -187,8 +180,6 @@ genParticleWithMotherIndex = NTupleObjectType("genParticleWithMotherIndex", base
     NTupleVariable("daughterIndex2", lambda x : x.daughterRef(x.numberOfDaughters()-1).index() if x.numberOfDaughters() > 1 else -1, int, help="index of the last mother in the genParticles"),
 ])
 
-<<<<<<< HEAD
-=======
 genParticleWithMotherIndex = NTupleObjectType("genParticleWithMotherIndex", baseObjectTypes = [ genParticleWithMotherId ], mcOnly=True, variables = [
     ## these work for 74X miniaod
     NTupleVariable("nDaughters", lambda x : x.numberOfDaughters(), int, help="index of the daughters in the genParticles"),
@@ -199,7 +190,6 @@ genParticleWithMotherIndex = NTupleObjectType("genParticleWithMotherIndex", base
     NTupleVariable("daughterIndex2", lambda x : x.daughterRef(x.numberOfDaughters()-1).index() if x.numberOfDaughters() > 1 else -1, int, help="index of the last mother in the genParticles"),
 ])
 
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
 genJetType = NTupleObjectType("genJets",  baseObjectTypes = [ fourVectorType ], mcOnly=True, variables = [
     NTupleVariable("nConstituents", lambda x : x.nConstituents() ,help="Number of Constituents"),
 ])
@@ -256,7 +246,6 @@ heavyFlavourHadronType = NTupleObjectType("heavyFlavourHadron", baseObjectTypes 
     
 ])
 
-<<<<<<< HEAD
 genTauWithLinksExtrasType = NTupleObjectType("genTauWithLinksType", baseObjectTypes = [ genParticleWithAncestryType ], mcOnly=True, variables = [
     NTupleVariable("MEx", lambda x : x.MEx, float, help="neutrino x momentum from gen-tau"),
     NTupleVariable("MEy", lambda x : x.MEy, float, help="neutrino y momentum from gen-tau"),
@@ -268,8 +257,6 @@ genTauWithLinksExtrasType = NTupleObjectType("genTauWithLinksType", baseObjectTy
 ])
 
 
-=======
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
 def ptRel(p4,axis):
     a = ROOT.TVector3(axis.Vect().X(),axis.Vect().Y(),axis.Vect().Z())
     o = ROOT.TLorentzVector(p4.Px(),p4.Py(),p4.Pz(),p4.E())

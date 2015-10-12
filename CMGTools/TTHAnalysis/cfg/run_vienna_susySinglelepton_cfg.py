@@ -37,11 +37,7 @@ elif isolation == "relIso03":
     lepAna.loose_muon_relIso = 0.5
 
 # --- LEPTON SKIMMING ---
-<<<<<<< HEAD
 ttHLepSkim.minLeptons = 1
-=======
-ttHLepSkim.minLeptons = 2
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
 ttHLepSkim.maxLeptons = 999
 #LepSkim.idCut  = ""
 #LepSkim.ptCuts = []
@@ -114,10 +110,7 @@ triggerFlagsAna.triggerBits = {
         'MuHT600' : triggers_mu_ht600,
         'MuHT400MET70' : triggers_mu_ht400_met70,
         'MuHT350MET70' : triggers_mu_ht350_met70,
-<<<<<<< HEAD
-=======
         'MuHT350' : triggers_mu_ht350,
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
         'MuMET120' : triggers_mu_met120,
         'MuHT400B': triggers_mu_ht400_btag,
         'MuHad' : triggers_muhad,
@@ -127,10 +120,7 @@ triggerFlagsAna.triggerBits = {
         'EleHT600' : triggers_el_ht600,
         'EleHT400MET70' : triggers_el_ht400_met70,
         'EleHT350MET70' : triggers_el_ht350_met70,
-<<<<<<< HEAD
-=======
         'EleHT350' : triggers_el_ht350,
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
         'EleHT200' :triggers_el_ht200,
         'ElHT400B': triggers_el_ht400_btag,
         'ElHad' : triggers_elhad,
@@ -158,14 +148,6 @@ triggerFlagsAna.triggerBits = {
         'MET90'            :triggers_MET90MHT90    ,
         'MET120'           :triggers_MET120MHT120  ,
         'PhysRates'        :triggers_PhysRate      ,
-<<<<<<< HEAD
-        'DiPFJet140': ["HLT_DiPFJetAve140_v*"],
-        'DiPFJet200': ["HLT_DiPFJetAve200_v*"],
-        'DiPFJet260': ["HLT_DiPFJetAve260_v*"],
-        'DiPFJet320': ["HLT_DiPFJetAve320_v*"],
-        'DiPFJet400': ["HLT_DiPFJetAve400_v*"],
-        'DiPFJet500': ["HLT_DiPFJetAve500_v*"],
-=======
         'DiPFJetAve100_HFJEC': ["HLT_DiPFJetAve100_HFJEC_v*"],
         'DiPFJetAve140': ["HLT_DiPFJetAve140_v*"],
         'DiPFJetAve160_HFJEC': ["HLT_DiPFJetAve160_HFJEC_v*"],
@@ -181,7 +163,6 @@ triggerFlagsAna.triggerBits = {
         'DiPFJetAve60': ["HLT_DiPFJetAve60_v*"],
         'DiPFJetAve80_HFJEC': ["HLT_DiPFJetAve80_HFJEC_v*"],
         'DiPFJetAve80': ["HLT_DiPFJetAve80_v*"],
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
         }
 
 # Tree Producer
@@ -213,7 +194,8 @@ sequence = cfg.Sequence(
         treeProducer,
         ])
 
-isData = True 
+#isData = True 
+isData = False
 removeResiduals = True
 #bx = '50ns'
 bx = '25ns'
@@ -227,11 +209,15 @@ if getHeppyOption("loadSamples"):
       comp.files=comp.files[:1]
       comp.splitFactor = 1 
   if not isData and bx=='25ns':
-    selectedComponents = [TTJets_LO_HT800to1200]
+    #selectedComponents = [TTJets_LO_HT800to1200]
+    selectedComponents = [TTWToLNu]
     for comp in selectedComponents:
 #      comp.files=['root://xrootd.unl.edu//store/mc/RunIISpring15DR74/tZq_ll_4f_13TeV-amcatnlo-pythia8_TuneCUETP8M1/MINIAODSIM/Asympt25ns_MCRUN2_74_V9-v2/40000/102EC100-5D2A-E511-A807-0CC47A4D99A4.root']
-      comp.files = comp.files[:1]
-      comp.splitFactor = len(comp.files) 
+      comp.files=['root://xrootd.unl.edu//store/mc/RunIISpring15DR74/TTWJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8/MINIAODSIM/Asympt25ns_MCRUN2_74_V9-v1/30000/60087A61-9134-E511-B0C6-0025905B855E.root']
+      print "hello" , comp.files
+      #comp.files = comp.files[:1]
+      #comp.files = comp.files[0]
+      #comp.splitFactor = len(comp.files) 
   if isData and bx=='50ns':
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
     selectedComponents = [ MuonEG_Run2015B ]
@@ -242,15 +228,6 @@ if getHeppyOption("loadSamples"):
         comp.isData = True
   if isData and bx=='25ns':
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-<<<<<<< HEAD
-    selectedComponents = [ SingleElectron_Run2015D ]
-    for comp in selectedComponents:
-        comp.splitFactor = 1
-#        comp.files = comp.files[10:11] 
-        comp.isMC = False
-        comp.isData = True
-#        comp.json = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data/json/Cert_246908-251883_13TeV_PromptReco_Collisions15_JSON_v2.json"
-=======
     selectedComponents = [ DoubleMuon_Run2015D ]
     for comp in selectedComponents:
         comp.splitFactor = 10
@@ -258,21 +235,11 @@ if getHeppyOption("loadSamples"):
         comp.isMC = False
         comp.isData = True
 #        print "Using json",comp.json
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
 
 jetAna.applyL2L3Residual = False if removeResiduals else 'Data' 
 
 if isData:
   if bx=='25ns':
-<<<<<<< HEAD
-    jecDBFile  = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_25nsV2_MC.db'
-    jecUncFile = 'CMGTools/RootTools/data/jec/Summer15_50nsV4_DATA_UncertaintySources_AK4PFchs.txt' 
-    jecEra    = 'Summer15_25nsV2_MC'
-    mcGT = 'XXX'
-    dataGT= '74X_dataRun2_Prompt_v1' 
-    jetAna.mcGT     = "Summer15_25nsV2_MC"
-    jetAna.dataGT   = "Summer15_25nsV2_MC"
-=======
     jecDBFile  = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_25nsV2_DATA.db'
     jecUncFile = 'CMGTools/RootTools/data/jec/Summer15_50nsV4_DATA_UncertaintySources_AK4PFchs.txt' 
     jecEra    = 'Summer15_25nsV2_DATA'
@@ -280,7 +247,6 @@ if isData:
     dataGT= '74X_dataRun2_Prompt_v2' 
     jetAna.mcGT     = "Summer15_25nsV2_DATA"
     jetAna.dataGT   = "Summer15_25nsV2_DATA"
->>>>>>> cmg-hephy/CMGTools-from-CMSSW_7_4_12_LocalDevelopments
     eventFlagsAna.processName = 'RECO'
     metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
   #  metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
