@@ -127,7 +127,7 @@ elif test==13:
         else:
             comp.triggers = triggers_mumu
         if is25ns:
-            comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-256869_13TeV_PromptReco_Collisions15_25ns_JSON.json"
+            comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-257599_13TeV_PromptReco_Collisions15_25ns_JSON.json"
         else:
             comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-255031_13TeV_PromptReco_Collisions15_50ns_JSON_v2.txt"
         comp.intLumi= 0.04003
@@ -154,7 +154,7 @@ elif test==15:
         comp.splitFactor = 1000
         comp.files = comp.files[:]
         if is25ns:
-            comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-256869_13TeV_PromptReco_Collisions15_25ns_JSON.json"
+            comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-257599_13TeV_PromptReco_Collisions15_25ns_JSON.json"
         else:
             comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-255031_13TeV_PromptReco_Collisions15_50ns_JSON_v2.txt"
         comp.intLumi= 0.04003
@@ -179,7 +179,7 @@ elif test==16:
         comp.splitFactor = 1
         comp.files = comp.files[:]
         if is25ns:
-            comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-256869_13TeV_PromptReco_Collisions15_25ns_JSON.json"
+            comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-257599_13TeV_PromptReco_Collisions15_25ns_JSON.json"
         else:
             comp.json = os.environ['CMSSW_BASE']+"/src/CMGTools/TTHAnalysis/data/json/Cert_246908-255031_13TeV_PromptReco_Collisions15_50ns_JSON_v2.txt"
         comp.intLumi= 0.04003
@@ -327,12 +327,11 @@ if comp.isData:
         jecEra    = 'Summer15_50nsV4_DATA'
     else:
         ## DATA 25ns
-        ## do not take the ones from the promptReco runD wrong payload, runC is completely off
         ## runD residuals not yet available
-        removeResiduals = True
-        uncFile = os.environ['CMSSW_BASE']+'/src/CMGTools/RootTools/data/jec/Summer15_25nsV2_DATA_UncertaintySources_AK4PFchs.txt'
-        jecDBFile = os.environ['CMSSW_BASE']+'/src/CMGTools/RootTools/data/jec/Summer15_25nsV2_DATA.db'
-        jecEra    = 'Summer15_25nsV2_DATA'
+        removeResiduals = False
+        uncFile = os.environ['CMSSW_BASE']+'/src/CMGTools/RootTools/data/jec/Summer15_25nsV5_DATA_UncertaintySources_AK4PFchs.txt'
+        jecDBFile = os.environ['CMSSW_BASE']+'/src/CMGTools/RootTools/data/jec/Summer15_25nsV5_DATA.db'
+        jecEra    = 'Summer15_25nsV5_DATA'
 else:
     if not is25ns:
         removeResiduals = False

@@ -1,13 +1,14 @@
 #!/bin/sh
 
-python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_5" --production_label="Data25ns_0l_5"  JetHT_Run2015D
-python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_5" --production_label="Data25ns_0l_5"  MET_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_10" --production_label="Data25ns_0l_10"  JetHT_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_10" --production_label="Data25ns_0l_10"  MET_Run2015D
 
-#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  SingleElectron_Run2015D
-#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  SingleMuon_Run2015D
-#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  DoubleEG_Run2015D
-#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  MuonEG_Run2015D
-#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_5" --production_label="Data25ns_1l_5"  DoubleMuon_Run2015D
+python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l" --production_label="Data25ns_1l"  JetHT_Run2015D
+python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l" --production_label="Data25ns_1l"  SingleElectron_Run2015D
+python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l" --production_label="Data25ns_1l"  SingleMuon_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_10" --production_label="Data25ns_1l_10"  DoubleEG_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_10" --production_label="Data25ns_1l_10"  MuonEG_Run2015D
+#python launch.py --unitsPerJob=1 --remoteDir="Data25ns_1l_10" --production_label="Data25ns_1l_10"  DoubleMuon_Run2015D
 
 #python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_3" --production_label="Data25ns_0l_3"  Jet_Run2015D
 #python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_3" --production_label="Data25ns_0l_3"  HTMHT_Run2015D
@@ -47,6 +48,7 @@ python launch.py --unitsPerJob=1 --remoteDir="Data25ns_0l_5" --production_label=
 #python launch.py --unitsPerJob=1 --remoteDir="Data50ns_1l"  --production_label="Data50ns"  zeroBias_Run2015B_17Jul
 
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TTJets
+#python launch.py --remoteDir="MC25ns_1l_151003" --unitsPerJob=1 --production_label="MC25ns" TTLep_pow
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TToLeptons_tch
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TToLeptons_sch
 #python launch.py --remoteDir="MC25ns_1l" --unitsPerJob=1 --production_label="MC25ns" TBar_tWch

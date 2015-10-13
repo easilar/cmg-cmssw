@@ -5,7 +5,7 @@ import os
 process = cms.Process("RERUN")
 
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('root://eoscms//eos/cms/store/mc/RunIISpring15DR74/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/MINIAODSIM/Asympt50ns_MCRUN2_74_V9A-v2/60000/001C7571-0511-E511-9B8E-549F35AE4FAF.root')
+    fileNames = cms.untracked.vstring('root://eoscms.cern.ch//store/data/Run2015B/JetHT/MINIAOD/PromptReco-v1/000/251/252/00000/263D331F-AF27-E511-969B-02163E012627.root')
 )
 process.PFCandAssoMap = cms.EDProducer("PFCand_AssoMap",
     AssociationType = cms.InputTag("Both"),
@@ -70,6 +70,11 @@ process.ak4CaloL2L3Corrector = cms.EDProducer("ChainedJetCorrectorProducer",
 )
 
 
+process.ak4CaloL2L3CorrectorNoHF = cms.EDProducer("ChainedJetCorrectorProducer",
+    correctors = cms.VInputTag(cms.InputTag("ak4CaloL2RelativeCorrectorNoHF"), cms.InputTag("ak4CaloL3AbsoluteCorrectorNoHF"))
+)
+
+
 process.ak4CaloL2L3L6Corrector = cms.EDProducer("ChainedJetCorrectorProducer",
     correctors = cms.VInputTag("ak4CaloL2RelativeCorrector", "ak4CaloL3AbsoluteCorrector", "ak4CaloL6SLBCorrector")
 )
@@ -86,7 +91,19 @@ process.ak4CaloL2RelativeCorrector = cms.EDProducer("LXXXCorrectorProducer",
 )
 
 
+process.ak4CaloL2RelativeCorrectorNoHF = cms.EDProducer("LXXXCorrectorProducer",
+    algorithm = cms.string('AK5Calo'),
+    level = cms.string('L2Relative')
+)
+
+
 process.ak4CaloL3AbsoluteCorrector = cms.EDProducer("LXXXCorrectorProducer",
+    algorithm = cms.string('AK5Calo'),
+    level = cms.string('L3Absolute')
+)
+
+
+process.ak4CaloL3AbsoluteCorrectorNoHF = cms.EDProducer("LXXXCorrectorProducer",
     algorithm = cms.string('AK5Calo'),
     level = cms.string('L3Absolute')
 )
@@ -182,12 +199,29 @@ process.ak4PFCHSL1FastL2L3Corrector = cms.EDProducer("ChainedJetCorrectorProduce
 )
 
 
+process.ak4PFCHSL1FastL2L3CorrectorNoHF = cms.EDProducer("ChainedJetCorrectorProducer",
+    correctors = cms.VInputTag(cms.InputTag("ak4PFCHSL1FastjetCorrectorNoHF"), cms.InputTag("ak4PFCHSL2RelativeCorrectorNoHF"), cms.InputTag("ak4PFCHSL3AbsoluteCorrectorNoHF"))
+)
+
+
 process.ak4PFCHSL1FastL2L3ResidualCorrector = cms.EDProducer("ChainedJetCorrectorProducer",
     correctors = cms.VInputTag("ak4PFCHSL1FastjetCorrector", "ak4PFCHSL2RelativeCorrector", "ak4PFCHSL3AbsoluteCorrector", "ak4PFCHSResidualCorrector")
 )
 
 
+process.ak4PFCHSL1FastL2L3ResidualCorrectorNoHF = cms.EDProducer("ChainedJetCorrectorProducer",
+    correctors = cms.VInputTag(cms.InputTag("ak4PFCHSL1FastjetCorrectorNoHF"), cms.InputTag("ak4PFCHSL2RelativeCorrectorNoHF"), cms.InputTag("ak4PFCHSL3AbsoluteCorrectorNoHF"), cms.InputTag("ak4PFCHSResidualCorrectorNoHF"))
+)
+
+
 process.ak4PFCHSL1FastjetCorrector = cms.EDProducer("L1FastjetCorrectorProducer",
+    algorithm = cms.string('AK4PFchs'),
+    level = cms.string('L1FastJet'),
+    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
+)
+
+
+process.ak4PFCHSL1FastjetCorrectorNoHF = cms.EDProducer("L1FastjetCorrectorProducer",
     algorithm = cms.string('AK4PFchs'),
     level = cms.string('L1FastJet'),
     srcRho = cms.InputTag("fixedGridRhoFastjetAll")
@@ -228,13 +262,31 @@ process.ak4PFCHSL2RelativeCorrector = cms.EDProducer("LXXXCorrectorProducer",
 )
 
 
+process.ak4PFCHSL2RelativeCorrectorNoHF = cms.EDProducer("LXXXCorrectorProducer",
+    algorithm = cms.string('AK4PFchs'),
+    level = cms.string('L2Relative')
+)
+
+
 process.ak4PFCHSL3AbsoluteCorrector = cms.EDProducer("LXXXCorrectorProducer",
     algorithm = cms.string('AK4PFchs'),
     level = cms.string('L3Absolute')
 )
 
 
+process.ak4PFCHSL3AbsoluteCorrectorNoHF = cms.EDProducer("LXXXCorrectorProducer",
+    algorithm = cms.string('AK4PFchs'),
+    level = cms.string('L3Absolute')
+)
+
+
 process.ak4PFCHSResidualCorrector = cms.EDProducer("LXXXCorrectorProducer",
+    algorithm = cms.string('AK4PFchs'),
+    level = cms.string('L2L3Residual')
+)
+
+
+process.ak4PFCHSResidualCorrectorNoHF = cms.EDProducer("LXXXCorrectorProducer",
     algorithm = cms.string('AK4PFchs'),
     level = cms.string('L2L3Residual')
 )
@@ -438,6 +490,74 @@ process.ak4TrackL3AbsoluteCorrector = cms.EDProducer("LXXXCorrectorProducer",
 )
 
 
+process.caloMetT1 = cms.EDProducer("CorrectedCaloMETProducer",
+    src = cms.InputTag("caloMetM"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrCaloMetType1","type1"))
+)
+
+
+process.caloMetT1NoHF = cms.EDProducer("CorrectedCaloMETProducer",
+    src = cms.InputTag("caloMetM"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrCaloMetType1NoHF","type1"))
+)
+
+
+process.caloMetT1T2 = cms.EDProducer("CorrectedCaloMETProducer",
+    src = cms.InputTag("caloMetM"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrCaloMetType1","type1"), cms.InputTag("corrCaloMetType2"))
+)
+
+
+process.caloMetT1T2NoHF = cms.EDProducer("CorrectedCaloMETProducer",
+    src = cms.InputTag("caloMetM"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrCaloMetType1NoHF","type1"), cms.InputTag("corrCaloMetType2NoHF"))
+)
+
+
+process.corrCaloMetType1 = cms.EDProducer("CaloJetMETcorrInputProducer",
+    jetCorrEtaMax = cms.double(9.9),
+    jetCorrLabel = cms.InputTag("ak4CaloL2L3Corrector"),
+    skipEM = cms.bool(True),
+    skipEMfractionThreshold = cms.double(0.9),
+    src = cms.InputTag("ak4CaloJets"),
+    srcMET = cms.InputTag("caloMetM"),
+    type1JetPtThreshold = cms.double(20.0)
+)
+
+
+process.corrCaloMetType1NoHF = cms.EDProducer("CaloJetMETcorrInputProducer",
+    jetCorrEtaMax = cms.double(9.9),
+    jetCorrLabel = cms.InputTag("ak4CaloL2L3CorrectorNoHF"),
+    skipEM = cms.bool(True),
+    skipEMfractionThreshold = cms.double(0.9),
+    src = cms.InputTag("ak4CaloJets"),
+    srcMET = cms.InputTag("caloMetM"),
+    type1JetPtThreshold = cms.double(20.0)
+)
+
+
+process.corrCaloMetType2 = cms.EDProducer("Type2CorrectionProducer",
+    srcUnclEnergySums = cms.VInputTag(cms.InputTag("corrCaloMetType1","type2"), cms.InputTag("muCaloMetCorr")),
+    type2CorrFormula = cms.string('A + B*TMath::Exp(-C*x)'),
+    type2CorrParameter = cms.PSet(
+        A = cms.double(2.0),
+        B = cms.double(1.3),
+        C = cms.double(0.1)
+    )
+)
+
+
+process.corrCaloMetType2NoHF = cms.EDProducer("Type2CorrectionProducer",
+    srcUnclEnergySums = cms.VInputTag(cms.InputTag("corrCaloMetType1NoHF","type2"), cms.InputTag("muCaloMetCorrNoHF")),
+    type2CorrFormula = cms.string('A + B*TMath::Exp(-C*x)'),
+    type2CorrParameter = cms.PSet(
+        A = cms.double(2.0),
+        B = cms.double(1.3),
+        C = cms.double(0.1)
+    )
+)
+
+
 process.corrPfMetType0PfCand = cms.EDProducer("Type0PFMETcorrInputProducer",
     correction = cms.PSet(
         formula = cms.string('(x<35)?(-( [0]+x*[1]+pow(x, 2)*[2]+pow(x, 3)*[3] )):(-( [0]+35*[1]+pow(35, 2)*[2]+pow(35, 3)*[3] ))'),
@@ -466,6 +586,20 @@ process.corrPfMetType1 = cms.EDProducer("PFJetMETcorrInputProducer",
 )
 
 
+process.corrPfMetType1NoHF = cms.EDProducer("PFJetMETcorrInputProducer",
+    jetCorrEtaMax = cms.double(9.9),
+    jetCorrLabel = cms.InputTag("ak4PFCHSL1FastL2L3CorrectorNoHF"),
+    jetCorrLabelRes = cms.InputTag("ak4PFCHSL1FastL2L3ResidualCorrectorNoHF"),
+    offsetCorrLabel = cms.InputTag("ak4PFCHSL1FastjetCorrectorNoHF"),
+    skipEM = cms.bool(True),
+    skipEMfractionThreshold = cms.double(0.9),
+    skipMuonSelection = cms.string('isGlobalMuon | isStandAloneMuon'),
+    skipMuons = cms.bool(True),
+    src = cms.InputTag("ak4PFJetsCHSNoHF"),
+    type1JetPtThreshold = cms.double(10.0)
+)
+
+
 process.corrPfMetType2 = cms.EDProducer("Type2CorrectionProducer",
     srcUnclEnergySums = cms.VInputTag(cms.InputTag("corrPfMetType1","type2"), cms.InputTag("corrPfMetType1","offset"), cms.InputTag("pfCandMETcorr")),
     type2CorrFormula = cms.string('A'),
@@ -475,8 +609,24 @@ process.corrPfMetType2 = cms.EDProducer("Type2CorrectionProducer",
 )
 
 
-process.genMetExtractor = cms.EDProducer("GenMETExtractor",
-    metSource = cms.InputTag("slimmedMETs","","PAT")
+process.corrPfMetType2NoHF = cms.EDProducer("Type2CorrectionProducer",
+    srcUnclEnergySums = cms.VInputTag(cms.InputTag("corrPfMetType1NoHF","type2"), cms.InputTag("corrPfMetType1NoHF","offset"), cms.InputTag("pfCandMETcorrNoHF")),
+    type2CorrFormula = cms.string('A'),
+    type2CorrParameter = cms.PSet(
+        A = cms.double(1.4)
+    )
+)
+
+
+process.muCaloMetCorr = cms.EDProducer("MuonMETcorrInputProducer",
+    src = cms.InputTag("muons"),
+    srcMuonCorrections = cms.InputTag("muonMETValueMapProducer","muCorrData")
+)
+
+
+process.muCaloMetCorrNoHF = cms.EDProducer("MuonMETcorrInputProducer",
+    src = cms.InputTag("muons"),
+    srcMuonCorrections = cms.InputTag("muonMETValueMapProducer","muCorrData")
 )
 
 
@@ -562,18 +712,14 @@ process.particleFlowDisplacedVertexNoHF = cms.EDProducer("PFDisplacedVertexProdu
 )
 
 
-process.particleFlowPtrs = cms.EDProducer("PFCandidateFwdPtrProducer",
-    src = cms.InputTag("particleFlow")
-)
-
-
 process.patJetCorrFactors = cms.EDProducer("JetCorrFactorsProducer",
     emf = cms.bool(False),
     extraJPTOffset = cms.string('L1FastJet'),
     flavorType = cms.string('J'),
     levels = cms.vstring('L1FastJet', 
         'L2Relative', 
-        'L3Absolute'),
+        'L3Absolute', 
+        'L2L3Residual'),
     payload = cms.string('AK4PFchs'),
     primaryVertices = cms.InputTag("offlineSlimmedPrimaryVertices"),
     rho = cms.InputTag("fixedGridRhoFastjetAll"),
@@ -589,7 +735,8 @@ process.patJetCorrFactorsNoHF = cms.EDProducer("JetCorrFactorsProducer",
     flavorType = cms.string('J'),
     levels = cms.vstring('L1FastJet', 
         'L2Relative', 
-        'L3Absolute'),
+        'L3Absolute', 
+        'L2L3Residual'),
     payload = cms.string('AK4PFchs'),
     primaryVertices = cms.InputTag("offlineSlimmedPrimaryVertices"),
     rho = cms.InputTag("fixedGridRhoFastjetAll"),
@@ -603,10 +750,11 @@ process.patJetFlavourAssociation = cms.EDProducer("JetFlavourClustering",
     bHadrons = cms.InputTag("patJetPartons","bHadrons"),
     cHadrons = cms.InputTag("patJetPartons","cHadrons"),
     ghostRescaling = cms.double(1e-18),
-    hadronFlavourHasPriority = cms.bool(True),
+    hadronFlavourHasPriority = cms.bool(False),
     jetAlgorithm = cms.string('AntiKt'),
     jets = cms.InputTag("ak4PFJetsCHS"),
-    partons = cms.InputTag("patJetPartons","partons"),
+    leptons = cms.InputTag("patJetPartons","leptons"),
+    partons = cms.InputTag("patJetPartons","physicsPartons"),
     rParam = cms.double(0.4)
 )
 
@@ -627,10 +775,11 @@ process.patJetFlavourAssociationNoHF = cms.EDProducer("JetFlavourClustering",
     bHadrons = cms.InputTag("patJetPartonsNoHF","bHadrons"),
     cHadrons = cms.InputTag("patJetPartonsNoHF","cHadrons"),
     ghostRescaling = cms.double(1e-18),
-    hadronFlavourHasPriority = cms.bool(True),
+    hadronFlavourHasPriority = cms.bool(False),
     jetAlgorithm = cms.string('AntiKt'),
     jets = cms.InputTag("ak4PFJetsCHSNoHF"),
-    partons = cms.InputTag("patJetPartonsNoHF","partons"),
+    leptons = cms.InputTag("patJetPartonsNoHF","leptons"),
+    partons = cms.InputTag("patJetPartonsNoHF","physicsPartons"),
     rParam = cms.double(0.4)
 )
 
@@ -680,7 +829,7 @@ process.patJetPartonMatch = cms.EDProducer("MCMatcher",
     maxDeltaR = cms.double(0.4),
     mcPdgId = cms.vint32(1, 2, 3, 4, 5, 
         21),
-    mcStatus = cms.vint32(3),
+    mcStatus = cms.vint32(3, 23),
     resolveAmbiguities = cms.bool(True),
     resolveByMatchQuality = cms.bool(False),
     src = cms.InputTag("ak4PFJetsCHS")
@@ -694,7 +843,7 @@ process.patJetPartonMatchNoHF = cms.EDProducer("MCMatcher",
     maxDeltaR = cms.double(0.4),
     mcPdgId = cms.vint32(1, 2, 3, 4, 5, 
         21),
-    mcStatus = cms.vint32(3),
+    mcStatus = cms.vint32(3, 23),
     resolveAmbiguities = cms.bool(True),
     resolveByMatchQuality = cms.bool(False),
     src = cms.InputTag("ak4PFJetsCHSNoHF")
@@ -736,14 +885,14 @@ process.patJets = cms.EDProducer("PATJetProducer",
     addGenPartonMatch = cms.bool(False),
     addJetCharge = cms.bool(False),
     addJetCorrFactors = cms.bool(True),
-    addJetFlavourInfo = cms.bool(False),
+    addJetFlavourInfo = cms.bool(True),
     addJetID = cms.bool(False),
     addPartonJetMatch = cms.bool(False),
     addResolutions = cms.bool(False),
     addTagInfos = cms.bool(False),
     discriminatorSources = cms.VInputTag(cms.InputTag("combinedSecondaryVertexBJetTags"), cms.InputTag("pfJetBProbabilityBJetTags"), cms.InputTag("pfJetProbabilityBJetTags"), cms.InputTag("pfTrackCountingHighPurBJetTags"), cms.InputTag("pfTrackCountingHighEffBJetTags"), 
-        cms.InputTag("pfSimpleSecondaryVertexHighEffBJetTags"), cms.InputTag("pfSimpleSecondaryVertexHighPurBJetTags"), cms.InputTag("pfCombinedSecondaryVertexV2BJetTags"), cms.InputTag("pfCombinedInclusiveSecondaryVertexV2BJetTags"), cms.InputTag("pfCombinedSecondaryVertexSoftLeptonBJetTags"), 
-        cms.InputTag("pfCombinedMVABJetTags")),
+        cms.InputTag("pfSimpleSecondaryVertexHighEffBJetTags"), cms.InputTag("pfSimpleSecondaryVertexHighPurBJetTags"), cms.InputTag("pfCombinedSecondaryVertexV2BJetTags"), cms.InputTag("pfCombinedInclusiveSecondaryVertexV2BJetTags"), cms.InputTag("softPFMuonBJetTags"), 
+        cms.InputTag("softPFElectronBJetTags"), cms.InputTag("pfCombinedMVABJetTags")),
     efficiencies = cms.PSet(
 
     ),
@@ -792,14 +941,14 @@ process.patJetsNoHF = cms.EDProducer("PATJetProducer",
     addGenPartonMatch = cms.bool(False),
     addJetCharge = cms.bool(False),
     addJetCorrFactors = cms.bool(True),
-    addJetFlavourInfo = cms.bool(False),
+    addJetFlavourInfo = cms.bool(True),
     addJetID = cms.bool(False),
     addPartonJetMatch = cms.bool(False),
     addResolutions = cms.bool(False),
     addTagInfos = cms.bool(False),
     discriminatorSources = cms.VInputTag(cms.InputTag("combinedSecondaryVertexBJetTags"), cms.InputTag("pfJetBProbabilityBJetTags"), cms.InputTag("pfJetProbabilityBJetTags"), cms.InputTag("pfTrackCountingHighPurBJetTags"), cms.InputTag("pfTrackCountingHighEffBJetTags"), 
-        cms.InputTag("pfSimpleSecondaryVertexHighEffBJetTags"), cms.InputTag("pfSimpleSecondaryVertexHighPurBJetTags"), cms.InputTag("pfCombinedSecondaryVertexV2BJetTags"), cms.InputTag("pfCombinedInclusiveSecondaryVertexV2BJetTags"), cms.InputTag("pfCombinedSecondaryVertexSoftLeptonBJetTags"), 
-        cms.InputTag("pfCombinedMVABJetTags")),
+        cms.InputTag("pfSimpleSecondaryVertexHighEffBJetTags"), cms.InputTag("pfSimpleSecondaryVertexHighPurBJetTags"), cms.InputTag("pfCombinedSecondaryVertexV2BJetTags"), cms.InputTag("pfCombinedInclusiveSecondaryVertexV2BJetTags"), cms.InputTag("softPFMuonBJetTags"), 
+        cms.InputTag("softPFElectronBJetTags"), cms.InputTag("pfCombinedMVABJetTags")),
     efficiencies = cms.PSet(
 
     ),
@@ -1188,15 +1337,28 @@ process.patMETs = cms.EDProducer("PATMETProducer",
     addGenMET = cms.bool(True),
     addMuonCorrections = cms.bool(False),
     addResolutions = cms.bool(False),
+    computeMETSignificance = cms.bool(False),
     efficiencies = cms.PSet(
 
     ),
     genMETSource = cms.InputTag("genMetTrue"),
     metSource = cms.InputTag("pfMetT1"),
     muonSource = cms.InputTag("muons"),
+    parameters = cms.PSet(
+        dRMatch = cms.double(0.4),
+        jetThreshold = cms.double(20),
+        jeta = cms.vdouble(0.5, 1.1, 1.7, 2.3),
+        jpar = cms.vdouble(1.41, 1.29, 1.41, 1.4, 2.53),
+        phiResFile = cms.string('Spring10_PhiResolution_AK5PF.txt'),
+        pjpar = cms.vdouble(0.0, 0.674),
+        ptResFile = cms.string('Spring10_PtResolution_AK5PF.txt')
+    ),
     resolutions = cms.PSet(
 
     ),
+    srcJets = cms.InputTag("selectedPatJets"),
+    srcLeptons = cms.VInputTag("selectedPatElectrons", "selectedPatMuons", "selectedPatPhotons"),
+    srcPFCands = cms.InputTag("packedPFCandidates"),
     userData = cms.PSet(
         userCands = cms.PSet(
             src = cms.VInputTag("")
@@ -1218,18 +1380,31 @@ process.patMETs = cms.EDProducer("PATMETProducer",
 
 process.patPFMet = cms.EDProducer("PATMETProducer",
     addEfficiencies = cms.bool(False),
-    addGenMET = cms.bool(True),
+    addGenMET = cms.bool(False),
     addMuonCorrections = cms.bool(False),
     addResolutions = cms.bool(False),
+    computeMETSignificance = cms.bool(False),
     efficiencies = cms.PSet(
 
     ),
-    genMETSource = cms.InputTag("genMetExtractor"),
+    genMETSource = cms.InputTag("genMetTrue"),
     metSource = cms.InputTag("pfMet"),
     muonSource = cms.InputTag("muons"),
+    parameters = cms.PSet(
+        dRMatch = cms.double(0.4),
+        jetThreshold = cms.double(20),
+        jeta = cms.vdouble(0.5, 1.1, 1.7, 2.3),
+        jpar = cms.vdouble(1.41, 1.29, 1.41, 1.4, 2.53),
+        phiResFile = cms.string('Spring10_PhiResolution_AK5PF.txt'),
+        pjpar = cms.vdouble(0.0, 0.674),
+        ptResFile = cms.string('Spring10_PtResolution_AK5PF.txt')
+    ),
     resolutions = cms.PSet(
 
     ),
+    srcJets = cms.InputTag("selectedPatJets"),
+    srcLeptons = cms.VInputTag("selectedPatElectrons", "selectedPatMuons", "selectedPatPhotons"),
+    srcPFCands = cms.InputTag("packedPFCandidates"),
     userData = cms.PSet(
         userCands = cms.PSet(
             src = cms.VInputTag("")
@@ -1251,18 +1426,31 @@ process.patPFMet = cms.EDProducer("PATMETProducer",
 
 process.patPFMetNoHF = cms.EDProducer("PATMETProducer",
     addEfficiencies = cms.bool(False),
-    addGenMET = cms.bool(True),
+    addGenMET = cms.bool(False),
     addMuonCorrections = cms.bool(False),
     addResolutions = cms.bool(False),
+    computeMETSignificance = cms.bool(False),
     efficiencies = cms.PSet(
 
     ),
-    genMETSource = cms.InputTag("genMetExtractor"),
+    genMETSource = cms.InputTag("genMetTrue"),
     metSource = cms.InputTag("pfMetNoHF"),
     muonSource = cms.InputTag("muons"),
+    parameters = cms.PSet(
+        dRMatch = cms.double(0.4),
+        jetThreshold = cms.double(20),
+        jeta = cms.vdouble(0.5, 1.1, 1.7, 2.3),
+        jpar = cms.vdouble(1.41, 1.29, 1.41, 1.4, 2.53),
+        phiResFile = cms.string('Spring10_PhiResolution_AK5PF.txt'),
+        pjpar = cms.vdouble(0.0, 0.674),
+        ptResFile = cms.string('Spring10_PtResolution_AK5PF.txt')
+    ),
     resolutions = cms.PSet(
 
     ),
+    srcJets = cms.InputTag("selectedPatJetsNoHF"),
+    srcLeptons = cms.VInputTag("selectedPatElectrons", "selectedPatMuons", "selectedPatPhotons"),
+    srcPFCands = cms.InputTag("noHFCands"),
     userData = cms.PSet(
         userCands = cms.PSet(
             src = cms.VInputTag("")
@@ -1529,7 +1717,7 @@ process.patPFMetT1T2 = cms.EDProducer("CorrectedPATMETProducer",
 process.patPFMetT1T2Corr = cms.EDProducer("PATPFJetMETcorrInputProducer",
     isMC = cms.bool(False),
     jetCorrLabel = cms.InputTag("L3Absolute"),
-    jetCorrLabelRes = cms.InputTag("L3Absolute"),
+    jetCorrLabelRes = cms.InputTag("L2L3Residual"),
     offsetCorrLabel = cms.InputTag("L1FastJet"),
     skipEM = cms.bool(True),
     skipEMfractionThreshold = cms.double(0.9),
@@ -1547,7 +1735,7 @@ process.patPFMetT1T2Corr = cms.EDProducer("PATPFJetMETcorrInputProducer",
 process.patPFMetT1T2CorrNoHF = cms.EDProducer("PATPFJetMETcorrInputProducer",
     isMC = cms.bool(False),
     jetCorrLabel = cms.InputTag("L3Absolute"),
-    jetCorrLabelRes = cms.InputTag("L3Absolute"),
+    jetCorrLabelRes = cms.InputTag("L2L3Residual"),
     offsetCorrLabel = cms.InputTag("L1FastJet"),
     skipEM = cms.bool(True),
     skipEMfractionThreshold = cms.double(0.9),
@@ -1607,7 +1795,7 @@ process.patPFMetT1T2Smear = cms.EDProducer("CorrectedPATMETProducer",
 process.patPFMetT1T2SmearCorr = cms.EDProducer("PATPFJetMETcorrInputProducer",
     isMC = cms.bool(False),
     jetCorrLabel = cms.InputTag("L3Absolute"),
-    jetCorrLabelRes = cms.InputTag("L3Absolute"),
+    jetCorrLabelRes = cms.InputTag("L2L3Residual"),
     offsetCorrLabel = cms.InputTag("L1FastJet"),
     skipEM = cms.bool(True),
     skipEMfractionThreshold = cms.double(0.9),
@@ -1625,7 +1813,7 @@ process.patPFMetT1T2SmearCorr = cms.EDProducer("PATPFJetMETcorrInputProducer",
 process.patPFMetT1T2SmearCorrNoHF = cms.EDProducer("PATPFJetMETcorrInputProducer",
     isMC = cms.bool(False),
     jetCorrLabel = cms.InputTag("L3Absolute"),
-    jetCorrLabelRes = cms.InputTag("L3Absolute"),
+    jetCorrLabelRes = cms.InputTag("L2L3Residual"),
     offsetCorrLabel = cms.InputTag("L1FastJet"),
     skipEM = cms.bool(True),
     skipEMfractionThreshold = cms.double(0.9),
@@ -1724,7 +1912,7 @@ process.patPFMetT1UnclusteredEnUpNoHF = cms.EDProducer("CorrectedPATMETProducer"
 process.patPFMetT2Corr = cms.EDProducer("PATPFJetMETcorrInputProducer",
     isMC = cms.bool(False),
     jetCorrLabel = cms.InputTag("L3Absolute"),
-    jetCorrLabelRes = cms.InputTag("L3Absolute"),
+    jetCorrLabelRes = cms.InputTag("L2L3Residual"),
     offsetCorrLabel = cms.InputTag("L1FastJet"),
     skipEM = cms.bool(True),
     skipEMfractionThreshold = cms.double(0.9),
@@ -1742,7 +1930,7 @@ process.patPFMetT2Corr = cms.EDProducer("PATPFJetMETcorrInputProducer",
 process.patPFMetT2CorrNoHF = cms.EDProducer("PATPFJetMETcorrInputProducer",
     isMC = cms.bool(False),
     jetCorrLabel = cms.InputTag("L3Absolute"),
-    jetCorrLabelRes = cms.InputTag("L3Absolute"),
+    jetCorrLabelRes = cms.InputTag("L2L3Residual"),
     offsetCorrLabel = cms.InputTag("L1FastJet"),
     skipEM = cms.bool(True),
     skipEMfractionThreshold = cms.double(0.9),
@@ -1788,7 +1976,7 @@ process.patPFMetT2CorrUnclusteredEnUpNoHF = cms.EDProducer("ShiftedMETcorrInputP
 process.patPFMetT2SmearCorr = cms.EDProducer("PATPFJetMETcorrInputProducer",
     isMC = cms.bool(False),
     jetCorrLabel = cms.InputTag("L3Absolute"),
-    jetCorrLabelRes = cms.InputTag("L3Absolute"),
+    jetCorrLabelRes = cms.InputTag("L2L3Residual"),
     offsetCorrLabel = cms.InputTag("L1FastJet"),
     skipEM = cms.bool(True),
     skipEMfractionThreshold = cms.double(0.9),
@@ -1806,7 +1994,7 @@ process.patPFMetT2SmearCorr = cms.EDProducer("PATPFJetMETcorrInputProducer",
 process.patPFMetT2SmearCorrNoHF = cms.EDProducer("PATPFJetMETcorrInputProducer",
     isMC = cms.bool(False),
     jetCorrLabel = cms.InputTag("L3Absolute"),
-    jetCorrLabelRes = cms.InputTag("L3Absolute"),
+    jetCorrLabelRes = cms.InputTag("L2L3Residual"),
     offsetCorrLabel = cms.InputTag("L1FastJet"),
     skipEM = cms.bool(True),
     skipEMfractionThreshold = cms.double(0.9),
@@ -2372,7 +2560,21 @@ process.pfCandsNotInJetsPtrForMetCorr = cms.EDProducer("TPPFJetsOnPFCandidates",
 )
 
 
+process.pfCandsNotInJetsPtrForMetCorrNoHF = cms.EDProducer("TPPFJetsOnPFCandidates",
+    bottomCollection = cms.InputTag("particleFlowPtrs"),
+    enable = cms.bool(True),
+    name = cms.untracked.string('noJet'),
+    topCollection = cms.InputTag("pfJetsPtrForMetCorrNoHF"),
+    verbose = cms.untracked.bool(False)
+)
+
+
 process.pfJetsPtrForMetCorr = cms.EDProducer("PFJetFwdPtrProducer",
+    src = cms.InputTag("ak4PFJets")
+)
+
+
+process.pfJetsPtrForMetCorrNoHF = cms.EDProducer("PFJetFwdPtrProducer",
     src = cms.InputTag("ak4PFJets")
 )
 
@@ -2545,6 +2747,120 @@ process.pfMetNoHF = cms.EDProducer("PFMETProducer",
 )
 
 
+process.pfMetT0pc = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0PfCand"))
+)
+
+
+process.pfMetT0pcT1 = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0PfCand"), cms.InputTag("corrPfMetType1","type1"))
+)
+
+
+process.pfMetT0pcT1T2Txy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0PfCand"), cms.InputTag("corrPfMetType1","type1"), cms.InputTag("corrPfMetType2"), cms.InputTag("corrPfMetXYMult"))
+)
+
+
+process.pfMetT0pcT1Txy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0PfCand"), cms.InputTag("corrPfMetType1","type1"), cms.InputTag("corrPfMetXYMult"))
+)
+
+
+process.pfMetT0pcTxy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0PfCand"), cms.InputTag("corrPfMetXYMult"))
+)
+
+
+process.pfMetT0rt = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0RecoTrack"))
+)
+
+
+process.pfMetT0rtT1 = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0RecoTrack"), cms.InputTag("corrPfMetType1","type1"))
+)
+
+
+process.pfMetT0rtT1T2 = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0RecoTrackForType2"), cms.InputTag("corrPfMetType1","type1"), cms.InputTag("corrPfMetType2"))
+)
+
+
+process.pfMetT0rtT1T2Txy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0RecoTrackForType2"), cms.InputTag("corrPfMetType1","type1"), cms.InputTag("corrPfMetType2"), cms.InputTag("corrPfMetXYMult"))
+)
+
+
+process.pfMetT0rtT1Txy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0RecoTrack"), cms.InputTag("corrPfMetType1","type1"), cms.InputTag("corrPfMetXYMult"))
+)
+
+
+process.pfMetT0rtT2 = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0RecoTrackForType2"), cms.InputTag("corrPfMetType2"))
+)
+
+
+process.pfMetT0rtTxy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType0RecoTrack"), cms.InputTag("corrPfMetXYMult"))
+)
+
+
+process.pfMetT1 = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType1","type1"))
+)
+
+
+process.pfMetT1NoHF = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType1NoHF","type1"))
+)
+
+
+process.pfMetT1T2 = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType1","type1"), cms.InputTag("corrPfMetType2"))
+)
+
+
+process.pfMetT1T2NoHF = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType1NoHF","type1"), cms.InputTag("corrPfMetType2NoHF"))
+)
+
+
+process.pfMetT1T2Txy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType1","type1"), cms.InputTag("corrPfMetType2"), cms.InputTag("corrPfMetXYMult"))
+)
+
+
+process.pfMetT1Txy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetType1","type1"), cms.InputTag("corrPfMetXYMult"))
+)
+
+
+process.pfMetTxy = cms.EDProducer("CorrectedPFMETProducer",
+    src = cms.InputTag("pfMet"),
+    srcCorrections = cms.VInputTag(cms.InputTag("corrPfMetXYMult"))
+)
+
+
 process.pfNoJet = cms.EDProducer("TPPFJetsOnPFCandidates",
     bottomCollection = cms.InputTag("pfNoElectronJME"),
     enable = cms.bool(True),
@@ -2615,9 +2931,9 @@ process.shiftedPatElectronEnUpNoHF = cms.EDProducer("ShiftedPATElectronProducer"
 
 process.shiftedPatJetEnDown = cms.EDProducer("ShiftedPATJetProducer",
     addResidualJES = cms.bool(True),
-    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV4_MC_UncertaintySources_AK4PFchs.txt'),
+    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV5_DATA_UncertaintySources_AK4PFchs.txt'),
     jetCorrLabelUpToL3 = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
-    jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
+    jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3ResidualCorrector"),
     jetCorrPayloadName = cms.string('AK4PFchs'),
     jetCorrUncertaintyTag = cms.string('SubTotalMC'),
     shiftBy = cms.double(-1.0),
@@ -2627,9 +2943,9 @@ process.shiftedPatJetEnDown = cms.EDProducer("ShiftedPATJetProducer",
 
 process.shiftedPatJetEnDownNoHF = cms.EDProducer("ShiftedPATJetProducer",
     addResidualJES = cms.bool(True),
-    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV4_MC_UncertaintySources_AK4PFchs.txt'),
+    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV5_DATA_UncertaintySources_AK4PFchs.txt'),
     jetCorrLabelUpToL3 = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
-    jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
+    jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3ResidualCorrector"),
     jetCorrPayloadName = cms.string('AK4PFchs'),
     jetCorrUncertaintyTag = cms.string('SubTotalMC'),
     shiftBy = cms.double(-1.0),
@@ -2639,9 +2955,9 @@ process.shiftedPatJetEnDownNoHF = cms.EDProducer("ShiftedPATJetProducer",
 
 process.shiftedPatJetEnUp = cms.EDProducer("ShiftedPATJetProducer",
     addResidualJES = cms.bool(True),
-    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV4_MC_UncertaintySources_AK4PFchs.txt'),
+    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV5_DATA_UncertaintySources_AK4PFchs.txt'),
     jetCorrLabelUpToL3 = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
-    jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
+    jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3ResidualCorrector"),
     jetCorrPayloadName = cms.string('AK4PFchs'),
     jetCorrUncertaintyTag = cms.string('SubTotalMC'),
     shiftBy = cms.double(1.0),
@@ -2651,9 +2967,9 @@ process.shiftedPatJetEnUp = cms.EDProducer("ShiftedPATJetProducer",
 
 process.shiftedPatJetEnUpNoHF = cms.EDProducer("ShiftedPATJetProducer",
     addResidualJES = cms.bool(True),
-    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV4_MC_UncertaintySources_AK4PFchs.txt'),
+    jetCorrInputFileName = cms.FileInPath('CMGTools/RootTools/data/jec/Summer15_50nsV5_DATA_UncertaintySources_AK4PFchs.txt'),
     jetCorrLabelUpToL3 = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
-    jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3Corrector"),
+    jetCorrLabelUpToL3Res = cms.InputTag("ak4PFCHSL1FastL2L3ResidualCorrector"),
     jetCorrPayloadName = cms.string('AK4PFchs'),
     jetCorrUncertaintyTag = cms.string('SubTotalMC'),
     shiftBy = cms.double(1.0),
@@ -2946,18 +3262,24 @@ process.shiftedPatTauEnUpNoHF = cms.EDProducer("ShiftedPATTauProducer",
 
 
 process.slimmedMETs = cms.EDProducer("PATMETSlimmer",
-    rawUncertainties = cms.InputTag("patPFMet"),
+    rawVariation = cms.InputTag("patPFMet"),
+    runningOnMiniAOD = cms.bool(True),
     src = cms.InputTag("patPFMetT1"),
-    type1Uncertainties = cms.InputTag("patPFMetT1%s"),
-    type1p2Uncertainties = cms.InputTag("patPFMetT1")
+    t01Variation = cms.InputTag("slimmedMETs","","RECO"),
+    t1Uncertainties = cms.InputTag("patPFMetT1%s"),
+    tXYUncForRaw = cms.InputTag("patPFMetTxy"),
+    tXYUncForT1 = cms.InputTag("patPFMetT1Txy")
 )
 
 
 process.slimmedMETsNoHF = cms.EDProducer("PATMETSlimmer",
-    rawUncertainties = cms.InputTag("patPFMetNoHF"),
+    rawVariation = cms.InputTag("patPFMetNoHF"),
+    runningOnMiniAOD = cms.bool(True),
     src = cms.InputTag("patPFMetT1NoHF"),
-    type1Uncertainties = cms.InputTag("patPFMetT1%sNoHF"),
-    type1p2Uncertainties = cms.InputTag("patPFMetT1NoHF")
+    t01Variation = cms.InputTag("slimmedMETs","","RECO"),
+    t1Uncertainties = cms.InputTag("patPFMetT1%sNoHF"),
+    tXYUncForRaw = cms.InputTag("patPFMetTxyNoHF"),
+    tXYUncForT1 = cms.InputTag("patPFMetT1TxyNoHF")
 )
 
 
@@ -3128,22 +3450,13 @@ process.patPFMetT2CorrSequenceNoHF = cms.Sequence(process.patPFMetT2CorrNoHF)
 process.type0PFMEtCorrectionPFCandToVertexAssociationForValidation = cms.Sequence(cms.ignore(process.selectedVerticesForPFMEtCorrType0)+cms.ignore(process.selectedPrimaryVertexHighestPtTrackSumForPFMEtCorrType0)+process.particleFlowDisplacedVertex+process.pfCandidateToVertexAssociation)
 
 
-process.ak4PFL1FastL2L3L6CorrectorChain = cms.Sequence(process.ak4PFL1FastjetCorrector+process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFL6SLBCorrector+process.ak4PFL1FastL2L3L6Corrector)
+process.pfMEtSysShiftCorrSequence = cms.Sequence(process.pfMEtMultShiftCorr)
 
 
 process.ak4L1JPTOffsetCorrectorChain = cms.Sequence(process.ak4CaloL1OffsetCorrector+process.ak4L1JPTOffsetCorrector)
 
 
-process.ak4TrackL2L3CorrectorChain = cms.Sequence(process.ak4TrackL2RelativeCorrector+process.ak4TrackL3AbsoluteCorrector+process.ak4TrackL2L3Corrector)
-
-
 process.patPFMetT1T2CorrSequence = cms.Sequence(process.selectedPatJetsForMetT1T2Corr+process.patPFMetT1T2Corr)
-
-
-process.ak4JPTL1FastL2L3ResidualCorrectorChain = cms.Sequence(process.ak4JPTL1FastjetCorrector+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTResidualCorrector+process.ak4JPTL1FastL2L3ResidualCorrector)
-
-
-process.ak4PFL2L3L6CorrectorChain = cms.Sequence(process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFL6SLBCorrector+process.ak4PFL2L3L6Corrector)
 
 
 process.ak4PFL1L2L3CorrectorChain = cms.Sequence(process.ak4PFL1OffsetCorrector+process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFL1L2L3Corrector)
@@ -3164,22 +3477,10 @@ process.ak4PFCHSL1FastL2L3CorrectorChain = cms.Sequence(process.ak4PFCHSL1Fastje
 process.ak4CaloL1L2L3CorrectorChain = cms.Sequence(process.ak4CaloL1OffsetCorrector+process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloL1L2L3Corrector)
 
 
-process.pfMEtSysShiftCorrSequence = cms.Sequence(process.pfMEtMultShiftCorr)
-
-
-process.ak4PFCHSL1L2L3CorrectorChain = cms.Sequence(process.ak4PFCHSL1OffsetCorrector+process.ak4PFCHSL2RelativeCorrector+process.ak4PFCHSL3AbsoluteCorrector+process.ak4PFCHSL1L2L3Corrector)
-
-
-process.correctionTermsPfMetType0PFCandidate = cms.Sequence(process.type0PFMEtCorrectionPFCandToVertexAssociation+process.corrPfMetType0PfCand)
-
-
-process.ak4CaloL1FastL2L3ResidualCorrectorChain = cms.Sequence(process.ak4CaloL1FastjetCorrector+process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloResidualCorrector+process.ak4CaloL1FastL2L3ResidualCorrector)
+process.patMetModuleSequenceNoHF = cms.Sequence(process.patPFMetNoHF+process.patPFMetT1TxyNoHF+process.patPFMetT1NoHF+process.patPFMetTxyNoHF)
 
 
 process.ak4PFL1FastL2L3CorrectorChain = cms.Sequence(process.ak4PFL1FastjetCorrector+process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFL1FastL2L3Corrector)
-
-
-process.ak4CaloL2L3L6CorrectorChain = cms.Sequence(process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloL6SLBCorrector+process.ak4CaloL2L3L6Corrector)
 
 
 process.patMetModuleSequence = cms.Sequence(process.patPFMet+process.patPFMetT1Txy+process.patPFMetTxy+process.patPFMetT1)
@@ -3188,13 +3489,88 @@ process.patMetModuleSequence = cms.Sequence(process.patPFMet+process.patPFMetT1T
 process.producePatPFMETCorrectionsNoHF = cms.Sequence(process.patPFMetNoHF+process.pfCandsNotInJetsForMetCorrNoHF+process.selectedPatJetsForMetT1T2CorrNoHF+process.selectedPatJetsForMetT2CorrNoHF+process.patPFMetT1T2CorrNoHF+process.patPFMetT2CorrNoHF+process.selectedVerticesForPFMEtCorrType0NoHF+process.selectedPrimaryVertexHighestPtTrackSumForPFMEtCorrType0NoHF+process.particleFlowDisplacedVertexNoHF+process.pfCandidateToVertexAssociationNoHF+process.patPFMetT0CorrNoHF+process.pfCandMETcorrNoHF+process.patPFMetT1NoHF+process.patPFMetT1T2NoHF+process.patPFMetT0pcT1NoHF+process.patPFMetT0pcT1T2NoHF)
 
 
+process.patMetCorrectionSequence = cms.Sequence()
+
+
+process.patMetUncertaintySequence = cms.Sequence()
+
+
+process.correctionTermsPfMetType0PFCandidate = cms.Sequence(process.type0PFMEtCorrectionPFCandToVertexAssociation+process.corrPfMetType0PfCand)
+
+
+process.ak4PFL1FastL2L3ResidualCorrectorChain = cms.Sequence(process.ak4PFL1FastjetCorrector+process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFResidualCorrector+process.ak4PFL1FastL2L3ResidualCorrector)
+
+
+process.ak4JPTL1L2L3CorrectorChain = cms.Sequence(process.ak4L1JPTOffsetCorrectorChain+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTL1L2L3Corrector)
+
+
+process.ak4PFCHSL2L3ResidualCorrectorChain = cms.Sequence(process.ak4PFCHSL2RelativeCorrector+process.ak4PFCHSL3AbsoluteCorrector+process.ak4PFCHSResidualCorrector+process.ak4PFCHSL2L3ResidualCorrector)
+
+
+process.patPFMetSmearCorrSequenceNoHF = cms.Sequence(process.patSmearedJetsNoHF+process.selectedPatJetsForMetT1T2SmearCorrNoHF+process.patPFMetT1T2SmearCorrNoHF)
+
+
+process.patPFMetT0CorrSequenceNoHF = cms.Sequence(process.selectedVerticesForPFMEtCorrType0NoHF+process.selectedPrimaryVertexHighestPtTrackSumForPFMEtCorrType0NoHF+process.particleFlowDisplacedVertexNoHF+process.pfCandidateToVertexAssociationNoHF+process.patPFMetT0CorrNoHF)
+
+
+process.ak4JPTL1FastL2L3CorrectorChain = cms.Sequence(process.ak4JPTL1FastjetCorrector+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTL1FastL2L3Corrector)
+
+
+process.patMetCorrectionSequenceNoHF = cms.Sequence()
+
+
+process.patMETCorrectionsNoHF = cms.Sequence(process.ak4CaloL2RelativeCorrectorNoHF+process.ak4CaloL3AbsoluteCorrectorNoHF+process.ak4CaloL2L3CorrectorNoHF+process.corrCaloMetType1NoHF+process.muCaloMetCorrNoHF+process.corrCaloMetType2NoHF+process.caloMetT1NoHF+process.caloMetT1T2NoHF+process.pfJetsPtrForMetCorrNoHF+process.pfCandsNotInJetsPtrForMetCorrNoHF+process.pfCandsNotInJetsForMetCorrNoHF+process.pfCandMETcorrNoHF+process.ak4PFCHSL1FastjetCorrectorNoHF+process.ak4PFCHSL2RelativeCorrectorNoHF+process.ak4PFCHSL3AbsoluteCorrectorNoHF+process.ak4PFCHSResidualCorrectorNoHF+process.ak4PFCHSL1FastL2L3ResidualCorrectorNoHF+process.ak4PFCHSL1FastL2L3CorrectorNoHF+process.corrPfMetType1NoHF+process.corrPfMetType2NoHF+process.pfMetT1NoHF+process.pfMetT1T2NoHF)
+
+
+process.ak4PFCHSL2L3CorrectorChain = cms.Sequence(process.ak4PFCHSL2RelativeCorrector+process.ak4PFCHSL3AbsoluteCorrector+process.ak4PFCHSL2L3Corrector)
+
+
+process.patPFMetT0CorrSequence = cms.Sequence(process.type0PFMEtCorrectionPFCandToVertexAssociation+process.patPFMetT0Corr)
+
+
+process.patPFMetSmearCorrSequence = cms.Sequence(process.patSmearedJets+process.selectedPatJetsForMetT1T2SmearCorr+process.patPFMetT1T2SmearCorr)
+
+
+process.ak4CaloL1FastL2L3CorrectorChain = cms.Sequence(process.ak4CaloL1FastjetCorrector+process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloL1FastL2L3Corrector)
+
+
+process.patPFMetT2CorrSequence = cms.Sequence(process.patPFMetT2Corr)
+
+
+process.ak4PFL1L2L3ResidualCorrectorChain = cms.Sequence(process.ak4PFL1OffsetCorrector+process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFResidualCorrector+process.ak4PFL1L2L3ResidualCorrector)
+
+
+process.ak4JPTL2L3ResidualCorrectorChain = cms.Sequence(process.ak4L1JPTOffsetCorrectorChain+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTResidualCorrector+process.ak4JPTL2L3ResidualCorrector)
+
+
+process.ak4PFL1FastL2L3L6CorrectorChain = cms.Sequence(process.ak4PFL1FastjetCorrector+process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFL6SLBCorrector+process.ak4PFL1FastL2L3L6Corrector)
+
+
+process.fullPatMetSequence = cms.Sequence(process.patMetCorrectionSequence+process.patMetUncertaintySequence+process.patMetModuleSequence)
+
+
+process.ak4TrackL2L3CorrectorChain = cms.Sequence(process.ak4TrackL2RelativeCorrector+process.ak4TrackL3AbsoluteCorrector+process.ak4TrackL2L3Corrector)
+
+
+process.ak4JPTL1FastL2L3ResidualCorrectorChain = cms.Sequence(process.ak4JPTL1FastjetCorrector+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTResidualCorrector+process.ak4JPTL1FastL2L3ResidualCorrector)
+
+
+process.ak4PFL2L3L6CorrectorChain = cms.Sequence(process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFL6SLBCorrector+process.ak4PFL2L3L6Corrector)
+
+
+process.ak4PFCHSL1L2L3CorrectorChain = cms.Sequence(process.ak4PFCHSL1OffsetCorrector+process.ak4PFCHSL2RelativeCorrector+process.ak4PFCHSL3AbsoluteCorrector+process.ak4PFCHSL1L2L3Corrector)
+
+
+process.ak4CaloL1FastL2L3ResidualCorrectorChain = cms.Sequence(process.ak4CaloL1FastjetCorrector+process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloResidualCorrector+process.ak4CaloL1FastL2L3ResidualCorrector)
+
+
+process.ak4CaloL2L3L6CorrectorChain = cms.Sequence(process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloL6SLBCorrector+process.ak4CaloL2L3L6Corrector)
+
+
 process.patPFMetT2SmearCorrSequence = cms.Sequence(process.patSmearedJets+process.selectedPatJetsForMetT1T2SmearCorr+process.selectedPatJetsForMetT2SmearCorr+process.patPFMetT1T2SmearCorr+process.patPFMetT2SmearCorr)
 
 
 process.ak4JPTL2L3CorrectorChain = cms.Sequence(process.ak4L1JPTOffsetCorrectorChain+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTL2L3Corrector)
-
-
-process.patMetCorrectionSequence = cms.Sequence()
 
 
 process.ak4CaloL2L3CorrectorChain = cms.Sequence(process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloL2L3Corrector)
@@ -3209,58 +3585,25 @@ process.patPFMetTxyCorrSequence = cms.Sequence(process.patPFMetTxyCorr)
 process.producePatPFMETCorrectionsUnc = cms.Sequence(process.patPFMet+process.pfCandsNotInJetsForMetCorr+process.selectedPatJetsForMetT1T2Corr+process.selectedPatJetsForMetT2Corr+process.patPFMetT1T2Corr+process.patPFMetT2Corr+process.type0PFMEtCorrectionPFCandToVertexAssociation+process.patPFMetT0Corr+process.pfCandMETcorr)
 
 
-process.patMetUncertaintySequence = cms.Sequence()
-
-
-process.ak4PFL1FastL2L3ResidualCorrectorChain = cms.Sequence(process.ak4PFL1FastjetCorrector+process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFResidualCorrector+process.ak4PFL1FastL2L3ResidualCorrector)
+process.fullPatMetSequenceNoHF = cms.Sequence(process.patMetCorrectionSequenceNoHF+process.patMetUncertaintySequenceNoHF+process.patMetModuleSequenceNoHF)
 
 
 process.producePatPFMETCorrections = cms.Sequence(process.patPFMet+process.pfCandsNotInJetsForMetCorr+process.selectedPatJetsForMetT1T2Corr+process.selectedPatJetsForMetT2Corr+process.patPFMetT1T2Corr+process.patPFMetT2Corr+process.type0PFMEtCorrectionPFCandToVertexAssociation+process.patPFMetT0Corr+process.pfCandMETcorr+process.patPFMetT1+process.patPFMetT1T2+process.patPFMetT0pcT1+process.patPFMetT0pcT1T2)
 
 
-process.ak4JPTL1L2L3CorrectorChain = cms.Sequence(process.ak4L1JPTOffsetCorrectorChain+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTL1L2L3Corrector)
-
-
 process.patPFMetT2SmearCorrSequenceNoHF = cms.Sequence(process.patSmearedJetsNoHF+process.selectedPatJetsForMetT1T2SmearCorrNoHF+process.selectedPatJetsForMetT2SmearCorrNoHF+process.patPFMetT1T2SmearCorrNoHF+process.patPFMetT2SmearCorrNoHF)
-
-
-process.patJetCorrections = cms.Sequence(process.patJetCorrFactors)
 
 
 process.patPFMetT1T2CorrSequenceNoHF = cms.Sequence(process.selectedPatJetsForMetT1T2CorrNoHF+process.patPFMetT1T2CorrNoHF)
 
 
-process.ak4PFCHSL2L3ResidualCorrectorChain = cms.Sequence(process.ak4PFCHSL2RelativeCorrector+process.ak4PFCHSL3AbsoluteCorrector+process.ak4PFCHSResidualCorrector+process.ak4PFCHSL2L3ResidualCorrector)
-
-
 process.correctionTermsPfMetType0PFCandidateForValidation = cms.Sequence(process.type0PFMEtCorrectionPFCandToVertexAssociationForValidation+process.corrPfMetType0PfCand)
-
-
-process.patPFMetSmearCorrSequenceNoHF = cms.Sequence(process.patSmearedJetsNoHF+process.selectedPatJetsForMetT1T2SmearCorrNoHF+process.patPFMetT1T2SmearCorrNoHF)
-
-
-process.patPFMetT0CorrSequenceNoHF = cms.Sequence(process.selectedVerticesForPFMEtCorrType0NoHF+process.selectedPrimaryVertexHighestPtTrackSumForPFMEtCorrType0NoHF+process.particleFlowDisplacedVertexNoHF+process.pfCandidateToVertexAssociationNoHF+process.patPFMetT0CorrNoHF)
 
 
 process.ak4CaloL1FastL2L3L6CorrectorChain = cms.Sequence(process.ak4CaloL1FastjetCorrector+process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloL6SLBCorrector+process.ak4CaloL1FastL2L3L6Corrector)
 
 
-process.patMetModuleSequenceNoHF = cms.Sequence(process.patPFMetNoHF+process.patPFMetT1TxyNoHF+process.patPFMetT1NoHF+process.patPFMetTxyNoHF)
-
-
-process.ak4PFL2L3ResidualCorrectorChain = cms.Sequence(process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFResidualCorrector+process.ak4PFL2L3ResidualCorrector)
-
-
-process.patMetCorrectionSequenceNoHF = cms.Sequence()
-
-
-process.ak4PFCHSL2L3CorrectorChain = cms.Sequence(process.ak4PFCHSL2RelativeCorrector+process.ak4PFCHSL3AbsoluteCorrector+process.ak4PFCHSL2L3Corrector)
-
-
-process.patPFMetT0CorrSequence = cms.Sequence(process.type0PFMEtCorrectionPFCandToVertexAssociation+process.patPFMetT0Corr)
-
-
-process.patPFMetSmearCorrSequence = cms.Sequence(process.patSmearedJets+process.selectedPatJetsForMetT1T2SmearCorr+process.patPFMetT1T2SmearCorr)
+process.type0PFMEtCorrectionPFCandToVertexAssociationForValidationMiniAOD = cms.Sequence(process.selectedVerticesForPFMEtCorrType0+process.selectedPrimaryVertexHighestPtTrackSumForPFMEtCorrType0+process.particleFlowDisplacedVertex+process.pfCandidateToVertexAssociation)
 
 
 process.ak4CaloL2L3ResidualCorrectorChain = cms.Sequence(process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloResidualCorrector+process.ak4CaloL2L3ResidualCorrector)
@@ -3275,34 +3618,25 @@ process.ak4PFL2L3CorrectorChain = cms.Sequence(process.ak4PFL2RelativeCorrector+
 process.ak4CaloL1L2L3ResidualCorrectorChain = cms.Sequence(process.ak4CaloL1OffsetCorrector+process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloResidualCorrector+process.ak4CaloL1L2L3ResidualCorrector)
 
 
-process.ak4CaloL1FastL2L3CorrectorChain = cms.Sequence(process.ak4CaloL1FastjetCorrector+process.ak4CaloL2RelativeCorrector+process.ak4CaloL3AbsoluteCorrector+process.ak4CaloL1FastL2L3Corrector)
-
-
 process.patPFMetTxyCorrSequenceNoHF = cms.Sequence(process.patPFMetTxyCorrNoHF)
 
 
-process.patPFMetT2CorrSequence = cms.Sequence(process.patPFMetT2Corr)
-
-
-process.ak4JPTL1FastL2L3CorrectorChain = cms.Sequence(process.ak4JPTL1FastjetCorrector+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTL1FastL2L3Corrector)
-
-
-process.ak4PFL1L2L3ResidualCorrectorChain = cms.Sequence(process.ak4PFL1OffsetCorrector+process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFResidualCorrector+process.ak4PFL1L2L3ResidualCorrector)
+process.ak4PFL2L3ResidualCorrectorChain = cms.Sequence(process.ak4PFL2RelativeCorrector+process.ak4PFL3AbsoluteCorrector+process.ak4PFResidualCorrector+process.ak4PFL2L3ResidualCorrector)
 
 
 process.type0PFMEtCorrection = cms.Sequence(process.type0PFMEtCorrectionPFCandToVertexAssociation+process.pfMETcorrType0)
 
 
-process.fullPatMetSequence = cms.Sequence(process.patMetCorrectionSequence+process.patMetUncertaintySequence+process.patMetModuleSequence)
+process.correctionTermsPfMetType1Type2 = cms.Sequence(process.pfJetsPtrForMetCorr+process.pfCandsNotInJetsPtrForMetCorr+process.pfCandsNotInJetsForMetCorr+process.pfCandMETcorr+process.ak4PFCHSL1FastL2L3ResidualCorrectorChain+process.ak4PFCHSL1FastL2L3Corrector+process.corrPfMetType1+process.corrPfMetType2)
 
 
-process.ak4JPTL2L3ResidualCorrectorChain = cms.Sequence(process.ak4L1JPTOffsetCorrectorChain+process.ak4JPTL2RelativeCorrector+process.ak4JPTL3AbsoluteCorrector+process.ak4JPTResidualCorrector+process.ak4JPTL2L3ResidualCorrector)
+process.correctionTermsCaloMet = cms.Sequence(process.ak4CaloL2L3CorrectorChain+process.corrCaloMetType1+process.muCaloMetCorr+process.corrCaloMetType2)
 
 
-process.correctionTermsPfMetType1Type2 = cms.Sequence(process.pfJetsPtrForMetCorr+process.particleFlowPtrs+process.pfCandsNotInJetsPtrForMetCorr+process.pfCandsNotInJetsForMetCorr+process.pfCandMETcorr+process.ak4PFL1FastL2L3CorrectorChain+process.corrPfMetType1+process.corrPfMetType2)
+process.patMETCorrections = cms.Sequence(process.correctionTermsCaloMet+process.caloMetT1+process.caloMetT1T2+process.correctionTermsPfMetType1Type2+process.pfMetT1+process.pfMetT1T2)
 
 
-process.fullPatMetSequenceNoHF = cms.Sequence(process.patMetCorrectionSequenceNoHF+process.patMetUncertaintySequenceNoHF+process.patMetModuleSequenceNoHF)
+process.makePatMETs = cms.Sequence(process.patMETCorrections+process.patMETs)
 
 
 process.endpath = cms.EndPath(process.MINIAODSIMoutput)
@@ -3691,1708 +4025,6 @@ process.ZdcGeometryFromDBEP = cms.ESProducer("ZdcGeometryFromDBEP",
 )
 
 
-process.ak10PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK10PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak10PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak10PFCHSL1Fastjet', 
-        'ak10PFCHSL2Relative', 
-        'ak10PFCHSL3Absolute', 
-        'ak10PFCHSResidual')
-)
-
-
-process.ak10PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak10PFCHSL1Offset', 
-        'ak10PFCHSL2Relative', 
-        'ak10PFCHSL3Absolute', 
-        'ak10PFCHSResidual')
-)
-
-
-process.ak10PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK10PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak10PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak10PFCHSL2Relative', 
-        'ak10PFCHSL3Absolute')
-)
-
-
-process.ak10PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak10PFCHSL2Relative', 
-        'ak10PFCHSL3Absolute', 
-        'ak10PFCHSResidual')
-)
-
-
-process.ak10PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK10PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak10PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK10PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak10PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK10PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak10PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK10PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak10PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak10PFL1Fastjet', 
-        'ak10PFL2Relative', 
-        'ak10PFL3Absolute', 
-        'ak10PFResidual')
-)
-
-
-process.ak10PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak10PFL1Offset', 
-        'ak10PFL2Relative', 
-        'ak10PFL3Absolute', 
-        'ak10PFResidual')
-)
-
-
-process.ak10PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK10PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak10PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak10PFL2Relative', 
-        'ak10PFL3Absolute')
-)
-
-
-process.ak10PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak10PFL2Relative', 
-        'ak10PFL3Absolute', 
-        'ak10PFResidual')
-)
-
-
-process.ak10PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK10PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak10PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK10PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak10PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK10PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak1PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK1PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak1PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak1PFCHSL1Fastjet', 
-        'ak1PFCHSL2Relative', 
-        'ak1PFCHSL3Absolute', 
-        'ak1PFCHSResidual')
-)
-
-
-process.ak1PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak1PFCHSL1Offset', 
-        'ak1PFCHSL2Relative', 
-        'ak1PFCHSL3Absolute', 
-        'ak1PFCHSResidual')
-)
-
-
-process.ak1PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK1PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak1PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak1PFCHSL2Relative', 
-        'ak1PFCHSL3Absolute')
-)
-
-
-process.ak1PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak1PFCHSL2Relative', 
-        'ak1PFCHSL3Absolute', 
-        'ak1PFCHSResidual')
-)
-
-
-process.ak1PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK1PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak1PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK1PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak1PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK1PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak1PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK1PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak1PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak1PFL1Fastjet', 
-        'ak1PFL2Relative', 
-        'ak1PFL3Absolute', 
-        'ak1PFResidual')
-)
-
-
-process.ak1PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak1PFL1Offset', 
-        'ak1PFL2Relative', 
-        'ak1PFL3Absolute', 
-        'ak1PFResidual')
-)
-
-
-process.ak1PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK1PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak1PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak1PFL2Relative', 
-        'ak1PFL3Absolute')
-)
-
-
-process.ak1PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak1PFL2Relative', 
-        'ak1PFL3Absolute', 
-        'ak1PFResidual')
-)
-
-
-process.ak1PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK1PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak1PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK1PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak1PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK1PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak2PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK2PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak2PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak2PFCHSL1Fastjet', 
-        'ak2PFCHSL2Relative', 
-        'ak2PFCHSL3Absolute', 
-        'ak2PFCHSResidual')
-)
-
-
-process.ak2PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak2PFCHSL1Offset', 
-        'ak2PFCHSL2Relative', 
-        'ak2PFCHSL3Absolute', 
-        'ak2PFCHSResidual')
-)
-
-
-process.ak2PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK2PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak2PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak2PFCHSL2Relative', 
-        'ak2PFCHSL3Absolute')
-)
-
-
-process.ak2PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak2PFCHSL2Relative', 
-        'ak2PFCHSL3Absolute', 
-        'ak2PFCHSResidual')
-)
-
-
-process.ak2PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK2PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak2PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK2PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak2PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK2PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak2PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK2PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak2PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak2PFL1Fastjet', 
-        'ak2PFL2Relative', 
-        'ak2PFL3Absolute', 
-        'ak2PFResidual')
-)
-
-
-process.ak2PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak2PFL1Offset', 
-        'ak2PFL2Relative', 
-        'ak2PFL3Absolute', 
-        'ak2PFResidual')
-)
-
-
-process.ak2PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK2PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak2PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak2PFL2Relative', 
-        'ak2PFL3Absolute')
-)
-
-
-process.ak2PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak2PFL2Relative', 
-        'ak2PFL3Absolute', 
-        'ak2PFResidual')
-)
-
-
-process.ak2PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK2PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak2PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK2PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak2PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK2PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak3PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK3PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak3PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak3PFCHSL1Fastjet', 
-        'ak3PFCHSL2Relative', 
-        'ak3PFCHSL3Absolute', 
-        'ak3PFCHSResidual')
-)
-
-
-process.ak3PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak3PFCHSL1Offset', 
-        'ak3PFCHSL2Relative', 
-        'ak3PFCHSL3Absolute', 
-        'ak3PFCHSResidual')
-)
-
-
-process.ak3PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK3PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak3PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak3PFCHSL2Relative', 
-        'ak3PFCHSL3Absolute')
-)
-
-
-process.ak3PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak3PFCHSL2Relative', 
-        'ak3PFCHSL3Absolute', 
-        'ak3PFCHSResidual')
-)
-
-
-process.ak3PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK3PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak3PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK3PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak3PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK3PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak3PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK3PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak3PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak3PFL1Fastjet', 
-        'ak3PFL2Relative', 
-        'ak3PFL3Absolute', 
-        'ak3PFResidual')
-)
-
-
-process.ak3PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak3PFL1Offset', 
-        'ak3PFL2Relative', 
-        'ak3PFL3Absolute', 
-        'ak3PFResidual')
-)
-
-
-process.ak3PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK3PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak3PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak3PFL2Relative', 
-        'ak3PFL3Absolute')
-)
-
-
-process.ak3PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak3PFL2Relative', 
-        'ak3PFL3Absolute', 
-        'ak3PFResidual')
-)
-
-
-process.ak3PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK3PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak3PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK3PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak3PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK3PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak4CaloL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Fastjet', 
-        'ak4CaloL2Relative', 
-        'ak4CaloL3Absolute')
-)
-
-
-process.ak4CaloL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Fastjet', 
-        'ak4CaloL2Relative', 
-        'ak4CaloL3Absolute', 
-        'ak4CaloL6SLB')
-)
-
-
-process.ak4CaloL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Fastjet', 
-        'ak4CaloL2Relative', 
-        'ak4CaloL3Absolute', 
-        'ak4CaloResidual')
-)
-
-
-process.ak4CaloL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK5Calo'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAllCalo")
-)
-
-
-process.ak4CaloL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Offset', 
-        'ak4CaloL2Relative', 
-        'ak4CaloL3Absolute')
-)
-
-
-process.ak4CaloL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Offset', 
-        'ak4CaloL2Relative', 
-        'ak4CaloL3Absolute', 
-        'ak4CaloResidual')
-)
-
-
-process.ak4CaloL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK5Calo'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak4CaloL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL2Relative', 
-        'ak4CaloL3Absolute')
-)
-
-
-process.ak4CaloL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL2Relative', 
-        'ak4CaloL3Absolute', 
-        'ak4CaloL6SLB')
-)
-
-
-process.ak4CaloL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL2Relative', 
-        'ak4CaloL3Absolute', 
-        'ak4CaloResidual')
-)
-
-
-process.ak4CaloL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5Calo'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak4CaloL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5Calo'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak4CaloL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(True),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("ak4CaloJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("ak4CaloJetsSoftMuonTagInfos")
-)
-
-
-process.ak4CaloResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5Calo'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak4JPTL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4JPTL1Fastjet', 
-        'ak4JPTL2Relative', 
-        'ak4JPTL3Absolute')
-)
-
-
-process.ak4JPTL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4JPTL1Fastjet', 
-        'ak4JPTL2Relative', 
-        'ak4JPTL3Absolute', 
-        'ak4JPTResidual')
-)
-
-
-process.ak4JPTL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK5Calo'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAllCalo")
-)
-
-
-process.ak4JPTL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4L1JPTOffset', 
-        'ak4JPTL2Relative', 
-        'ak4JPTL3Absolute')
-)
-
-
-process.ak4JPTL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4L1JPTOffset', 
-        'ak4JPTL2Relative', 
-        'ak4JPTL3Absolute', 
-        'ak4JPTResidual')
-)
-
-
-process.ak4JPTL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK5JPT'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak4JPTL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4L1JPTOffset', 
-        'ak4JPTL2Relative', 
-        'ak4JPTL3Absolute')
-)
-
-
-process.ak4JPTL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4L1JPTOffset', 
-        'ak4JPTL2Relative', 
-        'ak4JPTL3Absolute', 
-        'ak4JPTResidual')
-)
-
-
-process.ak4JPTL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5JPT'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak4JPTL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5JPT'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak4JPTResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5JPT'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak4L1JPTOffset = cms.ESProducer("L1JPTOffsetCorrectionESProducer",
-    algorithm = cms.string('AK5JPT'),
-    level = cms.string('L1JPTOffset'),
-    offsetService = cms.string('ak4CaloL1Offset')
-)
-
-
-process.ak4PFCHSL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFCHSL1Fastjet', 
-        'ak4PFCHSL2Relative', 
-        'ak4PFCHSL3Absolute')
-)
-
-
-process.ak4PFCHSL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFCHSL1Fastjet', 
-        'ak4PFCHSL2Relative', 
-        'ak4PFCHSL3Absolute', 
-        'ak4PFCHSResidual')
-)
-
-
-process.ak4PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK4PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak4PFCHSL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFCHSL1Offset', 
-        'ak4PFCHSL2Relative', 
-        'ak4PFCHSL3Absolute')
-)
-
-
-process.ak4PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFCHSL1Offset', 
-        'ak4PFCHSL2Relative', 
-        'ak4PFCHSL3Absolute', 
-        'ak4PFCHSResidual')
-)
-
-
-process.ak4PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK4PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak4PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFCHSL2Relative', 
-        'ak4PFCHSL3Absolute')
-)
-
-
-process.ak4PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFCHSL2Relative', 
-        'ak4PFCHSL3Absolute', 
-        'ak4PFCHSResidual')
-)
-
-
-process.ak4PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK4PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak4PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK4PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak4PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK4PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak4PFL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'ak4PFL2Relative', 
-        'ak4PFL3Absolute')
-)
-
-
-process.ak4PFL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'ak4PFL2Relative', 
-        'ak4PFL3Absolute', 
-        'ak4PFL6SLB')
-)
-
-
-process.ak4PFL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'ak4PFL2Relative', 
-        'ak4PFL3Absolute', 
-        'ak4PFResidual')
-)
-
-
-process.ak4PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK4PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak4PFL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Offset', 
-        'ak4PFL2Relative', 
-        'ak4PFL3Absolute')
-)
-
-
-process.ak4PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Offset', 
-        'ak4PFL2Relative', 
-        'ak4PFL3Absolute', 
-        'ak4PFResidual')
-)
-
-
-process.ak4PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK4PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak4PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL2Relative', 
-        'ak4PFL3Absolute')
-)
-
-
-process.ak4PFL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL2Relative', 
-        'ak4PFL3Absolute', 
-        'ak4PFL6SLB')
-)
-
-
-process.ak4PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL2Relative', 
-        'ak4PFL3Absolute', 
-        'ak4PFResidual')
-)
-
-
-process.ak4PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK4PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak4PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK4PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak4PFL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(False),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("ak4PFJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("ak4PFJetsSoftMuonTagInfos")
-)
-
-
-process.ak4PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK4PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak4TrackL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Fastjet', 
-        'ak4TrackL2Relative', 
-        'ak4TrackL3Absolute')
-)
-
-
-process.ak4TrackL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4TrackL2Relative', 
-        'ak4TrackL3Absolute')
-)
-
-
-process.ak4TrackL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5TRK'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak4TrackL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5TRK'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak5PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK5PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak5PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak5PFCHSL1Fastjet', 
-        'ak5PFCHSL2Relative', 
-        'ak5PFCHSL3Absolute', 
-        'ak5PFCHSResidual')
-)
-
-
-process.ak5PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak5PFCHSL1Offset', 
-        'ak5PFCHSL2Relative', 
-        'ak5PFCHSL3Absolute', 
-        'ak5PFCHSResidual')
-)
-
-
-process.ak5PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK5PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak5PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak5PFCHSL2Relative', 
-        'ak5PFCHSL3Absolute')
-)
-
-
-process.ak5PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak5PFCHSL2Relative', 
-        'ak5PFCHSL3Absolute', 
-        'ak5PFCHSResidual')
-)
-
-
-process.ak5PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak5PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak5PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak5PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK5PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak5PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak5PFL1Fastjet', 
-        'ak5PFL2Relative', 
-        'ak5PFL3Absolute', 
-        'ak5PFResidual')
-)
-
-
-process.ak5PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak5PFL1Offset', 
-        'ak5PFL2Relative', 
-        'ak5PFL3Absolute', 
-        'ak5PFResidual')
-)
-
-
-process.ak5PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK5PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak5PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak5PFL2Relative', 
-        'ak5PFL3Absolute')
-)
-
-
-process.ak5PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak5PFL2Relative', 
-        'ak5PFL3Absolute', 
-        'ak5PFResidual')
-)
-
-
-process.ak5PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak5PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak5PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK5PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak6PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK6PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak6PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak6PFCHSL1Fastjet', 
-        'ak6PFCHSL2Relative', 
-        'ak6PFCHSL3Absolute', 
-        'ak6PFCHSResidual')
-)
-
-
-process.ak6PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak6PFCHSL1Offset', 
-        'ak6PFCHSL2Relative', 
-        'ak6PFCHSL3Absolute', 
-        'ak6PFCHSResidual')
-)
-
-
-process.ak6PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK6PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak6PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak6PFCHSL2Relative', 
-        'ak6PFCHSL3Absolute')
-)
-
-
-process.ak6PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak6PFCHSL2Relative', 
-        'ak6PFCHSL3Absolute', 
-        'ak6PFCHSResidual')
-)
-
-
-process.ak6PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK6PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak6PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK6PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak6PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK6PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak6PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK6PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak6PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak6PFL1Fastjet', 
-        'ak6PFL2Relative', 
-        'ak6PFL3Absolute', 
-        'ak6PFResidual')
-)
-
-
-process.ak6PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak6PFL1Offset', 
-        'ak6PFL2Relative', 
-        'ak6PFL3Absolute', 
-        'ak6PFResidual')
-)
-
-
-process.ak6PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK6PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak6PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak6PFL2Relative', 
-        'ak6PFL3Absolute')
-)
-
-
-process.ak6PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak6PFL2Relative', 
-        'ak6PFL3Absolute', 
-        'ak6PFResidual')
-)
-
-
-process.ak6PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK6PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak6PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK6PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak6PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK6PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak7CaloL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Fastjet', 
-        'ak7CaloL2Relative', 
-        'ak7CaloL3Absolute')
-)
-
-
-process.ak7CaloL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7CaloL1Offset', 
-        'ak7CaloL2Relative', 
-        'ak7CaloL3Absolute', 
-        'ak7CaloL6SLB')
-)
-
-
-process.ak7CaloL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7CaloL1Fastjet', 
-        'ak7CaloL2Relative', 
-        'ak7CaloL3Absolute', 
-        'ak7CaloResidual')
-)
-
-
-process.ak7CaloL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK7Calo'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAllCalo")
-)
-
-
-process.ak7CaloL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7CaloL1Offset', 
-        'ak7CaloL2Relative', 
-        'ak7CaloL3Absolute')
-)
-
-
-process.ak7CaloL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7CaloL1Offset', 
-        'ak7CaloL2Relative', 
-        'ak7CaloL3Absolute', 
-        'ak7CaloResidual')
-)
-
-
-process.ak7CaloL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK7Calo'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak7CaloL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7CaloL2Relative', 
-        'ak7CaloL3Absolute')
-)
-
-
-process.ak7CaloL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7CaloL2Relative', 
-        'ak7CaloL3Absolute', 
-        'ak7CaloL6SLB')
-)
-
-
-process.ak7CaloL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7CaloL2Relative', 
-        'ak7CaloL3Absolute', 
-        'ak7CaloResidual')
-)
-
-
-process.ak7CaloL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7Calo'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak7CaloL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7Calo'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak7CaloL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(True),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("ak7CaloJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("ak7CaloJetsSoftMuonTagInfos")
-)
-
-
-process.ak7CaloResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7Calo'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak7JPTL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7JPTL1Fastjet', 
-        'ak7L1JPTOffset', 
-        'ak7JPTL2Relative', 
-        'ak7JPTL3Absolute', 
-        'ak7JPTResidual')
-)
-
-
-process.ak7JPTL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK7JPT'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAllCalo")
-)
-
-
-process.ak7JPTL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7JPTL1Offset', 
-        'ak7L1JPTOffset', 
-        'ak7JPTL2Relative', 
-        'ak7JPTL3Absolute')
-)
-
-
-process.ak7JPTL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7JPTL1Offset', 
-        'ak7L1JPTOffset', 
-        'ak7JPTL2Relative', 
-        'ak7JPTL3Absolute', 
-        'ak7JPTResidual')
-)
-
-
-process.ak7JPTL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK7JPT'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak7JPTL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7L1JPTOffset', 
-        'ak7JPTL2Relative', 
-        'ak7JPTL3Absolute')
-)
-
-
-process.ak7L1JPTOffset = cms.ESProducer("L1JPTOffsetCorrectionESProducer",
-    algorithm = cms.string('AK7JPT'),
-    level = cms.string('L1JPTOffset'),
-    offsetService = cms.string('ak4CaloL1Offset')
-)
-
-
-process.ak7PFCHSL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFCHSL1Fastjet', 
-        'ak7PFCHSL2Relative', 
-        'ak7PFCHSL3Absolute')
-)
-
-
-process.ak7PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK7PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak7PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFCHSL1Fastjet', 
-        'ak7PFCHSL2Relative', 
-        'ak7PFCHSL3Absolute', 
-        'ak7PFCHSResidual')
-)
-
-
-process.ak7PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFCHSL1Offset', 
-        'ak7PFCHSL2Relative', 
-        'ak7PFCHSL3Absolute', 
-        'ak7PFCHSResidual')
-)
-
-
-process.ak7PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK7PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak7PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFCHSL2Relative', 
-        'ak7PFCHSL3Absolute')
-)
-
-
-process.ak7PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFCHSL2Relative', 
-        'ak7PFCHSL3Absolute', 
-        'ak7PFCHSResidual')
-)
-
-
-process.ak7PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak7PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak7PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak7PFL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'ak7PFL2Relative', 
-        'ak7PFL3Absolute')
-)
-
-
-process.ak7PFL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'ak7PFL2Relative', 
-        'ak7PFL3Absolute', 
-        'ak7PFL6SLB')
-)
-
-
-process.ak7PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK7PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak7PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFL1Fastjet', 
-        'ak7PFL2Relative', 
-        'ak7PFL3Absolute', 
-        'ak7PFResidual')
-)
-
-
-process.ak7PFL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFL1Offset', 
-        'ak7PFL2Relative', 
-        'ak7PFL3Absolute')
-)
-
-
-process.ak7PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFL1Offset', 
-        'ak7PFL2Relative', 
-        'ak7PFL3Absolute', 
-        'ak7PFResidual')
-)
-
-
-process.ak7PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK7PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak7PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFL2Relative', 
-        'ak7PFL3Absolute')
-)
-
-
-process.ak7PFL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFL2Relative', 
-        'ak7PFL3Absolute', 
-        'ak7PFL6SLB')
-)
-
-
-process.ak7PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak7PFL2Relative', 
-        'ak7PFL3Absolute', 
-        'ak7PFResidual')
-)
-
-
-process.ak7PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak7PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak7PFL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(False),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("ak7PFJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("ak7PFJetsSoftMuonTagInfos")
-)
-
-
-process.ak7PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK7PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak8PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK8PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak8PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak8PFCHSL1Fastjet', 
-        'ak8PFCHSL2Relative', 
-        'ak8PFCHSL3Absolute', 
-        'ak8PFCHSResidual')
-)
-
-
-process.ak8PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak8PFCHSL1Offset', 
-        'ak8PFCHSL2Relative', 
-        'ak8PFCHSL3Absolute', 
-        'ak8PFCHSResidual')
-)
-
-
-process.ak8PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK8PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak8PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak8PFCHSL2Relative', 
-        'ak8PFCHSL3Absolute')
-)
-
-
-process.ak8PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak8PFCHSL2Relative', 
-        'ak8PFCHSL3Absolute', 
-        'ak8PFCHSResidual')
-)
-
-
-process.ak8PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK8PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak8PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK8PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak8PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK8PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak8PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK8PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak8PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak8PFL1Fastjet', 
-        'ak8PFL2Relative', 
-        'ak8PFL3Absolute', 
-        'ak8PFResidual')
-)
-
-
-process.ak8PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak8PFL1Offset', 
-        'ak8PFL2Relative', 
-        'ak8PFL3Absolute', 
-        'ak8PFResidual')
-)
-
-
-process.ak8PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK8PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak8PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak8PFL2Relative', 
-        'ak8PFL3Absolute')
-)
-
-
-process.ak8PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak8PFL2Relative', 
-        'ak8PFL3Absolute', 
-        'ak8PFResidual')
-)
-
-
-process.ak8PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK8PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak8PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK8PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak8PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK8PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak9PFCHSL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK9PFchs'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak9PFCHSL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak9PFCHSL1Fastjet', 
-        'ak9PFCHSL2Relative', 
-        'ak9PFCHSL3Absolute', 
-        'ak9PFCHSResidual')
-)
-
-
-process.ak9PFCHSL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak9PFCHSL1Offset', 
-        'ak9PFCHSL2Relative', 
-        'ak9PFCHSL3Absolute', 
-        'ak9PFCHSResidual')
-)
-
-
-process.ak9PFCHSL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK9PFchs'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak9PFCHSL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak9PFCHSL2Relative', 
-        'ak9PFCHSL3Absolute')
-)
-
-
-process.ak9PFCHSL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak9PFCHSL2Relative', 
-        'ak9PFCHSL3Absolute', 
-        'ak9PFCHSResidual')
-)
-
-
-process.ak9PFCHSL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK9PFchs'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak9PFCHSL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK9PFchs'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak9PFCHSResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK9PFchs'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ak9PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('AK9PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ak9PFL1FastjetL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak9PFL1Fastjet', 
-        'ak9PFL2Relative', 
-        'ak9PFL3Absolute', 
-        'ak9PFResidual')
-)
-
-
-process.ak9PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak9PFL1Offset', 
-        'ak9PFL2Relative', 
-        'ak9PFL3Absolute', 
-        'ak9PFResidual')
-)
-
-
-process.ak9PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('AK9PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ak9PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak9PFL2Relative', 
-        'ak9PFL3Absolute')
-)
-
-
-process.ak9PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak9PFL2Relative', 
-        'ak9PFL3Absolute', 
-        'ak9PFResidual')
-)
-
-
-process.ak9PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK9PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ak9PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK9PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ak9PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('AK9PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
 process.fakeForIdealAlignment = cms.ESProducer("FakeAlignmentProducer",
     appendToDataLabel = cms.string('fakeForIdeal')
 )
@@ -5412,206 +4044,6 @@ process.hcalTopologyIdeal = cms.ESProducer("HcalTopologyIdealEP",
 process.hcal_db_producer = cms.ESProducer("HcalDbProducer",
     dump = cms.untracked.vstring(''),
     file = cms.untracked.string('')
-)
-
-
-process.ic5CaloL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Fastjet', 
-        'ic5CaloL2Relative', 
-        'ic5CaloL3Absolute')
-)
-
-
-process.ic5CaloL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5CaloL1Offset', 
-        'ic5CaloL2Relative', 
-        'ic5CaloL3Absolute', 
-        'ic5CaloL6SLB')
-)
-
-
-process.ic5CaloL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5CaloL1Fastjet', 
-        'ic5CaloL2Relative', 
-        'ic5CaloL3Absolute', 
-        'ic5CaloResidual')
-)
-
-
-process.ic5CaloL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('IC5Calo'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAllCalo")
-)
-
-
-process.ic5CaloL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5CaloL1Offset', 
-        'ic5CaloL2Relative', 
-        'ic5CaloL3Absolute')
-)
-
-
-process.ic5CaloL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5CaloL1Offset', 
-        'ic5CaloL2Relative', 
-        'ic5CaloL3Absolute', 
-        'ic5CaloResidual')
-)
-
-
-process.ic5CaloL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('IC5Calo'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ic5CaloL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5CaloL2Relative', 
-        'ic5CaloL3Absolute')
-)
-
-
-process.ic5CaloL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5CaloL2Relative', 
-        'ic5CaloL3Absolute', 
-        'ic5CaloL6SLB')
-)
-
-
-process.ic5CaloL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5CaloL2Relative', 
-        'ic5CaloL3Absolute', 
-        'ic5CaloResidual')
-)
-
-
-process.ic5CaloL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('IC5Calo'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ic5CaloL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('IC5Calo'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ic5CaloL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(True),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("ic5CaloJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("ic5CaloJetsSoftMuonTagInfos")
-)
-
-
-process.ic5CaloResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('IC5Calo'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.ic5PFL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'ic5PFL2Relative', 
-        'ic5PFL3Absolute')
-)
-
-
-process.ic5PFL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'ic5PFL2Relative', 
-        'ic5PFL3Absolute', 
-        'ic5PFL6SLB')
-)
-
-
-process.ic5PFL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5PFL1Fastjet', 
-        'ic5PFL2Relative', 
-        'ic5PFL3Absolute', 
-        'ic5PFResidual')
-)
-
-
-process.ic5PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('IC5PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.ic5PFL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5PFL1Offset', 
-        'ic5PFL2Relative', 
-        'ic5PFL3Absolute')
-)
-
-
-process.ic5PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5PFL1Offset', 
-        'ic5PFL2Relative', 
-        'ic5PFL3Absolute', 
-        'ic5PFResidual')
-)
-
-
-process.ic5PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('IC5PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.ic5PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5PFL2Relative', 
-        'ic5PFL3Absolute')
-)
-
-
-process.ic5PFL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5PFL2Relative', 
-        'ic5PFL3Absolute', 
-        'ic5PFL6SLB')
-)
-
-
-process.ic5PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ic5PFL2Relative', 
-        'ic5PFL3Absolute', 
-        'ic5PFResidual')
-)
-
-
-process.ic5PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('IC5PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.ic5PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('IC5PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.ic5PFL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(False),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("ic5PFJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("ic5PFJetsSoftMuonTagInfos")
-)
-
-
-process.ic5PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('IC5PF'),
-    level = cms.string('L2L3Residual')
 )
 
 
@@ -5650,406 +4082,6 @@ process.idealForDigiTrackerGeometry = cms.ESProducer("TrackerDigiGeometryESModul
         ROWS_PER_ROC = cms.int32(80),
         upgradeGeometry = cms.bool(False)
     )
-)
-
-
-process.kt4CaloL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Fastjet', 
-        'kt4CaloL2Relative', 
-        'kt4CaloL3Absolute')
-)
-
-
-process.kt4CaloL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4CaloL1Offset', 
-        'kt4CaloL2Relative', 
-        'kt4CaloL3Absolute', 
-        'kt4CaloL6SLB')
-)
-
-
-process.kt4CaloL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4CaloL1Fastjet', 
-        'kt4CaloL2Relative', 
-        'kt4CaloL3Absolute', 
-        'kt4CaloResidual')
-)
-
-
-process.kt4CaloL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('KT4Calo'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAllCalo")
-)
-
-
-process.kt4CaloL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4CaloL1Offset', 
-        'kt4CaloL2Relative', 
-        'kt4CaloL3Absolute')
-)
-
-
-process.kt4CaloL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4CaloL1Offset', 
-        'kt4CaloL2Relative', 
-        'kt4CaloL3Absolute', 
-        'kt4CaloResidual')
-)
-
-
-process.kt4CaloL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('KT4Calo'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.kt4CaloL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4CaloL2Relative', 
-        'kt4CaloL3Absolute')
-)
-
-
-process.kt4CaloL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4CaloL2Relative', 
-        'kt4CaloL3Absolute', 
-        'kt4CaloL6SLB')
-)
-
-
-process.kt4CaloL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4CaloL2Relative', 
-        'kt4CaloL3Absolute', 
-        'kt4CaloResidual')
-)
-
-
-process.kt4CaloL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT4Calo'),
-    level = cms.string('L2Relative')
-)
-
-
-process.kt4CaloL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT4Calo'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.kt4CaloL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(True),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("kt4CaloJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("kt4CaloJetsSoftMuonTagInfos")
-)
-
-
-process.kt4CaloResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT4Calo'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.kt4PFL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'kt4PFL2Relative', 
-        'kt4PFL3Absolute')
-)
-
-
-process.kt4PFL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'kt4PFL2Relative', 
-        'kt4PFL3Absolute', 
-        'kt4PFL6SLB')
-)
-
-
-process.kt4PFL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4PFL1Fastjet', 
-        'kt4PFL2Relative', 
-        'kt4PFL3Absolute', 
-        'kt4PFResidual')
-)
-
-
-process.kt4PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('KT4PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.kt4PFL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4PFL1Offset', 
-        'kt4PFL2Relative', 
-        'kt4PFL3Absolute')
-)
-
-
-process.kt4PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4PFL1Offset', 
-        'kt4PFL2Relative', 
-        'kt4PFL3Absolute', 
-        'kt4PFResidual')
-)
-
-
-process.kt4PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('KT4PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.kt4PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4PFL2Relative', 
-        'kt4PFL3Absolute')
-)
-
-
-process.kt4PFL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4PFL2Relative', 
-        'kt4PFL3Absolute', 
-        'kt4PFL6SLB')
-)
-
-
-process.kt4PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt4PFL2Relative', 
-        'kt4PFL3Absolute', 
-        'kt4PFResidual')
-)
-
-
-process.kt4PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT4PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.kt4PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT4PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.kt4PFL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(False),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("kt4PFJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("kt4PFJetsSoftMuonTagInfos")
-)
-
-
-process.kt4PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT4PF'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.kt6CaloL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4CaloL1Fastjet', 
-        'kt6CaloL2Relative', 
-        'kt6CaloL3Absolute')
-)
-
-
-process.kt6CaloL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6CaloL1Offset', 
-        'kt6CaloL2Relative', 
-        'kt6CaloL3Absolute', 
-        'kt6CaloL6SLB')
-)
-
-
-process.kt6CaloL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6CaloL1Fastjet', 
-        'kt6CaloL2Relative', 
-        'kt6CaloL3Absolute', 
-        'kt6CaloResidual')
-)
-
-
-process.kt6CaloL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('KT6Calo'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAllCalo")
-)
-
-
-process.kt6CaloL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6CaloL1Offset', 
-        'kt6CaloL2Relative', 
-        'kt6CaloL3Absolute')
-)
-
-
-process.kt6CaloL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6CaloL1Offset', 
-        'kt6CaloL2Relative', 
-        'kt6CaloL3Absolute', 
-        'kt6CaloResidual')
-)
-
-
-process.kt6CaloL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('KT6Calo'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.kt6CaloL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6CaloL2Relative', 
-        'kt6CaloL3Absolute')
-)
-
-
-process.kt6CaloL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6CaloL2Relative', 
-        'kt6CaloL3Absolute', 
-        'kt6CaloL6SLB')
-)
-
-
-process.kt6CaloL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6CaloL2Relative', 
-        'kt6CaloL3Absolute', 
-        'kt6CaloResidual')
-)
-
-
-process.kt6CaloL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT6Calo'),
-    level = cms.string('L2Relative')
-)
-
-
-process.kt6CaloL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT6Calo'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.kt6CaloL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(True),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("kt6CaloJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("kt6CaloJetsSoftMuonTagInfos")
-)
-
-
-process.kt6CaloResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT6Calo'),
-    level = cms.string('L2L3Residual')
-)
-
-
-process.kt6PFL1FastL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'kt6PFL2Relative', 
-        'kt6PFL3Absolute')
-)
-
-
-process.kt6PFL1FastL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('ak4PFL1Fastjet', 
-        'kt6PFL2Relative', 
-        'kt6PFL3Absolute', 
-        'kt6PFL6SLB')
-)
-
-
-process.kt6PFL1FastL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6PFL1Fastjet', 
-        'kt6PFL2Relative', 
-        'kt6PFL3Absolute', 
-        'kt6PFResidual')
-)
-
-
-process.kt6PFL1Fastjet = cms.ESProducer("L1FastjetCorrectionESProducer",
-    algorithm = cms.string('KT6PF'),
-    level = cms.string('L1FastJet'),
-    srcRho = cms.InputTag("fixedGridRhoFastjetAll")
-)
-
-
-process.kt6PFL1L2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6PFL1Offset', 
-        'kt6PFL2Relative', 
-        'kt6PFL3Absolute')
-)
-
-
-process.kt6PFL1L2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6PFL1Offset', 
-        'kt6PFL2Relative', 
-        'kt6PFL3Absolute', 
-        'kt6PFResidual')
-)
-
-
-process.kt6PFL1Offset = cms.ESProducer("L1OffsetCorrectionESProducer",
-    algorithm = cms.string('KT6PF'),
-    level = cms.string('L1Offset'),
-    minVtxNdof = cms.int32(4),
-    vertexCollection = cms.string('offlinePrimaryVertices')
-)
-
-
-process.kt6PFL2L3 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6PFL2Relative', 
-        'kt6PFL3Absolute')
-)
-
-
-process.kt6PFL2L3L6 = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6PFL2Relative', 
-        'kt6PFL3Absolute', 
-        'kt6PFL6SLB')
-)
-
-
-process.kt6PFL2L3Residual = cms.ESProducer("JetCorrectionESChain",
-    correctors = cms.vstring('kt6PFL2Relative', 
-        'kt6PFL3Absolute', 
-        'kt6PFResidual')
-)
-
-
-process.kt6PFL2Relative = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT6PF'),
-    level = cms.string('L2Relative')
-)
-
-
-process.kt6PFL3Absolute = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT6PF'),
-    level = cms.string('L3Absolute')
-)
-
-
-process.kt6PFL6SLB = cms.ESProducer("L6SLBCorrectionESProducer",
-    addMuonToJet = cms.bool(False),
-    algorithm = cms.string(''),
-    level = cms.string('L6SLB'),
-    srcBTagInfoElectron = cms.InputTag("kt6PFJetsSoftElectronTagInfos"),
-    srcBTagInfoMuon = cms.InputTag("kt6PFJetsSoftMuonTagInfos")
-)
-
-
-process.kt6PFResidual = cms.ESProducer("LXXXCorrectionESProducer",
-    algorithm = cms.string('KT6PF'),
-    level = cms.string('L2L3Residual')
 )
 
 
@@ -6269,7 +4301,7 @@ process.GlobalTag = cms.ESSource("PoolDBESSource",
         messageLevel = cms.untracked.int32(0)
     ),
     connect = cms.string('frontier://FrontierProd/CMS_CONDITIONS'),
-    globaltag = cms.string('MCRUN2_74_V9'),
+    globaltag = cms.string('74X_dataRun2_Prompt_v2'),
     toGet = cms.VPSet()
 )
 
@@ -6332,16 +4364,16 @@ process.jec = cms.ESSource("PoolDBESSource",
         idleConnectionCleanupPeriod = cms.untracked.int32(10),
         messageLevel = cms.untracked.int32(0)
     ),
-    connect = cms.string('sqlite_file:'+os.path.expandvars('$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_25nsV2_MC.db')),
+    connect = cms.string('sqlite_file:'+os.path.expandvars('$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_25nsV5_DATA.db')),
     toGet = cms.VPSet(cms.PSet(
         label = cms.untracked.string('AK4PF'),
         record = cms.string('JetCorrectionsRecord'),
-        tag = cms.string('JetCorrectorParametersCollection_Summer15_25nsV2_MC_AK4PF')
+        tag = cms.string('JetCorrectorParametersCollection_Summer15_25nsV5_DATA_AK4PF')
     ), 
         cms.PSet(
             label = cms.untracked.string('AK4PFchs'),
             record = cms.string('JetCorrectionsRecord'),
-            tag = cms.string('JetCorrectorParametersCollection_Summer15_25nsV2_MC_AK4PFchs')
+            tag = cms.string('JetCorrectorParametersCollection_Summer15_25nsV5_DATA_AK4PFchs')
         ))
 )
 
@@ -6391,6 +4423,16 @@ process.HcalReLabel = cms.PSet(
             4, 4, 5, 5, 5, 
             5, 5, 5, 5)
     )
+)
+
+process.METSignificanceParams = cms.PSet(
+    dRMatch = cms.double(0.4),
+    jetThreshold = cms.double(20),
+    jeta = cms.vdouble(0.5, 1.1, 1.7, 2.3),
+    jpar = cms.vdouble(1.41, 1.29, 1.41, 1.4, 2.53),
+    phiResFile = cms.string('Spring10_PhiResolution_AK5PF.txt'),
+    pjpar = cms.vdouble(0.0, 0.674),
+    ptResFile = cms.string('Spring10_PtResolution_AK5PF.txt')
 )
 
 process.METSignificance_params = cms.PSet(

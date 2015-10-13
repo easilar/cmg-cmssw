@@ -10,9 +10,8 @@ kreator = ComponentCreator()
 
 dataDir = "$CMSSW_BASE/src/CMGTools/TTHAnalysis/data"  # use environmental variable, useful for instance to run on CRAB
 json_50ns = dataDir+'/json/Cert_246908-255031_13TeV_PromptReco_Collisions15_50ns_JSON_v2.json'
-json_25ns = dataDir+'/json/Cert_246908-256869_13TeV_PromptReco_Collisions15_25ns_JSON.json'
-# https://hypernews.cern.ch/HyperNews/CMS/get/physics-validation/2446.html
-
+#json_25ns = dataDir+'/json/Cert_246908-256869_13TeV_PromptReco_Collisions15_25ns_JSON.json'
+json_25ns = dataDir+'/json/Cert_246908-257599_13TeV_PromptReco_Collisions15_25ns_JSON.json'
 
 #jetHT_0T = cfg.DataComponent(
 #    name = 'jetHT_0T',

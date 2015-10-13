@@ -194,9 +194,8 @@ sequence = cfg.Sequence(
         treeProducer,
         ])
 
-#isData = True 
-isData = False
-removeResiduals = True
+isData = True 
+removeResiduals = False
 #bx = '50ns'
 bx = '25ns'
 
@@ -228,10 +227,12 @@ if getHeppyOption("loadSamples"):
         comp.isData = True
   if isData and bx=='25ns':
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-    selectedComponents = [ DoubleMuon_Run2015D ]
+    #selectedComponents = [ DoubleMuon_Run2015D ]
+    selectedComponents = [ SingleMuon_Run2015D  ]
     for comp in selectedComponents:
-        comp.splitFactor = 10
-#        comp.files = comp.files[10:11] 
+        comp.splitFactor = 1
+        #comp.files = comp.files[10:11] 
+        comp.files = comp.files[:1] 
         comp.isMC = False
         comp.isData = True
 #        print "Using json",comp.json
@@ -240,16 +241,16 @@ jetAna.applyL2L3Residual = False if removeResiduals else 'Data'
 
 if isData:
   if bx=='25ns':
-    jecDBFile  = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_25nsV2_DATA.db'
-    jecUncFile = 'CMGTools/RootTools/data/jec/Summer15_50nsV4_DATA_UncertaintySources_AK4PFchs.txt' 
-    jecEra    = 'Summer15_25nsV2_DATA'
+    jecDBFile  = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_25nsV5_DATA.db'
+    jecUncFile = 'CMGTools/RootTools/data/jec/Summer15_50nsV5_DATA_UncertaintySources_AK4PFchs.txt' 
+    jecEra    = 'Summer15_25nsV5_DATA'
     mcGT = 'XXX'
     dataGT= '74X_dataRun2_Prompt_v2' 
-    jetAna.mcGT     = "Summer15_25nsV2_DATA"
-    jetAna.dataGT   = "Summer15_25nsV2_DATA"
+    jetAna.mcGT     = "Summer15_25nsV5_DATA"
+    jetAna.dataGT   = "Summer15_25nsV5_DATA"
     eventFlagsAna.processName = 'RECO'
     metAnaDef.metCollection   = ("slimmedMETs","", "RECO") #for PromptReco
-  #  metAnaDef.metCollection   = ("slimmedMETs","", "PAT") #for Jul17 rereco
+  #  metAnaDef.metCollection  = ("slimmedMETs","", "PAT") #for Jul17 rereco
   if bx=='50ns':
     jecDBFile = '$CMSSW_BASE/src/CMGTools/RootTools/data/jec/Summer15_50nsV4_DATA.db'
     jecUncFile = 'CMGTools/RootTools/data/jec/Summer15_50nsV4_DATA_UncertaintySources_AK4PFchs.txt' 
