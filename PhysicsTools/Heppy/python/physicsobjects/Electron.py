@@ -33,6 +33,7 @@ class Electron( Lepton ):
         elif id == "POG_MVA_ID_Run2_NonTrig_Loose":    return self.mvaIDRun2("NonTrigPhys14","Loose")
         elif id == "POG_MVA_ID_Run2_NonTrig_Tight":    return self.mvaIDRun2("NonTrigPhys14","Tight")
         elif id == "MVA_ID_NonTrig_Phys14Fix_HZZ":     return self.mvaIDRun2("NonTrigPhys14Fix","HZZ")
+        elif id == "POG_MVA_ID_Run2Spring15_NonTrig_VLoose":   return self.mvaIDRun2("NonTrigSpring15","VLoose")
         elif id.startswith("POG_Cuts_ID_"):
                 return self.cutBasedId(id.replace("POG_Cuts_ID_","POG_"))
         for ID in self.electronIDs():
@@ -250,7 +251,19 @@ class Electron( Lepton ):
                         elif eta < 1.479: return self.mvaRun2(name) > -0.701;
                         else            : return self.mvaRun2(name) > -0.350;
             else: raise RuntimeError, "Ele MVA ID type not found"
-
+            elif name == "NonTrigSpring15":
+                #WPs:
+                # https://twiki.cern.ch/twiki/bin/view/CMS/SUSLeptonSF?rev=33
+                # For VLoose: https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/ElectronMVAWorkingPoints_09042015.pdf
+                if wp=="VLoose" and self.pt()<=10:
+                    if   (eta < 0.8)  : return self.mvaRun2(name) > -0.11;
+                    elif (eta < 1.479): return self.mvaRun2(name) > -0.55;
+                    else              : return self.mvaRun2(name) > -0.60;
+                elif wp=="VLoose":
+                    if   (eta < 0.8)  : return self.mvaRun2(name) > -0.16;
+                    elif (eta < 1.479): return self.mvaRun2(name) > -0.65;
+                    else              : return self.mvaRun2(name) > -0.74;
+            else: raise RuntimeError, "Ele MVA ID type not found"
 
 
     def chargedHadronIsoR(self,R=0.4):
