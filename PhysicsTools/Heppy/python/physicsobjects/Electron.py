@@ -254,7 +254,6 @@ class Electron( Lepton ):
                         if   eta < 0.8  : return self.mvaRun2(name) > -0.652;
                         elif eta < 1.479: return self.mvaRun2(name) > -0.701;
                         else            : return self.mvaRun2(name) > -0.350;
-            else: raise RuntimeError, "Ele MVA ID type not found"
             elif name == "NonTrigSpring15":
                 #WPs:
                 # https://twiki.cern.ch/twiki/bin/view/CMS/SUSLeptonSF?rev=33
