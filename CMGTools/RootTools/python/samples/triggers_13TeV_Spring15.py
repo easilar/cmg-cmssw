@@ -112,13 +112,14 @@ triggers_Jet80MET120 = ["HLT_MonoCentralPFJet80_PFMETNoMu120_NoiseCleaned_PFMHTN
 triggers_MET120Mu5 = ["HLT_PFMET120_NoiseCleaned_Mu5_v*"]
 
 ########
-triggers_MET170_pres   =["HLT_PFMET170_v*"] #(prescaled by 10)
-triggers_MET250        =["HLT_MET250_v*"]   
-triggers_MET90nc       =["HLT_PFMETNoMu90_NoiseCleaned_PFMHTNoMu90_IDTight_v*"]
-triggers_MET120nc      =["HLT_PFMETNoMu120_NoiseCleaned_PFMHTNoMu120_IDTight_v*"]
-triggers_MET90MHT90    =["HLT_PFMET90_PFMHT90_IDTight_v*"]
-triggers_MET120MHT120  =["HLT_PFMET120_PFMHT120_IDTight_v*"]
-triggers_PhysRate      =["HLT_IsoMu17_eta2p1_v*", "HLT_IsoMu20_v*", "HLT_Mu27_v*", "HLT_IsoTkMu20_v*"]
+triggers_MET170_pres       =["HLT_PFMET170_v*"] #(prescaled by 10)
+triggers_MET250            =["HLT_MET250_v*"]   
+triggers_MET90nc           =["HLT_PFMETNoMu90_NoiseCleaned_PFMHTNoMu90_IDTight_v*"]
+triggers_MET120nc          =["HLT_PFMETNoMu120_NoiseCleaned_PFMHTNoMu120_IDTight_v*"]
+triggers_MET90MHT90        =["HLT_PFMET90_PFMHT90_IDTight_v*"]
+triggers_MET120MHT120      =["HLT_PFMET120_PFMHT120_IDTight_v*"]
+triggers_PhysRate          =["HLT_IsoMu17_eta2p1_v*", "HLT_IsoMu20_v*", "HLT_Mu27_v*", "HLT_IsoTkMu20_v*"]
+triggers_Mu3erHT140MET125  =["HLT_Mu3er_PFHT140_PFMET125_v*"]
 ### ----> for the edgeZ analysis. 
 ### we want them separately for detailed trigger efficiency studies
 triggers_mu17mu8      = ['HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_v*']
