@@ -52,8 +52,8 @@ class LeptonAnalyzer( Analyzer ):
 
 
 
-        self.eleEffectiveArea = getattr(cfg_ana, 'ele_effectiveAreas', "Phys14_25ns_v1")
-        self.muEffectiveArea  = getattr(cfg_ana, 'mu_effectiveAreas',  "Phys14_25ns_v1")
+        self.eleEffectiveArea = getattr(cfg_ana, 'ele_effectiveAreas', "Spring15_25ns_v1" ) #"Phys14_25ns_v1"
+        self.muEffectiveArea  = getattr(cfg_ana, 'mu_effectiveAreas', "Spring15_25ns_v1" ) #"Phys14_25ns_v1"
         # MiniIsolation
         self.doMiniIsolation = getattr(cfg_ana, 'doMiniIsolation', False)
         if self.doMiniIsolation:
@@ -245,7 +245,15 @@ class LeptonAnalyzer( Analyzer ):
               elif aeta < 2.000: mu.EffectiveArea04 = 0.0913
               elif aeta < 2.200: mu.EffectiveArea04 = 0.1212
               else:              mu.EffectiveArea04 = 0.2085
-          else: raise RuntimeError,  "Unsupported value for mu_effectiveAreas: can only use Data2012 (rho: ?) and Phys14_v1 (rho: fixedGridRhoFastjetAll)"
+          elif self.muEffectiveArea == "Spring15_25ns_v1":
+              aeta = abs(mu.eta())
+              if   aeta < 0.800: mu.EffectiveArea03 = 0.0735
+              elif aeta < 1.300: mu.EffectiveArea03 = 0.0619
+              elif aeta < 2.000: mu.EffectiveArea03 = 0.0465
+              elif aeta < 2.200: mu.EffectiveArea03 = 0.0433
+              else:              mu.EffectiveArea03 = 0.0577
+              mu.EffectiveArea04 = 0 # not computed
+          else: raise RuntimeError,  "Unsupported value for mu_effectiveAreas: can only use Data2012 (rho: ?) and Phys14_v1 or Spring15_25ns_v1 (rho: fixedGridRhoFastjetAll)"
         # Attach the vertex to them, for dxy/dz calculation
         for mu in allmuons:
             mu.associatedVertex = event.goodVertices[0] if len(event.goodVertices)>0 else event.vertices[0]
@@ -342,7 +350,7 @@ class LeptonAnalyzer( Analyzer ):
               else:              ele.EffectiveArea03 = 0.2687
               # warning: EAs not computed for cone DR=0.4 yet. Do not correct
               ele.EffectiveArea04 = 0.0
-          else: raise RuntimeError,  "Unsupported value for ele_effectiveAreas: can only use Data2012 (rho: ?) and Phys14_v1 (rho: fixedGridRhoFastjetAll)"
+          else: raise RuntimeError,  "Unsupported value for ele_effectiveAreas: can only use Data2012 (rho: ?) and Phys14_v1 or Spring15_25ns_v1 (rho: fixedGridRhoFastjetAll)"
 
         # Electron scale calibrations
         if self.cfg_ana.doElectronScaleCorrections:

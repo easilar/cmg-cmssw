@@ -195,7 +195,9 @@ sequence = cfg.Sequence(
         ])
 
 isData = True 
+#isData = False 
 removeResiduals = False
+#removeResiduals = True
 #bx = '50ns'
 bx = '25ns'
 
@@ -223,7 +225,8 @@ if getHeppyOption("loadSamples"):
         comp.isData = True
   if isData and bx=='25ns':
     from CMGTools.RootTools.samples.samples_13TeV_DATA2015 import *
-    selectedComponents = [ DoubleMuon_Run2015D ]
+    #selectedComponents = [ DoubleMuon_Run2015D ]
+    selectedComponents = [ SingleMuon_Run2015D ]
     for comp in selectedComponents:
         comp.splitFactor = 1
         comp.files = comp.files[10:11] 
