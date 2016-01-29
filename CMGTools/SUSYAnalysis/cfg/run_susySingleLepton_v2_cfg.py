@@ -190,9 +190,9 @@ triggerFlagsAna.triggerBits = {
 #-------- HOW TO RUN
 isData = True # default, but will be overwritten below
 
-sample = 'MC'
+#sample = 'MC'
 #sample = 'data'
-#sample = 'Signal'
+sample = 'Signal'
 test = 0
 
 if sample == "MC":
@@ -279,7 +279,7 @@ elif sample == "Signal":
 	#selectedComponents = [ T1tttt_mGo_1475to1500_mLSP_1to1250, T1tttt_mGo_1500to1525_mLSP_50to1125, T1tttt_mGo_1200_mLSP_1to825, T1tttt_mGo_1900to1950_mLSP_0to1450 ]
 	# Rest
 	#selectedComponents = mcSamplesT1tttt
-	selectedComponents = [T1tttt_mGo_1000to1050_mLSP_1to800, T1tttt_mGo_1225to1250_mLSP_1to1025, T1tttt_mGo_1325to1350_mLSP_1to1125, T1tttt_mGo_600to625_mLSP_250to375]
+	selectedComponents = [T5qqqqVV_mGluino_1000To1075_mLSP_1To950, T5qqqqVV_mGluino_1200To1275_mLSP_1to1150 , T5qqqqVV_mGluino_1100To1175_mLSP_1to1050, T5qqqqVV_mGluino_1400To1550_mLSP_1To1275 , T5qqqqVV_mGluino_1600To1750_mLSP_1To950 , T5qqqqVV_mGluino_1300To1375_mLSP_1to1250 , T5qqqqVV_mGluino_800To975_mLSP_1To950 , T5qqqqVV_mGluino_700To775_mLSP_1To650 , T5qqqqVV_mGluino_600To675_mLSP_1to550]
 
 	if test==1:
 		# test a single component, using a single thread.
